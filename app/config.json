@@ -44,7 +44,7 @@
     "allowEmailLogin": true,
     "allowEmailRegistration": true
   },
-  "loginRequiredForAllPages": true,
+  "loginRequiredForAllPages": false,
   "appStoreId": "com.aea.pstherapy",
   "playStoreId": "com.aea.pstherapy",
   "useCordovaPlugins": [],
@@ -68,6 +68,10 @@
   "eslint": {
     "extends": "airbnb",
     "rules": {
+      "max-len": 0,
+      "no-unused-vars": 0,
+      "no-plusplus": 0,
+      "no-param-reassign": 0,
       "prefer-destructuring": 0,
       "guard-for-in": 0,
       "no-console": 0,

@@ -103,8 +103,8 @@ export default {
             this.$f7.showIndicator()
           }
         }, 1000)
-        window.db('user/reasons')
-          .child(el.id).set({
+        window.db('users/' + this.$user.uid + "/reasons")
+          .child(el.text).set({
             text: el.text,
             match: el.match,
             scores: el.scores,

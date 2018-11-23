@@ -4,6 +4,10 @@
     "component": "home.vue"
   },
   {
+    "path": "/login/",
+    "component": "login.vue"
+  },
+  {
     "path": "/signup/",
     "component": "signup.vue"
   },

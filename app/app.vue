@@ -35,9 +35,7 @@
     data() {
       return {
         user: {
-          name: 'pst',
-          lastName: 'pst',
-          age: 20,
+          name: this.$db('userInfo').name,
         },
         popupOpened: false,
         loginScreenOpened: false,

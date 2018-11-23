@@ -8,7 +8,7 @@
     <f7-statusbar></f7-statusbar>
 
     <!-- Left panel -->
-    <f7-panel left reveal layout="dark">
+    <f7-panel left reveal layout="light">
       <f7-view id="left-panel-view" navbar-through :dynamic-navbar="true" url="panel-left"></f7-view>
     </f7-panel>
 
@@ -25,7 +25,6 @@
   </div>
 
 </template>
-
 <script>
   require('./kitchen-sink-material.css')
   const materialKitchenSinkCode = require('./kitchen-sink-material.js')

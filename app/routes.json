@@ -8,6 +8,10 @@
     "component": "login.vue"
   },
   {
+    "path": "/panel-left/",
+    "component": "panel-left.vue"
+  },
+  {
     "path": "/signup/",
     "component": "signup.vue"
   },

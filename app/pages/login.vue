@@ -159,7 +159,7 @@
                           window.db(`users/${user.uid}/info`).on('value', (snapshot) => {
                             userInfo = snapshot.val()
                           })
-                          this.$db("userInfo", userInfo)
+                          this.$db('userInfo', userInfo)
                           window.f7.views.main.loadPage('/home/')
                         })
                       // On error, show alert

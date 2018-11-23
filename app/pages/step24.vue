@@ -103,7 +103,7 @@ export default {
             this.$f7.showIndicator()
           }
         }, 1000)
-        window.db('users/' + this.$user.uid + "/reasons")
+        window.db(`users/${this.$user.uid}/reasons`)
           .child(el.text).set({
             text: el.text,
             match: el.match,

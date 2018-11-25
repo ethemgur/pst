@@ -6,6 +6,9 @@
           <a class="back link icon-only" href="#"><i class="icon icon-back"></i></a>
         </div>
         <div class="center">Step 2-1</div>
+        <div class="right">
+          <a class="link icon-only" href="#" @click="promptSelector"><i class="icon icon-plus"></i></a>
+        </div>
       </div>
     </div>
 
@@ -16,14 +19,7 @@
       </div>
     </div>
 
-    <div class="speed-dial">
-      <a href="#" class="floating-button color-cyan"><i class="icon icon-plus"></i><i class="icon icon-close"></i></a>
-      <div class="speed-dial-buttons">
-        <a href="#" class="color-cyan" @click="promptSelector()"><i class="icon icon-plus"></i></a>
-        <a :href="navigateURL()" class="color-cyan" @click="validationAlert()"><i class="icon material-icons">navigate_next</i></a>
-      </div>
-    </div>
-
+    <a href="#" class="floating-button color-cyan" @click="validationAlert"><i class="material-icons">navigate_next</i></a>
 
     <div class="tabs">
       <div id="tab1" class="page-content tab active">

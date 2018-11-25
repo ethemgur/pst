@@ -42,7 +42,7 @@
               <div class="item-inner">
                 <div class="item-title label">Birth date</div>
                 <div class="item-input">
-                  <input v-model="birthDate" type="date" placeholder="Birth day" value="2014-04-30">
+                  <input v-model="birthDate" type="date" placeholder="Birth day" value="">
                 </div>
               </div>
             </div>

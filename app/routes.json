@@ -12,6 +12,10 @@
     "component": "panel-left.vue"
   },
   {
+    "path": "/profile/",
+    "component": "profile.vue"
+  },
+  {
     "path": "/signup/",
     "component": "signup.vue"
   },

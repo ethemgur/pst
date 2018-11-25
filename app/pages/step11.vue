@@ -1,11 +1,11 @@
 <template>
   <div data-page="swiper-horizontal" class="page kitchen-sink-material">
-    <div class="navbar">
+    <!--div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
         <div class="center">1. ADIM</div>
       </div>
-    </div>
+    </div-->
     <div class="page-content">
       <div data-pagination=".swiper-pagination" data-paginationhide="true" class="swiper-container swiper-init ks-demo-slider">
         <div class="swiper-pagination"></div>

@@ -118,17 +118,17 @@ export default {
     } catch (e) {
       console.log(e)
     }
-    this.birthDate = userInfo.birthDate
+    this.birthDate = this.userInfo.birthDate
   },
   methods: {
     validation() {
-      if (this.name == '') {
+      if (this.name === '') {
         this.name = this.userInfo.name
       }
-      if (this.gender == '') {
+      if (this.gender === '') {
         this.gender = this.userInfo.gender
       }
-      if (this.birthDate == '') {
+      if (this.birthDate === '') {
         this.birthDate = this.userInfo.birthDate
       }
     },

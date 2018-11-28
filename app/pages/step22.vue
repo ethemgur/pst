@@ -3,7 +3,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left">
-          <a class="back link icon-only" href="#"><i class="icon icon-back"></i></a>
+          <a class="link icon-only" href="/step212/"><i class="icon icon-back"></i></a>
         </div>
         <div class="center">Step 2-2</div>
       </div>

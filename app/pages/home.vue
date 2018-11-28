@@ -19,28 +19,35 @@
           <div class="timeline-item-date"></div>
           <div class="timeline-item-divider"></div>
           <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/step21/"> Step 2 </a></div>
+            <div class="timeline-item-inner"><a href="/video/2"> Step 2 </a></div>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-item-date"></div>
           <div class="timeline-item-divider"></div>
           <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/step31/"> Step 3 </a></div>
+            <div class="timeline-item-inner"><a href="/video/3"> Step 3 </a></div>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-item-date"></div>
           <div class="timeline-item-divider"></div>
           <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/step41/"> Step 4 </a></div>
+            <div class="timeline-item-inner"><a href="/video/4"> Step 4 </a></div>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-item-date"></div>
           <div class="timeline-item-divider"></div>
           <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/step51/"> Step 5 </a></div>
+            <div class="timeline-item-inner"><a href="/video/5"> Step 5 </a></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item-date"></div>
+          <div class="timeline-item-divider"></div>
+          <div class="timeline-item-content">
+            <div class="timeline-item-inner"><a href="/step61/"> Step 6 </a></div>
           </div>
         </div>
         <div class="timeline-item">
@@ -55,6 +62,13 @@
           <div class="timeline-item-divider"></div>
           <div class="timeline-item-content">
             <div class="timeline-item-inner"><a href="/survey2/"> Survey 2 </a></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item-date"></div>
+          <div class="timeline-item-divider"></div>
+          <div class="timeline-item-content">
+            <div class="timeline-item-inner"><a href="/survey3/"> Survey 3 </a></div>
           </div>
         </div>
       </div>

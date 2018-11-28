@@ -2,7 +2,9 @@
   <div data-page="video" class="page kitchen-sink-material">
     <a href="/step42/" class="floating-button color-cyan""><i class="material-icons">navigate_next</i></a>
     <div class="page-content">
-      <iframe width="300" src="file:///android_asset/www/cmylmz.mp4"></iframe>
+      <h3 style="padding-top:40%">
+        Daha önceki çözümlerinizi uygulamak kazançlı olmadığı için bazı aşamaları baştan uygulamanızı istiyoruz.
+      </h3>
     </div>
   </div>
 </template>

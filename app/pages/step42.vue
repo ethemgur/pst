@@ -61,6 +61,10 @@ export default {
             text: data,
             scores: [],
             totalScore: 0,
+            pp: [],
+            pn: [],
+            np: [],
+            nn: [],
           })
           this.saveSolutions()
           console.log(`${data} is added!`)

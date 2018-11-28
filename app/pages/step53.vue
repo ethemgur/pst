@@ -3,60 +3,60 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
-        <div class="center">Checkboxes And Radios</div>
+        <div class="center">{{$route.params.id}}</div>
       </div>
     </div>
+
+    <a href="/step52/" class="floating-button color-cyan" @click="mergeChoices()"><i class="material-icons">navigate_next</i></a>
+
     <div class="page-content">
-
-      <a href="/step52/" class="floating-button color-cyan" @click="mergeChoices()"><i class="material-icons">navigate_next</i></a>
-
-      <div class="content-block-title">Group 1</div>
+      <div class="content-block-title">Sorunu Çözmesi</div>
       <div class="list-block">
         <div class="item-content">
-          <div class="item-media"><i class="icon material-icons"></i></div>
+          <div class="item-media"><p>{{score1}}</p></div>
           <div class="item-inner">
             <div class="item-input">
               <div class="range-slider">
-                <input v-model.number="score1" type="range" min="0" max="9" value="4" step="1">
+                <input v-model.number="score1" type="range" min="0" max="4" value="0" step="1">
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="content-block-title">Group 2</div>
+      <div class="content-block-title">Hedefle Uyumu</div>
       <div class="list-block">
         <div class="item-content">
-          <div class="item-media"><i class="icon material-icons"></i></div>
+          <div class="item-media"><p>{{score2}}</p></div>
           <div class="item-inner">
             <div class="item-input">
               <div class="range-slider">
-                <input v-model.number="score2" type="range" min="0" max="9" step="1" value="4">
+                <input v-model.number="score2" type="range" min="0" max="4" step="0" value="4">
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="content-block-title">Group 3</div>
+      <div class="content-block-title">Uygulanabilirliği</div>
       <div class="list-block">
         <div class="item-content">
-          <div class="item-media"><i class="icon material-icons"></i></div>
+          <div class="item-media"><p>{{score3}}</p></div>
           <div class="item-inner">
             <div class="item-input">
               <div class="range-slider">
-                <input v-model.number="score3" type="range" min="0" max="9" value="4" step="1">
+                <input v-model.number="score3" type="range" min="0" max="4" value="0" step="1">
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="content-block-title">Group 4</div>
+      <div class="content-block-title">Kabul edilebilirliği</div>
       <div class="list-block">
         <div class="item-content">
-          <div class="item-media"><i class="icon material-icons"></i></div>
+          <div class="item-media"><p>{{score4}}</p></div>
           <div class="item-inner">
             <div class="item-input">
               <div class="range-slider">
-                <input v-model.number="score4" type="range" min="0" max="9" value="4" step="1">
+                <input v-model.number="score4" type="range" min="0" max="4" value="0" step="1">
               </div>
             </div>
           </div>

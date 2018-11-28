@@ -7,50 +7,95 @@
       </div>
     </div>
 
+    <a :href="'/step' + step + '1/'" class="floating-button color-cyan""><i class="material-icons">navigate_next</i></a>
+
     <!-- SAYI INPUT 0-100 -->
     <div class="page-content">
-      <div class="content-block-title">Ne kadar mutlusunuz?</div>
+      <div class="content-block">Bugün kendinizi ne kadar mutlu hissediyorsunuz?</div>
       <div class="content-block">
-        <div class="content-block-inner">
-          <div class="ks-demo-progressbar-inline1">
-            <p><span data-progress="10" class="progressbar"></span></p>
-            <p class="row"><a href="#" data-progress="25" class="button button-raised">1</a><a href="#" data-progress="50" class="button button-raised">2</a><a href="#" data-progress="75" class="button button-raised">3</a><a href="#" data-progress="100" class="button button-raised">4</a></p>
+        <div class="list-block">
+          <div class="item-content">
+            <div class="item-media">{{score1}}</div>
+            <div class="item-inner">
+              <div class="item-input">
+                <div class="range-slider">
+                  <input v-model.number="score1" type="range" min="0" max="9" value="4" step="1">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="content-block-title">Kendinizi ne kadar seviyorsunuz?</div>
+      <div class="content-block">Bugün kendinizi ne kadar seviyorsunuz?</div>
       <div class="content-block">
-        <div class="content-block-inner">
-          <div class="ks-demo-progressbar-inline2">
-            <p><span data-progress="10" class="progressbar"></span></p>
-            <p class="row"><a href="#" data-progress="25" class="button button-raised">1</a><a href="#" data-progress="50" class="button button-raised">2</a><a href="#" data-progress="75" class="button button-raised">3</a><a href="#" data-progress="100" class="button button-raised">4</a></p>
+        <div class="list-block">
+          <div class="item-content">
+            <div class="item-media">{{score2}}</div>
+            <div class="item-inner">
+              <div class="item-input">
+                <div class="range-slider">
+                  <input v-model.number="score2" type="range" min="0" max="9" value="4" step="1">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="content-block-title">Kendinize ne kadar güveniyorsunuz?</div>
+      <div class="content-block">Bugün kendinize ne kadar güveniyorsunuz?</div>
       <div class="content-block">
-        <div class="content-block-inner">
-          <div class="ks-demo-progressbar-inline3">
-            <p><span data-progress="10" class="progressbar"></span></p>
-            <p class="row"><a href="#" data-progress="25" class="button button-raised">1</a><a href="#" data-progress="50" class="button button-raised">2</a><a href="#" data-progress="75" class="button button-raised">3</a><a href="#" data-progress="100" class="button button-raised">4</a></p>
+        <div class="list-block">
+          <div class="item-content">
+            <div class="item-media">{{score3}}</div>
+            <div class="item-inner">
+              <div class="item-input">
+                <div class="range-slider">
+                  <input v-model.number="score3" type="range" min="0" max="9" value="4" step="1">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="content-block-title">Kendinizi ne kadar tanıdığınızı hissediyorsunuz?</div>
+      <div class="content-block">Bugün kendinizi ne kadar tanıdığınızı hissediyorsunuz?</div>
       <div class="content-block">
-        <div class="content-block-inner">
-          <div class="ks-demo-progressbar-inline3">
-            <p><span data-progress="10" class="progressbar"></span></p>
-            <p class="row"><a href="#" data-progress="25" class="button button-raised">1</a><a href="#" data-progress="50" class="button button-raised">2</a><a href="#" data-progress="75" class="button button-raised">3</a><a href="#" data-progress="100" class="button button-raised">4</a></p>
+        <div class="list-block">
+          <div class="item-content">
+            <div class="item-media">{{score4}}</div>
+            <div class="item-inner">
+              <div class="item-input">
+                <div class="range-slider">
+                  <input v-model.number="score4" type="range" min="0" max="9" value="4" step="1">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <p class="buttons-row"><a href="/home/" class="button button-raised">Apply</a></p>
+      <br />
+      <br />
+      <br />
 
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      step: 0,
+      score1: 0,
+      score2: 0,
+      score3: 0,
+      score4: 0,
+
+    }
+  },
+  created() {
+    this.step = this.$route.params.step
+  },
+}
+</script>

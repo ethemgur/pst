@@ -790,6 +790,11 @@ module.exports = function(vueApp) {
       var progressbar = $$('.ks-demo-progressbar-inline3 .progressbar');
       myApp.setProgressbar(progressbar, progress);
     });
+    $$('.ks-demo-progressbar-inline4 .button').on('click', function() {
+      var progress = $$(this).attr('data-progress');
+      var progressbar = $$('.ks-demo-progressbar-inline4 .progressbar');
+      myApp.setProgressbar(progressbar, progress);
+    });
 
     $$('.ks-demo-progressbar-load-hide .button').on('click', function() {
       var container = $$('.ks-demo-progressbar-load-hide p:first-child');

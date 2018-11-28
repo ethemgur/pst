@@ -2,7 +2,7 @@
   <div data-page="step24" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
+        <div class="left"><a class="link icon-only" href="/step22/"><i class="icon icon-back"></i></a></div>
         <div class="center">Step 2-4</div>
       </div>
     </div>

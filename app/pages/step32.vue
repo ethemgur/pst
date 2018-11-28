@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <a href="/home/" v-show="validation()" class="floating-button color-cyan" @click="saveGoals()"><i class="material-icons">navigate_next</i></a>
+    <a href="/step33/" v-show="validation()" class="floating-button color-cyan" @click="saveGoals()"><i class="material-icons">navigate_next</i></a>
     <a href="#" v-show="!validation()" class="floating-button" @click="validationAlert()" style="background:grey"><i class="material-icons">navigate_next</i></a>
 
     <div class="page-content">
@@ -87,9 +87,9 @@ export default {
       localStorage.setItem('goals', JSON.stringify(goals))
     },
     validation() {
-      const val1 = this.goal1.length === 0 || !this.goal1.trim()
-      const val2 = this.goal2.length === 0 || !this.goal2.trim()
-      return !(val1 || val2)
+      const val1 = this.goal1.length !== 0 // || !this.goal1.trim()
+      const val2 = this.goal2.length !== 0 // || !this.goal2.trim()
+      return (val1 || val2)
     },
     validationAlert() {
       if (!this.validation()) {

@@ -32,6 +32,18 @@
     "component": "step21.vue"
   },
   {
+    "path": "/step211/",
+    "component": "step211.vue"
+  },
+  {
+    "path": "/step212/",
+    "component": "step212.vue"
+  },
+  {
+    "path": "/step21old/",
+    "component": "step21old.vue"
+  },
+  {
     "path": "/step22/",
     "component": "step22.vue"
   },
@@ -64,6 +76,10 @@
     "component": "step32.vue"
   },
   {
+    "path": "/step33/",
+    "component": "step33.vue"
+  },
+  {
     "path": "/step41/",
     "component": "step41.vue"
   },
@@ -88,7 +104,39 @@
     "component": "step53.vue"
   },
   {
+    "path": "/step61/",
+    "component": "step61.vue"
+  },
+  {
+    "path": "/step62/",
+    "component": "step62.vue"
+  },
+  {
+    "path": "/step63/",
+    "component": "step63.vue"
+  },
+  {
+    "path": "/step64/",
+    "component": "step64.vue"
+  },
+  {
+    "path": "/step65/",
+    "component": "step65.vue"
+  },
+  {
+    "path": "/step66/",
+    "component": "step66.vue"
+  },
+  {
+    "path": "/step67/",
+    "component": "step67.vue"
+  },
+  {
     "path": "/survey/",
+    "component": "survey.vue"
+  },
+  {
+    "path": "/survey/:step/",
     "component": "survey.vue"
   },
   {
@@ -96,7 +144,23 @@
     "component": "survey2.vue"
   },
   {
+    "path": "/survey3/",
+    "component": "survey3.vue"
+  },
+  {
     "path": "/todos/",
     "component": "todos.vue"
+  },
+  {
+    "path": "/video/",
+    "component": "video.vue"
+  },
+  {
+    "path": "/video/:step/",
+    "component": "video.vue"
+  },
+  {
+    "path": "/video3/",
+    "component": "video3.vue"
   }
 ]

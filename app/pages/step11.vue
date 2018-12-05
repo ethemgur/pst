@@ -12,15 +12,12 @@
         <div class="swiper-wrapper">
 
           <div class="swiper-slide">
-            <iframe width="300" src="file:///android_asset/www/cmylmz.mp4"></iframe>
-          </div>
-
-          <div class="swiper-slide">
             <p><center>Şimdi sizden bazı testleri cevaplamanızı isteyeceğiz. Testlere başlamak için ilerleyin</center></p>
           </div>
 
           <div class="swiper-slide">
-            <a href="/survey2/" class="button button-raised button-fill button-big color-cyan">TESTLERE BAŞLA</a>
+            <a :href="/survey2/" class="floating-button color-cyan" @click="validationAlert"><i class="material-icons">navigate_next</i></a>
+            <center>Testlere başlamak için ilerleyin</center>
           </div>
 
         </div>

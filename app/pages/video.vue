@@ -12,7 +12,9 @@
         <div class="swiper-wrapper">
 
           <div class="swiper-slide">
+
             <iframe width="300" src="file:///android_asset/www/cmylmz.mp4"></iframe>
+
           </div>
 
           <div class="swiper-slide">
@@ -40,6 +42,8 @@ export default {
   },
   created() {
     this.step = this.$route.params.step
+  },
+  mounted() {
   },
 }
 </script>

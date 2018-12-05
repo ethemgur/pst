@@ -132,7 +132,8 @@
           <!-- END OF STRESS SURVEY -->
 
           <div class="swiper-slide">
-            <a href="/step12/" class="button button-raised button-fill button-big color-cyan">TESTİ BİTİR</a>
+            <a :href="navigateURL()" class="floating-button color-cyan"><i class="material-icons">navigate_next</i></a>
+            <center>Testi bitirmek için ilerleyin</center>
           </div>
 
         </div>
@@ -605,6 +606,14 @@ module.exports = {
         },
       },
     }
+  },
+  methods: {
+    navigateURL() {
+      if (this.$route.params.id === 2) {
+        return '/home/'
+      }
+      return '/video/1'
+    },
   },
 }
 </script>

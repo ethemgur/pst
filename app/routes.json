@@ -132,6 +132,26 @@
     "component": "step67.vue"
   },
   {
+    "path": "/step71/",
+    "component": "step71.vue"
+  },
+  {
+    "path": "/step72/",
+    "component": "step72.vue"
+  },
+  {
+    "path": "/step81/",
+    "component": "step81.vue"
+  },
+  {
+    "path": "/step82/",
+    "component": "step82.vue"
+  },
+  {
+    "path": "/step83/",
+    "component": "step83.vue"
+  },
+  {
     "path": "/survey/",
     "component": "survey.vue"
   },
@@ -141,6 +161,10 @@
   },
   {
     "path": "/survey2/",
+    "component": "survey2.vue"
+  },
+  {
+    "path": "/survey2/:id/",
     "component": "survey2.vue"
   },
   {

@@ -7,7 +7,7 @@
         </div>
         <div class="center">Nedenler</div>
         <div class="right">
-          <a class="link icon-only" href="#" @click="promptSelector"><i class="icon icon-plus"></i></a>
+          <a class="link icon-only" href="#" @click="reasonPrompt"><i class="icon icon-plus"></i></a>
         </div>
       </div>
     </div>

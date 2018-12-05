@@ -12,7 +12,7 @@
           <div class="timeline-item-date"></div>
           <div class="timeline-item-divider"></div>
           <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/step11/"> Step 1 </a></div>
+            <div class="timeline-item-inner"><a href="/video/1"> Step 1 </a></div>
           </div>
         </div>
         <div class="timeline-item">
@@ -47,7 +47,14 @@
           <div class="timeline-item-date"></div>
           <div class="timeline-item-divider"></div>
           <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/step61/"> Step 6 </a></div>
+            <div class="timeline-item-inner"><a href="/video/6"> Step 6 </a></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item-date"></div>
+          <div class="timeline-item-divider"></div>
+          <div class="timeline-item-content">
+            <div class="timeline-item-inner"><a href="/video/7"> Step 7 </a></div>
           </div>
         </div>
         <div class="timeline-item">
@@ -61,7 +68,7 @@
           <div class="timeline-item-date"></div>
           <div class="timeline-item-divider"></div>
           <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/survey2/"> Survey 2 </a></div>
+            <div class="timeline-item-inner"><a href="/survey2/1"> Survey 2 </a></div>
           </div>
         </div>
         <div class="timeline-item">

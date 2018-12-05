@@ -4,7 +4,7 @@
     <div class="page-content">
       <h3 style="padding-top:30%">
         <center>
-          Bu hedefler için neler yapabileceğini düşünmeni istiyoruz.
+          Şimdi bu hedefin gerçekleşmesi için neler yapılabileceğini düşünün.
         </center>
       </h3>
     </div>

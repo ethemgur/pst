@@ -19,7 +19,8 @@
 
     <!-- Main view -->
     <f7-views navbar-through>
-      <f7-view main url="/home/" :dynamic-navbar="true"></f7-view>
+      <f7-view main url="/home/" :dynamic-navbar="true" v-if="$root.user"></f7-view>
+      <f7-view main url="/login/" :dynamic-navbar="true" v-if="!$root.user"></f7-view>
     </f7-views>
 
   </div>

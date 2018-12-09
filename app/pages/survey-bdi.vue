@@ -15,6 +15,7 @@ export default {
   },
   data() {
     return {
+      current: 0,
       questions: [
         {
           id: 1,

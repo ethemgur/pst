@@ -152,23 +152,23 @@
     "component": "step83.vue"
   },
   {
-    "path": "/survey-bdi/",
+    "path": "/survey-bdi/:id",
     "component": "survey-bdi.vue"
   },
   {
-    "path": "/survey-satisfaction/",
+    "path": "/survey-satisfaction/:id",
     "component": "survey-satisfaction.vue"
   },
   {
-    "path": "/survey-selfesteem/",
+    "path": "/survey-selfesteem/:id",
     "component": "survey-selfesteem.vue"
   },
   {
-    "path": "/survey-spsi/",
+    "path": "/survey-spsi/:id",
     "component": "survey-spsi.vue"
   },
   {
-    "path": "/survey-stress/",
+    "path": "/survey-stress/:id",
     "component": "survey-stress.vue"
   },
   {

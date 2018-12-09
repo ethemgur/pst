@@ -72,10 +72,10 @@ export default {
       this.reasons[this.getItemIndex(this.$route.params.id)].totalScore = totalScore
       localStorage.setItem('reasons', JSON.stringify(this.reasons))
     },
-    getItemIndex(id) {
+    getItemIndex(text) {
       // eslint-disable-next-line no-restricted-syntax
       for (const r in this.reasons) {
-        if (this.reasons[r].id === id) {
+        if (this.reasons[r].text === text) {
           return r
         }
       }

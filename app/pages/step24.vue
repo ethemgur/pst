@@ -8,7 +8,7 @@
     </div>
 
     <a v-show="!isCompleted()" href="#" class="floating-button" style="background:grey"><i class="material-icons">navigate_next</i></a>
-    <a v-show="isCompleted() && isOrdered" href="/home/" class="floating-button color-cyan" @click="saveDB"><i class="material-icons">navigate_next</i></a>
+    <a v-show="isCompleted() && isOrdered" class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
     <a v-show="isCompleted() && !isOrdered" href="/step24/" class="floating-button color-cyan" @click="orderReasons()"><i class="material-icons">navigate_next</i></a>
 
     <div class="page-content">
@@ -16,7 +16,7 @@
       <div class="list-block">
         <ul>
           <li v-for="i in reasons">
-            <a :href="'/step25/' + i.id" class="item-link item-content">
+            <a :href="'/step25/' + i.text" class="item-link item-content">
               <div class="item-inner">
                 <div class="item-title">{{i.text}}</div>
                 <div v-show="isReasonMatched(i)" class="item-after item-media"> {{i.totalScore}} <i class="icon material-icons color-cyan">done</i></div>
@@ -33,6 +33,7 @@ export default {
   data() {
     return {
       reasons: [],
+      symptoms: [],
       isOrdered: false,
     }
   },
@@ -41,7 +42,13 @@ export default {
     if (localStorage.getItem('reasons')) {
       try {
         this.reasons = JSON.parse(localStorage.getItem('reasons'))
-        console.log(`${this.reasons.length} reasons found in local storage!`)
+      } catch (e) {
+        console.log('Local Storage Error')
+      }
+    }
+    if (localStorage.getItem('symptoms')) {
+      try {
+        this.symptoms = JSON.parse(localStorage.getItem('symptoms'))
       } catch (e) {
         console.log('Local Storage Error')
       }
@@ -80,7 +87,15 @@ export default {
       }
       this.reasons = orderedReasons.reverse()
       this.isOrdered = true
-      this.$f7.alert('Nedenler verilen puanlara göre sıralandı.')
+      this.$f7.alert('Nedenler verilen puanlara göre sıralandı. İlerlemek için tekrar dokun.')
+    },
+    navigateURL() {
+      console.log(this.saveDB())
+      if (this.saveDB()) {
+        console.log('saveDB')
+        this.$db('currentStep', 3)
+        this.$f7.views.main.loadPage('/home/')
+      }
     },
     saveDB() {
       if (!navigator.onLine) {
@@ -90,19 +105,20 @@ export default {
           hold: 3000,
           closeIcon: false,
         })
-        return
+        return false
       }
 
+      let saved = false
+      setTimeout(() => {
+        if (!saved) {
+          this.$f7.showIndicator()
+        }
+      }, 1000)
       // eslint-disable-next-line no-restricted-syntax
       for (const r in this.reasons) {
         // Show loading indicator with delay
-        let saved = false
         const el = this.reasons[r]
-        setTimeout(() => {
-          if (!saved) {
-            this.$f7.showIndicator()
-          }
-        }, 1000)
+
         window.db(`users/${this.$user.uid}/reasons`)
           .child(el.text).set({
             text: el.text,
@@ -111,15 +127,48 @@ export default {
             totalScore: el.totalScore,
           })
           .then(() => {
-            saved = true
-            this.$f7.hideIndicator()
           })
           .catch(() => {
-            this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Firebase')
-            saved = true
+            this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Reason')
             this.$f7.hideIndicator()
+            return false
           })
       }
+
+      // eslint-disable-next-line no-restricted-syntax
+      for (const r in this.symptoms) {
+        // Show loading indicator with delay
+        const el = this.symptoms[r]
+
+        window.db(`users/${this.$user.uid}/symptoms`)
+          .child(el.text).set({
+            text: el.text,
+          })
+          .then(() => {
+          })
+          .catch(() => {
+            this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Symptom')
+            this.$f7.hideIndicator()
+            return false
+          })
+      }
+
+      window.db(`users/${this.$user.uid}`)
+        .child('currentStep').set({
+          step: 3,
+        })
+        .then(() => {
+          saved = true
+          this.$f7.hideIndicator()
+        })
+        .catch(() => {
+          this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Step')
+          saved = true
+          this.$f7.hideIndicator()
+          return false
+        })
+
+      return true
     },
   },
 

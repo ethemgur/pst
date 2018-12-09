@@ -30,6 +30,7 @@ export default {
   methods: {
     select(c) {
       if (c === true) {
+        this.$db('currentStep', 7)
         this.$f7.views.main.loadPage('/step71/')
       } else {
         const el = JSON.parse(localStorage.getItem('solutions'))

@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <a href="/step33/" v-show="validation()" class="floating-button color-cyan" @click="saveGoals()"><i class="material-icons">navigate_next</i></a>
+    <a href="/step33/" v-show="validation()" class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
     <a href="#" v-show="!validation()" class="floating-button" @click="validationAlert()" style="background:grey"><i class="material-icons">navigate_next</i></a>
 
     <div class="page-content">
@@ -55,11 +55,10 @@ export default {
     }
   },
 
-  mounted() {
+  created() {
     if (localStorage.getItem('reasons')) {
       try {
         this.reasons = JSON.parse(localStorage.getItem('reasons'))
-        console.log(`${this.reasons.length} reasons found in local storage!`)
       } catch (e) {
         console.log('Local Storage Error')
       }
@@ -87,14 +86,68 @@ export default {
       localStorage.setItem('goals', JSON.stringify(goals))
     },
     validation() {
-      const val1 = this.goal1.length !== 0 // || !this.goal1.trim()
-      const val2 = this.goal2.length !== 0 // || !this.goal2.trim()
+      const val1 = this.goal1.length !== 0 && this.goal1.trim()
+      const val2 = this.goal2.length !== 0 && this.goal2.trim()
       return (val1 || val2)
     },
     validationAlert() {
       if (!this.validation()) {
-        this.$f7.alert('Lütfen 2 adet hedef girin.')
+        this.$f7.alert('Lütfen en az 1 adet hedef gir.')
       }
+    },
+    navigateURL() {
+      this.saveGoals()
+      if (this.saveDB()) {
+        this.$db('currentStep', 4)
+        this.$f7.views.main.loadPage('/home/')
+      }
+    },
+    saveDB() {
+      if (!navigator.onLine) {
+        window.f7.addNotification({
+          title: 'Offline',
+          message: 'This action is not possible in offline mode.',
+          hold: 3000,
+          closeIcon: false,
+        })
+        return false
+      }
+
+      // Show loading indicator with delay
+      let saved = false
+      setTimeout(() => {
+        if (!saved) {
+          this.$f7.showIndicator()
+        }
+      }, 1000)
+      window.db(`users/${this.$user.uid}`)
+        .child('goals').set({
+          goal1: this.goal1,
+          goal2: this.goal2,
+        })
+        .then(() => {
+        })
+        .catch(() => {
+          this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Firebase')
+          this.$f7.hideIndicator()
+          return false
+        })
+
+      window.db(`users/${this.$user.uid}`)
+        .child('currentStep').set({
+          step: 4,
+        })
+        .then(() => {
+          saved = true
+          this.$f7.hideIndicator()
+        })
+        .catch(() => {
+          this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Firebase')
+          saved = true
+          this.$f7.hideIndicator()
+          return false
+        })
+      return true
     },
   },
 }

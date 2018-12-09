@@ -12,30 +12,30 @@
       </div>
     </div>
 
-    <a :href="navigateURL()" class="floating-button color-cyan" @click="validationAlert"><i class="material-icons">navigate_next</i></a>
+    <a class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
 
-      <div class="page-content">
-        <div class="content-block-title">
-          {{solution.text}}
-          <br />
-          <br />
-          Çözümünü uygulamamanın olumsuz sonuçları
-        </div>
-        <div class="list-block">
-          <ul>
-            <li class="swipeout" v-for="i in items">
-              <div class="item-content swipeout-content">
-                <div class="item-inner">
-                  <div class="item-title">{{i}}</div>
-                </div>
-              </div>
-              <f7-swipeout-actions right>
-                <f7-swipeout-button close @click="removeSolution(i)" style="background-color:red">Delete</f7-swipeout-button>
-              </f7-swipeout-actions>
-            </li>
-          </ul>
-        </div>
+    <div class="page-content">
+      <div class="content-block-title">
+        {{solution.text}}
+        <br />
+        <br />
+        Çözümünü uygulamamanın olumsuz sonuçları
       </div>
+      <div class="list-block">
+        <ul>
+          <li class="swipeout" v-for="i in items">
+            <div class="item-content swipeout-content">
+              <div class="item-inner">
+                <div class="item-title">{{i}}</div>
+              </div>
+            </div>
+            <f7-swipeout-actions right>
+              <f7-swipeout-button close @click="removeSolution(i)" style="background-color:red">Delete</f7-swipeout-button>
+            </f7-swipeout-actions>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -50,6 +50,7 @@ export default {
 
   created() {
     this.solution = this.$db('bestSolution')
+    this.items = this.solution.nn
   },
 
   methods: {
@@ -80,15 +81,63 @@ export default {
       return true
     },
     navigateURL() {
-      if (this.validation()) {
-        return '/step65/'
+      this.saveSolution()
+      if (this.saveDB() && this.validation()) {
+        this.$f7.views.main.loadPage('/step65/')
       }
-      return '#'
     },
-    validationAlert() {
-      if (!this.validation()) {
-        this.$f7.alert('Lütfen tabloyu da doldurun.')
+    saveDB() {
+      if (!navigator.onLine) {
+        window.f7.addNotification({
+          title: 'Offline',
+          message: 'This action is not possible in offline mode.',
+          hold: 3000,
+          closeIcon: false,
+        })
+        return false
       }
+
+      // Show loading indicator with delay
+      let saved = false
+      const el = this.solution
+      setTimeout(() => {
+        if (!saved) {
+          this.$f7.showIndicator()
+        }
+      }, 1000)
+      window.db(`users/${this.$user.uid}`)
+        .child('bestSolution').set({
+          text: el.text,
+          scores: el.scores,
+          totalScore: el.totalScore,
+          pp: el.pp,
+          pn: el.pn,
+          np: el.np,
+          nn: el.nn,
+        })
+        .then(() => {
+        })
+        .catch(() => {
+          this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Firebase')
+          this.$f7.hideIndicator()
+          return false
+        })
+
+      window.db(`users/${this.$user.uid}`)
+        .child('currentStep').set({
+          step: 7,
+        })
+        .then(() => {
+          saved = true
+          this.$f7.hideIndicator()
+        })
+        .catch(() => {
+          this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Firebase')
+          saved = true
+          this.$f7.hideIndicator()
+          return false
+        })
+      return true
     },
   },
 }

@@ -610,9 +610,10 @@ module.exports = {
   methods: {
     navigateURL() {
       if (this.$route.params.id === 2) {
+        this.$db('step7', true)
         return '/home/'
       }
-      return '/video/1'
+      return '/step12/'
     },
   },
 }

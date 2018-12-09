@@ -96,10 +96,10 @@ export default {
       localStorage.setItem('solutions', JSON.stringify(this.solutions))
       console.log('SOLUTION SCORES MERGED')
     },
-    getItemIndex(id) {
+    getItemIndex(text) {
       // eslint-disable-next-line no-restricted-syntax
       for (const r in this.solutions) {
-        if (this.solutions[r].id === id) {
+        if (this.solutions[r].text === text) {
           return r
         }
       }

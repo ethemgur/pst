@@ -13,7 +13,8 @@
 
           <div class="swiper-slide">
 
-            <iframe width="300" src="file:///android_asset/www/cmylmz.mp4"></iframe>
+            <!--iframe width="300" src="file:///android_asset/www/cmylmz.mp4"></iframe-->
+            <video width="300" src="../cmylmz.mp4"></video>
 
           </div>
 

@@ -15,7 +15,7 @@
       <div class="list-block">
         <ul>
           <li v-for="i in reasons">
-            <a :href="'/step23/' + i.id" class="item-link item-content">
+            <a :href="'/step23/' + i.text" class="item-link item-content">
               <div class="item-inner">
                 <div class="item-title">{{i.text}}</div>
                 <div class="item-after item-media"><i v-show="isReasonMatched(i)" class="icon material-icons color-cyan">done</i></div>

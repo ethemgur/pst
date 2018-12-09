@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <a :href="navigateURL()" class="floating-button color-cyan" @click="validationAlert"><i class="material-icons">navigate_next</i></a>
+    <a href="#" class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
 
       <div class="page-content">
         <div class="list-block">
@@ -42,18 +42,18 @@ export default {
     }
   },
   created() {
-    if (localStorage.getItem('symptoms')) {
+    if (localStorage.getItem('symptoms') !== null) {
       this.symptoms = JSON.parse(localStorage.getItem('symptoms'))
     } else {
       this.symptoms = []
     }
+    console.log(localStorage.getItem('symptoms') === null)
   },
   methods: {
     symptomPrompt() {
       this.$f7.prompt('Yeni belirti ekle', (data) => {
         if (data !== '') {
           this.symptoms.push({
-            id: data,
             text: data,
           })
           this.saveSymptoms()
@@ -78,15 +78,12 @@ export default {
       return true
     },
     navigateURL() {
+      console.log('nextnav')
       if (this.validation()) {
-        return '/step212/'
+        this.$f7.views.main.loadPage('/step212/')
+        return
       }
-      return '#'
-    },
-    validationAlert() {
-      if (!this.validation()) {
-        this.$f7.alert('Lütfen tabloyu doldurun.')
-      }
+      this.$f7.alert('Lütfen tabloyu doldurun.')
     },
   },
 

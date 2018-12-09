@@ -16,7 +16,8 @@
           </div>
 
           <div class="swiper-slide">
-<iframe width="300" src="file:///android_asset/www/cmylmz.mp4"></iframe>
+            <a class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
+            <iframe width="300" src="file:///android_asset/www/cmylmz.mp4"></iframe>
           </div>
 
         </div>
@@ -24,3 +25,13 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    navigateURL() {
+      this.$db('currentStep', 2)
+      this.$f7.views.main.loadPage('/home/')
+    },
+  },
+}
+</script>

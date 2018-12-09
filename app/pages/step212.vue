@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <a :href="navigateURL()" class="floating-button color-cyan" @click="validationAlert"><i class="material-icons">navigate_next</i></a>
+    <a href="#" class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
 
       <div class="page-content">
         <div class="list-block">
@@ -53,7 +53,6 @@ export default {
       this.$f7.prompt('Yeni neden ekle', (data) => {
         if (data !== '') {
           this.reasons.push({
-            id: data,
             text: data,
             match: [],
             scores: [],
@@ -82,14 +81,10 @@ export default {
     },
     navigateURL() {
       if (this.validation()) {
-        return '/step22/'
+        this.$f7.views.main.loadPage('/step22/')
+        return
       }
-      return '#'
-    },
-    validationAlert() {
-      if (!this.validation()) {
-        this.$f7.alert('Lütfen iki tabloyu da doldurun.')
-      }
+      this.$f7.alert('Lütfen iki tabloyu doldurun.')
     },
   },
 

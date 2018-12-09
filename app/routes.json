@@ -152,6 +152,26 @@
     "component": "step83.vue"
   },
   {
+    "path": "/survey-bdi/",
+    "component": "survey-bdi.vue"
+  },
+  {
+    "path": "/survey-satisfaction/",
+    "component": "survey-satisfaction.vue"
+  },
+  {
+    "path": "/survey-selfesteem/",
+    "component": "survey-selfesteem.vue"
+  },
+  {
+    "path": "/survey-spsi/",
+    "component": "survey-spsi.vue"
+  },
+  {
+    "path": "/survey-stress/",
+    "component": "survey-stress.vue"
+  },
+  {
     "path": "/survey/",
     "component": "survey.vue"
   },

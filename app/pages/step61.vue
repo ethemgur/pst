@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <a :href="navigateURL()" class="floating-button color-cyan" @click="validationAlert"><i class="material-icons">navigate_next</i></a>
+    <a class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
 
       <div class="page-content">
         <div class="content-block-title">
@@ -52,6 +52,7 @@ export default {
     // this.solution = this.$db("bestSolution")
     // this.solution = JSON.parse(localStorage.getItem("solutions"))[this.$db("bestSolutionID")]
     this.solution = JSON.parse(localStorage.getItem('solutions'))[0]
+    this.items = this.solution.pp
   },
 
   methods: {
@@ -83,14 +84,10 @@ export default {
     },
     navigateURL() {
       if (this.validation()) {
-        return '/step62/'
+        this.$f7.views.main.loadPage('/step62/')
+        return
       }
-      return '#'
-    },
-    validationAlert() {
-      if (!this.validation()) {
-        this.$f7.alert('Lütfen tabloyu da doldurun.')
-      }
+      this.$f7.alert('Lütfen tabloyu doldurun.')
     },
   },
 }

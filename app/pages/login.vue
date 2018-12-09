@@ -156,10 +156,147 @@ export default {
         // On success
           .then((user) => {
             this.handleSignInDone()
-            window.db(`users/${user.uid}/info`).on('value', (snapshot) => {
-              this.$db('userInfo', snapshot.val())
-            })
-            window.f7.views.main.loadPage('/home/')
+
+            // GET USER INFO
+            try {
+              window.db(`users/${user.uid}/info`).on('value', (snapshot) => {
+                this.$db('userInfo', snapshot.val())
+              })
+            } catch (e) {
+              console.log(e)
+            }
+
+            // GET REASONS
+            try {
+              window.db(`users/${user.uid}/reasons`).on('value', (items) => {
+              // eslint-disable-next-line no-restricted-syntax
+                const data = items.val()
+                const reasons = []
+                const dataWithKeys = Object.keys(data).map((key) => {
+                  const obj = data[key]
+                  obj._key = key
+                  return obj
+                })
+                for (const i in dataWithKeys) {
+                  if (dataWithKeys.hasOwnProperty(i)) {
+                    reasons.push(JSON.stringify({
+                      text: i.text,
+                      scores: i.scores,
+                      match: i.match,
+                      totalScore: i.totalScore,
+                    }))
+                  }
+                }
+                localStorage.setItem('reasons', reasons)
+              })
+            } catch (e) {
+              console.log(e)
+            }
+
+            // GET SYMPTOMS
+            try {
+              window.db(`users/${user.uid}/symptoms`).on('value', (items) => {
+              // eslint-disable-next-line no-restricted-syntax
+                const data = items.val()
+                const symptoms = []
+                const dataWithKeys = Object.keys(data).map((key) => {
+                  const obj = data[key]
+                  obj._key = key
+                  return obj
+                })
+                for (const i in dataWithKeys) {
+                  if (dataWithKeys.hasOwnProperty(i)) {
+                    symptoms.push(JSON.stringify({
+                      text: i.text,
+                    }))
+                  }
+                }
+                localStorage.setItem('symptoms', symptoms)
+              })
+            } catch (e) {
+              console.log(e)
+            }
+
+            // GET SOLUTIONS
+            try {
+              window.db(`users/${user.uid}/solutions`).on('value', (items) => {
+              // eslint-disable-next-line no-restricted-syntax
+                const data = items.val()
+                const solutions = []
+                const dataWithKeys = Object.keys(data).map((key) => {
+                  const obj = data[key]
+                  obj._key = key
+                  return obj
+                })
+                for (const i in dataWithKeys) {
+                  if (dataWithKeys.hasOwnProperty(i)) {
+                    solutions.push({
+                      text: i.text,
+                      scores: i.scores,
+                      totalScore: i.totalScore,
+                    })
+                  }
+                }
+                localStorage.setItem('solutions', JSON.stringify(solutions))
+              })
+            } catch (e) {
+              console.log(e)
+            }
+
+            // GET GOALS
+            try {
+              window.db(`users/${user.uid}/goals`).on('value', (items) => {
+              // eslint-disable-next-line no-restricted-syntax
+                const data = items.val()
+                const goals = []
+                const dataWithKeys = Object.keys(data).map((key) => {
+                  const obj = data[key]
+                  obj._key = key
+                  return obj
+                })
+                for (const i in dataWithKeys) {
+                  if (dataWithKeys.hasOwnProperty(i)) {
+                    goals.push([i.goal1, i.goal2])
+                  }
+                }
+                localStorage.setItem('goals', JSON.stringify(goals))
+              })
+            } catch (e) {
+              console.log(e)
+            }
+
+            // GET PLANS
+            try {
+              window.db(`users/${user.uid}/plans`).on('value', (items) => {
+              // eslint-disable-next-line no-restricted-syntax
+                const data = items.val()
+                const plans = []
+                const dataWithKeys = Object.keys(data).map((key) => {
+                  const obj = data[key]
+                  obj._key = key
+                  return obj
+                })
+                for (const i in dataWithKeys) {
+                  if (dataWithKeys.hasOwnProperty(i)) {
+                    plans.push({
+                      text: i.text,
+                    })
+                  }
+                }
+                localStorage.setItem('plans', JSON.stringify(plans))
+              })
+            } catch (e) {
+              console.log(e)
+            }
+
+            // GET CURRENT STEP
+            try {
+              window.db(`users/${user.uid}/currentStep`).on('value', (snapshot) => {
+                this.$db('userInfo', snapshot.val().step)
+              })
+            } catch (e) {
+              console.log(e)
+            }
           })
         // On error, show alert
           .catch((err) => {
@@ -201,7 +338,12 @@ export default {
         .then(() => {
         // Reset form
           this.mode = 'signIn'
-          this.$db('userInfo', null)
+          localStorage.removeItem('data')
+          localStorage.removeItem('reasons')
+          localStorage.removeItem('solutions')
+          localStorage.removeItem('symptoms')
+          localStorage.removeItem('plans')
+          localStorage.removeItem('goals')
           // Navigate pages back
           const navBack = (view, times) => {
             if (times > 0) {

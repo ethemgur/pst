@@ -82,6 +82,9 @@
     </div>
   </div>
 </template>
-<!--this.$f7.views.main.loadPage('/signup/')-->
+<!--
+this.$f7.views.main.loadPage('/signup/')
+this.$$('#app-framework-login-popup').css('left', '0')
+-->
 <script>
 </script>

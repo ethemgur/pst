@@ -1,6 +1,6 @@
 <template>
   <div data-page="video" class="page kitchen-sink-material">
-    <a href="/step42/" class="floating-button color-cyan""><i class="material-icons">navigate_next</i></a>
+    <a class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
     <div class="page-content">
       <h3 style="padding-top:40%">
         Daha önceki çözümlerinizi uygulamak kazançlı olmadığı için bazı aşamaları baştan uygulamanızı istiyoruz.
@@ -8,3 +8,13 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    navigateURL() {
+      this.$db('currentStep', 4)
+      this.$f7.views.main.loadPage('/step42/')
+    },
+  },
+}
+</script>

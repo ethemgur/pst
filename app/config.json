@@ -75,6 +75,10 @@
       "prefer-destructuring": 0,
       "guard-for-in": 0,
       "no-console": 0,
+      "no-underscore-dangle": 0,
+      "no-loop-func": 0,
+      "no-restricted-syntax": 0,
+      "no-prototype-builtins": 0,
       "semi": [
         "error",
         "never"

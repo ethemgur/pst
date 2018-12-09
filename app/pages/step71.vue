@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <a :href="navigateURL()" class="floating-button color-cyan" @click="validationAlert"><i class="material-icons">navigate_next</i></a>
+    <a class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
 
       <div class="page-content">
         <div class="list-block">
@@ -58,7 +58,6 @@ export default {
       this.$f7.prompt('Yeni aşama ekle', (data) => {
         if (data !== '') {
           this.plans.push({
-            id: data,
             text: data,
           })
           this.savePlans()
@@ -84,9 +83,8 @@ export default {
     },
     navigateURL() {
       if (this.validation()) {
-        return '/step72/'
+        this.$f7.views.main.loadPage('/step72/')
       }
-      return '#'
     },
     validationAlert() {
       if (!this.validation()) {

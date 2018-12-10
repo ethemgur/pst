@@ -6,12 +6,56 @@ export default {
   methods: {
     navigateURL() {
       if (this.current === 25) {
+
         this.$f7.views.main.loadPage('/survey-selfesteem/0')
       } else {
         this.current += 1
         this.$f7.views.main.loadPage(`/survey-spsi/${this.current}`)
       }
     },
+    select(c) {
+      const score = this.choices.indexOf(c)
+      var total = 0
+      try {
+        total = this.$db("spsi")
+      } catch (e) {
+        total = 0
+      }
+      switch (index) {
+        case 4:
+        case 5:
+        case 13:
+        case 15:
+        case 22:
+        case 12:
+        case 16:
+        case 19:
+        case 21:
+        case 23:
+          total += score/5
+          break;
+        case 1:
+        case 3:
+        case 7:
+        case 8:
+        case 11:
+        case 2:
+        case 14:
+        case 20:
+        case 24:
+        case 25:
+        case 6:
+        case 9:
+        case 10:
+        case 17:
+        case 18:
+          total += 4 - (score/5)
+          break;
+        default:
+
+      }
+      this.$db("spsi", total)
+    }
   },
   data() {
     return {

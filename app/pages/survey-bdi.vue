@@ -6,10 +6,20 @@ export default {
   methods: {
     navigateURL() {
       if (this.current === 21) {
+
         this.$f7.views.main.loadPage('/survey-satisfaction/0')
       } else {
         this.current += 1
         this.$f7.views.main.loadPage(`/survey-bdi/${this.current}`)
+      }
+    },
+    select(c) {
+      try {
+        const score = this.questions[this.current].choices.indexOf(c) + 1
+        const total = this.$db("bdi")
+        this.$db("bdi", score + total)
+      } catch (e) {
+        this.$db("bdi", score)
       }
     },
   },

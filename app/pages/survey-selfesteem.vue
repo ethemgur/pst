@@ -12,6 +12,15 @@ export default {
         this.$f7.views.main.loadPage(`/survey-selfesteem/${this.current}`)
       }
     },
+    select(c) {
+      try {
+        const score = this.choices.indexOf(c) + 1
+        const total = this.$db("selfesteem")
+        this.$db("selfesteem", score + total)
+      } catch (e) {
+        this.$db("selfesteem", score)
+      }
+    }
   },
   data() {
     return {

@@ -12,6 +12,15 @@ export default {
         this.$f7.views.main.loadPage(`/survey-satisfaction/${this.current}`)
       }
     },
+    select(c) {
+      try {
+        const score = this.choices.indexOf(c) + 1
+        const total = this.$db("satisfaction")
+        this.$db("satisfaction", score + total)
+      } catch (e) {
+        this.$db("satisfaction", score)
+      }
+    }
   },
   data() {
     return {

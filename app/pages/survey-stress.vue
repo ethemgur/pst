@@ -1,4 +1,5 @@
 <script>
+/* İLK PARAM 0 GİRİŞ -> PARAM:1 1. SORU INDEX -1 */
 export default {
   created() {
     this.current = this.$f7.params.id
@@ -11,6 +12,52 @@ export default {
         this.current += 1
         this.$f7.views.main.loadPage(`/survey-stress/${this.current}`)
       }
+    },
+    select(c) {
+      try {
+        const score = this.choices.indexOf(c) + 1
+        const total = this.$db("stress")
+        this.$db("stress", score + total)
+      } catch (e) {
+        this.$db("stress", score)
+      }
+    }
+    saveDB() {
+      if (!navigator.onLine) {
+        window.f7.addNotification({
+          title: 'Offline',
+          message: 'This action is not possible in offline mode.',
+          hold: 3000,
+          closeIcon: false,
+        })
+        return
+      }
+
+      // Show loading indicator with delay
+      let saved = false
+      setTimeout(() => {
+        if (!saved) {
+          this.$f7.showIndicator()
+        }
+      }, 1000)
+      window.db(`users/${this.$user.uid}/detailed-surveys`)
+        .child('scores').set({
+          bdi: this.$db("bdi"),
+          satisfaction: this.$db("satisfaction"),
+          selfesteem: this.$db("selfesteem"),
+          spsi: this.$db("spsi"),
+          stress: this.$db("stress"),
+        })
+        .then(() => {
+          saved = true
+          this.$f7.hideIndicator()
+          this.$f7.views.main.loadPage('/home/')
+        })
+        .catch(() => {
+          this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Firebase')
+          saved = true
+          this.$f7.hideIndicator()
+        })
     },
   },
   data() {

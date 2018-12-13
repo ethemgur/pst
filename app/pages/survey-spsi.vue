@@ -1,64 +1,40 @@
+<template>
+  <div data-page="cards" class="page kitchen-sink-material">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left"><a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a></div>
+        <div class="center">SPSI TESTİ</div>
+      </div>
+    </div>
+    <a v-if="current === 0" class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
+    <div class="page-content" style="background-color: #f0d2f0; display: flex; align-items: center">
+      <div v-if="current !== 0" class="card" style="border-radius: 20px; width:90%; position: absolute; left: 2.5%">
+        <div class="card-header"><center>{{q.text}}</center></div>
+        <div class="card-content">
+          <div class="list-block">
+            <ul>
+              <span v-for="c in choices">
+                <br />
+                <li style="margin: 0 10px 0 10px"><a round="true "class="button button-raised button-fill color-purple" style="border-radius: 50px" @click="select(c)">{{c}}</a></li>
+              </span>
+              <br />
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="current === 0" class="card" style="border-radius: 20px; padding-top: 30px; padding-bottom: 30px; width:90%; position: absolute; left: 2.5%">
+        <div style="margin: 10px; text-align: center; font-size: 24px"> SPSI testine başlamak için ilerle</div>
+      </div>
+
+    </div>
+  </div>
+</template>
 <script>
 export default {
-  created() {
-    this.current = this.$f7.params.id
-  },
-  methods: {
-    navigateURL() {
-      if (this.current === 25) {
-
-        this.$f7.views.main.loadPage('/survey-selfesteem/0')
-      } else {
-        this.current += 1
-        this.$f7.views.main.loadPage(`/survey-spsi/${this.current}`)
-      }
-    },
-    select(c) {
-      const score = this.choices.indexOf(c)
-      var total = 0
-      try {
-        total = this.$db("spsi")
-      } catch (e) {
-        total = 0
-      }
-      switch (index) {
-        case 4:
-        case 5:
-        case 13:
-        case 15:
-        case 22:
-        case 12:
-        case 16:
-        case 19:
-        case 21:
-        case 23:
-          total += score/5
-          break;
-        case 1:
-        case 3:
-        case 7:
-        case 8:
-        case 11:
-        case 2:
-        case 14:
-        case 20:
-        case 24:
-        case 25:
-        case 6:
-        case 9:
-        case 10:
-        case 17:
-        case 18:
-          total += 4 - (score/5)
-          break;
-        default:
-
-      }
-      this.$db("spsi", total)
-    }
-  },
   data() {
     return {
+      q: {},
       current: 0,
       choices: [
         'Benim için hiç doğru değil',
@@ -68,6 +44,10 @@ export default {
         'Benim için tamamen doğru',
       ],
       questions: [
+        {
+          id: 0,
+          text: '',
+        },
         {
           id: 1,
           text: 'Çözmem gereken önemli bir sorunum olduğunda, kendimi tehdit edilmiş ve korkmuş hissederim',
@@ -171,5 +151,69 @@ export default {
       ],
     }
   },
+  created() {
+    this.current = this.$db('survey')
+    this.q = this.questions[this.current]
+    console.log(this.current)
+  },
+  methods: {
+    navigateURL() {
+      if (this.current === 25) {
+        this.$db('survey', 0)
+        this.$f7.views.main.loadPage('/survey-selfesteem/')
+      } else {
+        this.$db('survey', this.current + 1)
+        this.$f7.views.main.refreshPage()
+        // this.$f7.views.main.loadPage(`/survey-spsi/`)
+      }
+    },
+    select(c) {
+      const score = this.choices.indexOf(c)
+      let total = 0
+      try {
+        total = this.$db('spsi')
+        if (total === null) {
+          total = 0
+        }
+      } catch (e) {
+        total = 0
+      }
+      switch (this.current) {
+        case 4:
+        case 5:
+        case 13:
+        case 15:
+        case 22:
+        case 12:
+        case 16:
+        case 19:
+        case 21:
+        case 23:
+          total += score / 5
+          break
+        case 1:
+        case 3:
+        case 7:
+        case 8:
+        case 11:
+        case 2:
+        case 14:
+        case 20:
+        case 24:
+        case 25:
+        case 6:
+        case 9:
+        case 10:
+        case 17:
+        case 18:
+          total += 4 - (score / 5)
+          break
+        default:
+      }
+      this.$db('spsi', total)
+      this.navigateURL()
+    },
+  },
+
 }
 </script>

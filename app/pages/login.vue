@@ -297,6 +297,8 @@ export default {
             } catch (e) {
               console.log(e)
             }
+
+            this.$f7.views.main.loadPage('/home/')
           })
         // On error, show alert
           .catch((err) => {
@@ -405,6 +407,7 @@ export default {
             })
             // Handle sign in
             this.handleSignInDone()
+            this.$db('currentStep', 1)
             this.$f7.views.main.loadPage('/signup/')
           })
         // On error, show alert

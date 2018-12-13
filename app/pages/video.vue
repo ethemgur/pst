@@ -1,32 +1,16 @@
 <template>
   <div data-page="swiper-horizontal" class="page kitchen-sink-material">
-    <!--div class="navbar">
+    <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
-        <div class="center">1. ADIM</div>
+        <div class="left"><a class="link icon-only" href="/home/" @click="pause" ><i class="icon icon-back"></i></a></div>
+        <div class="center">{{step}}. ADIM</div>
       </div>
-    </div-->
-    <div class="page-content">
-      <div data-pagination=".swiper-pagination" data-paginationhide="true" class="swiper-container swiper-init ks-demo-slider">
-        <div class="swiper-pagination"></div>
-        <div class="swiper-wrapper">
-
-          <div class="swiper-slide">
-
-            <!--iframe width="300" src="file:///android_asset/www/cmylmz.mp4"></iframe-->
-            <video width="300" src="../cmylmz.mp4"></video>
-
-          </div>
-
-          <div class="swiper-slide">
-            <a :href="'/survey/' + step" class="floating-button color-cyan""><i class="material-icons">navigate_next</i></a>
-            <center>
-              Şimdi sizden bazı soruları cevaplamanızı isteyeceğiz
-            </center>
-          </div>
-
-        </div>
-      </div>
+    </div>
+    <a :href="'/survey/' + step" class="floating-button color-purple" @click="pause"><i class="material-icons">navigate_next</i></a>
+    <div class="page-content" style="background-color: #f0d2f0">
+          <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
+            <source :src="'file:///android_asset/www/output' +videoName()+ '.mp4'" type="video/mp4">
+          </video>
     </div>
   </div>
 </template>
@@ -35,16 +19,57 @@ export default {
   data() {
     return {
       step: 0,
-      score1: 0,
-      score2: 0,
-      score3: 0,
-      score4: 0,
+      videoElement: null,
+      paused: null,
     }
   },
   created() {
     this.step = this.$route.params.step
   },
-  mounted() {
+  methods: {
+    updatePaused(event) {
+      this.videoElement = event.target
+      this.paused = event.target.paused
+    },
+    play() {
+      this.videoElement.play()
+    },
+    pause() {
+      this.videoElement.pause()
+    },
+    videoName() {
+      if (this.step === 1) {
+        return '1'
+      } else if (this.step === 2) {
+        return '8'
+      } else if (this.step === 3) {
+        return '11'
+      } else if (this.step === 4) {
+        return '14'
+      } else if (this.step === 5) {
+        return '15'
+      }
+      return '18'
+    },
   },
+  computed: {
+    playing() { return !this.paused },
+  },
+
 }
 </script>
+
+<style media="screen">
+.video-content
+  {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    height: auto;
+    border-radius: 3px;
+  }
+</style>

@@ -7,61 +7,94 @@
       </div>
     </div>
 
-    <a href="/step52/" class="floating-button color-cyan" @click="mergeChoices()"><i class="material-icons">navigate_next</i></a>
+    <a href="/step52/" class="floating-button color-purple" @click="mergeChoices()"><i class="material-icons">navigate_next</i></a>
 
-    <div class="page-content">
-      <div class="content-block-title">Sorunu Çözmesi</div>
-      <div class="list-block">
-        <div class="item-content">
-          <div class="item-media"><p>{{score1}}</p></div>
-          <div class="item-inner">
-            <div class="item-input">
-              <div class="range-slider">
-                <input v-model.number="score1" type="range" min="0" max="4" value="0" step="1">
+    <div class="page-content" style="background-color: #f0d2f0">
+
+      <br />
+
+      <div class="card" style="border-radius: 20px">
+        <div class="card-header"><center>Sorunu Çözmesi</center></div>
+        <div class="card-content">
+          <div class="list-block" style="margin: 0">
+            <div class="item-content">
+              <div class="item-media"> {{score1}} </div>
+              <div class="item-inner">
+                <div class="item-input">
+                  <div class="range-slider">
+                    <input v-model.number="score1" type="range" min="1" max="5" value="1" step="1">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="content-block-title">Hedefle Uyumu</div>
-      <div class="list-block">
-        <div class="item-content">
-          <div class="item-media"><p>{{score2}}</p></div>
-          <div class="item-inner">
-            <div class="item-input">
-              <div class="range-slider">
-                <input v-model.number="score2" type="range" min="0" max="4" step="0" value="4">
+
+      <br />
+
+      <div class="card" style="border-radius: 20px">
+        <div class="card-header"><center>Hedefle Uyumu</center></div>
+        <div class="card-content">
+          <div class="list-block">
+            <div class="item-content">
+              <div class="item-media"> {{score2}} </div>
+              <div class="item-inner">
+                <div class="item-input">
+                  <div class="range-slider">
+                    <input v-model.number="score2" type="range" min="1" max="5" step="1" value="1">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="content-block-title">Uygulanabilirliği</div>
-      <div class="list-block">
-        <div class="item-content">
-          <div class="item-media"><p>{{score3}}</p></div>
-          <div class="item-inner">
-            <div class="item-input">
-              <div class="range-slider">
-                <input v-model.number="score3" type="range" min="0" max="4" value="0" step="1">
+
+      <br />
+
+      <div class="card" style="border-radius: 20px">
+        <div class="card-header"><center>Uygulanabilirliği</center></div>
+        <div class="card-content">
+          <div class="list-block">
+            <div class="item-content">
+              <div class="item-media"> {{score3}} </div>
+              <div class="item-inner">
+                <div class="item-input">
+                  <div class="range-slider">
+                    <input v-model.number="score3" type="range" min="1" max="5" value="1" step="1">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="content-block-title">Kabul edilebilirliği</div>
-      <div class="list-block">
-        <div class="item-content">
-          <div class="item-media"><p>{{score4}}</p></div>
-          <div class="item-inner">
-            <div class="item-input">
-              <div class="range-slider">
-                <input v-model.number="score4" type="range" min="0" max="4" value="0" step="1">
+
+      <br />
+
+      <div class="card" style="border-radius: 20px">
+        <div class="card-header">Kabul edilebilirliği</div>
+        <div class="card-content">
+          <div class="list-block">
+            <div class="item-content">
+              <div class="item-media"><p>{{score4}}</p></div>
+              <div class="item-inner">
+                <div class="item-input">
+                  <div class="range-slider">
+                    <input v-model.number="score4" type="range" min="1" max="5" value="1" step="1">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   </div>
 </template>

@@ -3,27 +3,31 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="link icon-only" href="/step22/"><i class="icon icon-back"></i></a></div>
-        <div class="center">Step 2-4</div>
+        <div class="center">Puanlama</div>
       </div>
     </div>
 
     <a v-show="!isCompleted()" href="#" class="floating-button" style="background:grey"><i class="material-icons">navigate_next</i></a>
-    <a v-show="isCompleted() && isOrdered" class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
-    <a v-show="isCompleted() && !isOrdered" href="/step24/" class="floating-button color-cyan" @click="orderReasons()"><i class="material-icons">navigate_next</i></a>
+    <a v-show="isCompleted() && isOrdered" class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
+    <a v-show="isCompleted() && !isOrdered" href="/step24/" class="floating-button color-purple" @click="orderReasons()"><i class="material-icons">navigate_next</i></a>
 
-    <div class="page-content">
-      <div class="content-block-title">Nedenlere tıklayarak derecenlendirin</div>
-      <div class="list-block">
-        <ul>
-          <li v-for="i in reasons">
-            <a :href="'/step25/' + i.text" class="item-link item-content">
-              <div class="item-inner">
-                <div class="item-title">{{i.text}}</div>
-                <div v-show="isReasonMatched(i)" class="item-after item-media"> {{i.totalScore}} <i class="icon material-icons color-cyan">done</i></div>
-              </div>
-            </a>
-          </li>
-        </ul>
+    <div class="page-content" style="background-color: #f0d2f0">
+      <div class="card" style="border-radius: 20px">
+        <div class="card-header" style="padding: 10px; color:gray; text-align: center">
+          <div style="text-align: center; width: 100%">Nedenlere tıklayarak derecenlendirin</div>
+        </div>
+        <div class="list-block" style="padding:10px">
+          <ul>
+            <li v-for="i in reasons">
+              <a :href="'/step25/' + i.text" class="item-link item-content">
+                <div class="item-inner">
+                  <div class="item-title" style="color:#9c27b0">{{i.text}}</div>
+                  <div v-show="isReasonMatched(i)" class="item-after item-media"> {{i.totalScore}} <i class="icon material-icons color-cyan">done</i></div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -94,7 +98,7 @@ export default {
       if (this.saveDB()) {
         console.log('saveDB')
         this.$db('currentStep', 3)
-        this.$f7.views.main.loadPage('/home/')
+        this.$f7.views.main.loadPage('/step26/')
       }
     },
     saveDB() {

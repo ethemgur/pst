@@ -5,31 +5,32 @@
         <div class="left">
           <a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">Belirtiler</div>
+        <div class="center">Şikayetler</div>
         <div class="right">
           <a class="link icon-only" href="#" @click="symptomPrompt"><i class="icon icon-plus"></i></a>
         </div>
       </div>
     </div>
 
-    <a href="#" class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
+    <a href="#" class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
 
-      <div class="page-content">
+    <div class="page-content" style="background-color: #f0d2f0">
+      <div class="card" style="border-radius: 20px; padding: 10px">
         <div class="list-block">
           <ul>
-            <li class="swipeout" v-for="i in symptoms">
-              <div class="item-content swipeout-content">
+            <li style="color:gray; text-align: center" v-show="symptoms.length===0"> Henüz Belirti Girmediniz </li>
+            <li class="item" v-for="i in symptoms" style="margin: 5px 0 5px 0">
+              <div class="item-content">
                 <div class="item-inner">
-                  <div class="item-title">{{i.text}}</div>
+                  <div class="item-title" style="color:#9c27b0">{{i.text}}</div>
+                  <div class="item-after"><i class="material-icons" style="color:#9c27b0" @click="removeSymptom(i)">clear</i></div>
                 </div>
               </div>
-              <f7-swipeout-actions right>
-                <f7-swipeout-button close @click="removeSymptom(i)" style="background-color:red">Delete</f7-swipeout-button>
-              </f7-swipeout-actions>
             </li>
           </ul>
         </div>
       </div>
+    </div>
   </div>
 </template>
 

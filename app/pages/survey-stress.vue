@@ -1,27 +1,75 @@
+<template>
+  <div data-page="cards" class="page kitchen-sink-material">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left"><a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a></div>
+        <div class="center">STRES TESTİ</div>
+      </div>
+    </div>
+    <a v-if="current === 0" class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
+    <div class="page-content" style="background-color: #f0d2f0; display: flex; align-items: center">
+      <div v-if="current !== 0" class="card" style="border-radius: 20px; width:90%; position: absolute; left: 2.5%">
+        <div class="card-header" ><center>{{q.text}}</center></div>
+        <div class="card-content">
+          <div class="list-block">
+            <ul>
+              <span v-for="c in choices">
+                <br />
+                <li style="margin: 0 10px 0 10px"><a href="#" round="true "class="button button-raised button-fill color-purple" style="border-radius: 50px" @click="select(c)">{{c}}</a></li>
+              </span>
+                <br />
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="current === 0" class="card" style="border-radius: 20px; padding-top: 30px; padding-bottom: 30px; width:90%; position: absolute; left: 2.5%">
+        <div style="margin: 10px; text-align: center; font-size: 24px"> Stres testine başlamak için ilerle</div>
+      </div>
+
+    </div>
+  </div>
+</template>
 <script>
 /* İLK PARAM 0 GİRİŞ -> PARAM:1 1. SORU INDEX -1 */
 export default {
   created() {
-    this.current = this.$f7.params.id
+    this.current = this.$db('survey')
+    this.q = this.questions[this.current]
+    console.log(this.current)
   },
   methods: {
     navigateURL() {
       if (this.current === 14) {
-        this.$f7.views.main.loadPage('/step12/')
+        this.$db('survey', 0)
+        this.saveDB()
+
+        this.$db('survey-satisfaction', 0)
+        this.$db('survey-selfesteem', 0)
+        this.$db('survey-spsi', 0)
+        this.$db('survey-stress', 0)
+        this.$db('survey-bdi', 0)
+
+        if (this.$db('currentStep') === 1) {
+          this.$f7.views.main.loadPage('/step12/')
+        } else {
+          this.$f7.views.main.loadPage('/home/')
+        }
       } else {
-        this.current += 1
-        this.$f7.views.main.loadPage(`/survey-stress/${this.current}`)
+        this.$db('survey', this.current + 1)
+        this.$f7.views.main.refreshPage()
       }
     },
     select(c) {
+      const score = this.choices.indexOf(c) + 1
       try {
-        const score = this.choices.indexOf(c) + 1
-        const total = this.$db("stress")
-        this.$db("stress", score + total)
+        const total = this.$db('stress')
+        this.$db('stress', score + total)
       } catch (e) {
-        this.$db("stress", score)
+        this.$db('stress', score)
       }
-    }
+      this.navigateURL()
+    },
     saveDB() {
       if (!navigator.onLine) {
         window.f7.addNotification({
@@ -41,17 +89,21 @@ export default {
         }
       }, 1000)
       window.db(`users/${this.$user.uid}/detailed-surveys`)
-        .child('scores').set({
-          bdi: this.$db("bdi"),
-          satisfaction: this.$db("satisfaction"),
-          selfesteem: this.$db("selfesteem"),
-          spsi: this.$db("spsi"),
-          stress: this.$db("stress"),
+        .child(this.$db('currentStep')).set({
+          bdi: this.$db('bdi'),
+          satisfaction: this.$db('satisfaction'),
+          selfesteem: this.$db('selfesteem'),
+          spsi: this.$db('spsi'),
+          stress: this.$db('stress'),
         })
         .then(() => {
           saved = true
           this.$f7.hideIndicator()
-          this.$f7.views.main.loadPage('/home/')
+          if (this.$db('currentStep') === 1) {
+            this.$f7.views.main.loadPage('/step12/')
+          } else {
+            this.$f7.views.main.loadPage('/home/')
+          }
         })
         .catch(() => {
           this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Firebase')
@@ -71,6 +123,10 @@ export default {
         'Çok Sık',
       ],
       questions: [
+        {
+          id: 0,
+          text: '',
+        },
         {
           id: 1,
           text: 'Geçen ay, beklenmedik bir şeylerin olması nedeniyle ne sıklıkta rahatsızlık duydunuz?',

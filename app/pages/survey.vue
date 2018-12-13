@@ -3,23 +3,26 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
-        <div class="center">TEST</div>
+        <div class="center">ADIM TESTİ</div>
       </div>
     </div>
 
-    <a :href="'/step' + step + '1/'" class="floating-button color-cyan""><i class="material-icons">navigate_next</i></a>
+    <a :href="'/step' + step + '1/'" class="floating-button color-purple""><i class="material-icons">navigate_next</i></a>
 
     <!-- SAYI INPUT 0-100 -->
-    <div class="page-content">
-      <div class="content-block">Bugün kendinizi ne kadar mutlu hissediyorsunuz?</div>
-      <div class="content-block">
-        <div class="list-block">
-          <div class="item-content">
-            <div class="item-media">{{score1}}</div>
-            <div class="item-inner">
-              <div class="item-input">
-                <div class="range-slider">
-                  <input v-model.number="score1" type="range" min="0" max="9" value="4" step="1">
+    <div class="page-content" style="background-color: #f0d2f0">
+      <br />
+      <div class="card" style="border-radius: 20px">
+        <div class="card-header"><center>Bugün kendinizi ne kadar mutlu hissediyorsunuz?</center></div>
+        <div class="card-content">
+          <div class="list-block">
+            <div class="item-content">
+              <div class="item-media">{{score1}}</div>
+              <div class="item-inner">
+                <div class="item-input">
+                  <div class="range-slider">
+                    <input v-model.number="score1" type="range" min="0" max="100" value="0" step="10">
+                  </div>
                 </div>
               </div>
             </div>
@@ -27,15 +30,39 @@
         </div>
       </div>
 
-      <div class="content-block">Bugün kendinizi ne kadar seviyorsunuz?</div>
-      <div class="content-block">
-        <div class="list-block">
-          <div class="item-content">
-            <div class="item-media">{{score2}}</div>
-            <div class="item-inner">
-              <div class="item-input">
-                <div class="range-slider">
-                  <input v-model.number="score2" type="range" min="0" max="9" value="4" step="1">
+      <br />
+
+      <div class="card" style="border-radius: 20px">
+        <div class="card-header"><center>Bugün kendinizi ne kadar seviyorsunuz?</center></div>
+        <div class="card-content">
+          <div class="list-block">
+            <div class="item-content">
+              <div class="item-media">{{score2}}</div>
+              <div class="item-inner">
+                <div class="item-input">
+                  <div class="range-slider">
+                    <input v-model.number="score2" type="range" min="0" max="100" value="0" step="10">
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="card" style="border-radius: 20px">
+        <div class="card-header"><center>Bugün kendinize ne kadar güveniyorsunuz?</center></div>
+        <div class="card-content">
+          <div class="list-block">
+            <div class="item-content">
+              <div class="item-media">{{score3}}</div>
+              <div class="item-inner">
+                <div class="item-input">
+                  <div class="range-slider">
+                    <input v-model.number="score3" type="range" min="0" max="100" value="0" step="10">
+                  </div>
                 </div>
               </div>
             </div>
@@ -43,15 +70,19 @@
         </div>
       </div>
 
-      <div class="content-block">Bugün kendinize ne kadar güveniyorsunuz?</div>
-      <div class="content-block">
-        <div class="list-block">
-          <div class="item-content">
-            <div class="item-media">{{score3}}</div>
-            <div class="item-inner">
-              <div class="item-input">
-                <div class="range-slider">
-                  <input v-model.number="score3" type="range" min="0" max="9" value="4" step="1">
+      <br />
+
+      <div class="card" style="border-radius: 20px">
+        <div class="card-header"><center>Bugün kendinizi ne kadar tanıdığınızı hissediyorsunuz?</center></div>
+        <div class="card-content">
+          <div class="list-block">
+            <div class="item-content">
+              <div class="item-media">{{score4}}</div>
+              <div class="item-inner">
+                <div class="item-input">
+                  <div class="range-slider">
+                    <input v-model.number="score4" type="range" min="0" max="100" value="0" step="10">
+                  </div>
                 </div>
               </div>
             </div>
@@ -59,22 +90,7 @@
         </div>
       </div>
 
-      <div class="content-block">Bugün kendinizi ne kadar tanıdığınızı hissediyorsunuz?</div>
-      <div class="content-block">
-        <div class="list-block">
-          <div class="item-content">
-            <div class="item-media">{{score4}}</div>
-            <div class="item-inner">
-              <div class="item-input">
-                <div class="range-slider">
-                  <input v-model.number="score4" type="range" min="0" max="9" value="4" step="1">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <br />
       <br />
       <br />
       <br />

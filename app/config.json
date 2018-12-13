@@ -3,7 +3,7 @@
   "defaultLanguage": "en",
   "defaultLanguageFallback": false,
   "theme": "material",
-  "color": "indigo",
+  "color": "deeppurple",
   "layout": "default",
   "statusbarVisibility": false,
   "statusbarTextColor": "white",

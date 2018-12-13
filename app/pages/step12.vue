@@ -2,36 +2,64 @@
   <div data-page="swiper-horizontal" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
+        <div class="left"><a class="back link icon-only" href="#" @click="pause" ><i class="icon icon-back"></i></a></div>
         <div class="center">1. ADIM</div>
       </div>
     </div>
-    <div class="page-content">
-      <div data-pagination=".swiper-pagination" data-paginationhide="true" class="swiper-container swiper-init ks-demo-slider">
-        <div class="swiper-pagination"></div>
-        <div class="swiper-wrapper">
+    <a class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
 
-          <div class="swiper-slide">
-            <p><center>Sorunlarla karşılaştığımda neler yapmalıyım?</center></p>
-          </div>
-
-          <div class="swiper-slide">
-            <a class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
-            <iframe width="300" src="file:///android_asset/www/cmylmz.mp4"></iframe>
-          </div>
-
-        </div>
-      </div>
+    <div class="page-content" style="background-color: #f0d2f0">
+          <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
+            <source src="file:///android_asset/www/output2.mp4" type="video/mp4">
+          </video>
     </div>
   </div>
 </template>
 <script>
 export default {
+  data() {
+    return {
+      videoElement: null,
+      paused: null,
+    }
+  },
   methods: {
     navigateURL() {
-      this.$db('currentStep', 2)
-      this.$f7.views.main.loadPage('/home/')
+      console.log('navigate')
+      try {
+        this.pause()
+      } catch (e) {
+        console.log(e)
+      }
+      this.$f7.views.main.loadPage('/survey3/')
     },
+    updatePaused(event) {
+      this.videoElement = event.target
+      this.paused = event.target.paused
+    },
+    play() {
+      this.videoElement.play()
+    },
+    pause() {
+      this.videoElement.pause()
+    },
+  },
+  computed: {
+    playing() { return !this.paused },
   },
 }
 </script>
+
+<style media="screen">
+.video-content
+  {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+    border-radius: 3px;
+  }
+</style>

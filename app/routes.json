@@ -8,14 +8,6 @@
     "component": "login.vue"
   },
   {
-    "path": "/panel-left/",
-    "component": "panel-left.vue"
-  },
-  {
-    "path": "/profile/",
-    "component": "profile.vue"
-  },
-  {
     "path": "/signup/",
     "component": "signup.vue"
   },
@@ -38,10 +30,6 @@
   {
     "path": "/step212/",
     "component": "step212.vue"
-  },
-  {
-    "path": "/step21old/",
-    "component": "step21old.vue"
   },
   {
     "path": "/step22/",
@@ -68,8 +56,16 @@
     "component": "step25.vue"
   },
   {
+    "path": "/step26/",
+    "component": "step26.vue"
+  },
+  {
     "path": "/step31/",
     "component": "step31.vue"
+  },
+  {
+    "path": "/step311/",
+    "component": "step311.vue"
   },
   {
     "path": "/step32/",
@@ -80,12 +76,12 @@
     "component": "step33.vue"
   },
   {
-    "path": "/step41/",
-    "component": "step41.vue"
+    "path": "/step34/",
+    "component": "step34.vue"
   },
   {
-    "path": "/step42/",
-    "component": "step42.vue"
+    "path": "/step41/",
+    "component": "step41.vue"
   },
   {
     "path": "/step51/",
@@ -102,6 +98,10 @@
   {
     "path": "/step53/:id/",
     "component": "step53.vue"
+  },
+  {
+    "path": "/step54/",
+    "component": "step54.vue"
   },
   {
     "path": "/step61/",
@@ -136,6 +136,10 @@
     "component": "step71.vue"
   },
   {
+    "path": "/step711/",
+    "component": "step711.vue"
+  },
+  {
     "path": "/step72/",
     "component": "step72.vue"
   },
@@ -152,23 +156,43 @@
     "component": "step83.vue"
   },
   {
-    "path": "/survey-bdi/:id",
+    "path": "/survey-bdi/",
     "component": "survey-bdi.vue"
   },
   {
-    "path": "/survey-satisfaction/:id",
+    "path": "/survey-bdi/:id/",
+    "component": "survey-bdi.vue"
+  },
+  {
+    "path": "/survey-satisfaction/",
     "component": "survey-satisfaction.vue"
   },
   {
-    "path": "/survey-selfesteem/:id",
+    "path": "/survey-satisfaction/:id/",
+    "component": "survey-satisfaction.vue"
+  },
+  {
+    "path": "/survey-selfesteem/",
     "component": "survey-selfesteem.vue"
   },
   {
-    "path": "/survey-spsi/:id",
+    "path": "/survey-selfesteem/:id/",
+    "component": "survey-selfesteem.vue"
+  },
+  {
+    "path": "/survey-spsi/",
     "component": "survey-spsi.vue"
   },
   {
-    "path": "/survey-stress/:id",
+    "path": "/survey-spsi/:id/",
+    "component": "survey-spsi.vue"
+  },
+  {
+    "path": "/survey-stress/",
+    "component": "survey-stress.vue"
+  },
+  {
+    "path": "/survey-stress/:id/",
     "component": "survey-stress.vue"
   },
   {
@@ -180,20 +204,8 @@
     "component": "survey.vue"
   },
   {
-    "path": "/survey2/",
-    "component": "survey2.vue"
-  },
-  {
-    "path": "/survey2/:id/",
-    "component": "survey2.vue"
-  },
-  {
     "path": "/survey3/",
     "component": "survey3.vue"
-  },
-  {
-    "path": "/todos/",
-    "component": "todos.vue"
   },
   {
     "path": "/video/",
@@ -202,9 +214,5 @@
   {
     "path": "/video/:step/",
     "component": "video.vue"
-  },
-  {
-    "path": "/video3/",
-    "component": "video3.vue"
   }
 ]

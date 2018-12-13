@@ -1,90 +1,123 @@
 <template>
-  <div data-page="list-view" class="page kitchen-sink-material">
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="left"><a href="#" class="open-panel"><i class="material-icons" style="color: white; margin: 50%">menu</i></a></div>
-        <div class="center" style="margin: 10%">PS Therapy</div>
-      </div>
+  <div data-page="home" class="page kitchen-sink-material">
+    <a href="/login/" class="floating-button color-purple" @click="$root.$signOut()"><i class="material-icons">power_settings_new</i></a>
+
+    <div class="page-content" :style="{'background-image': 'url(' + require('../images/bg-home.jpg') + ')'}" style="background-size: cover">
+      <a v-if="isDone(1)" @click="navigateURL(1)">
+        <img id="y1" src="../images/circle1.png" width="50px" height="50px"/>
+      </a>
+      <a v-if="!isDone(1)" href="#">
+        <img id="y1" src="../images/circle1-grey.png" width="50px" height="50px"/>
+      </a>
+
+      <a v-if="isDone(2)" @click="navigateURL(2)">
+        <img id="y2" src="../images/circle2.png" width="50px" height="50px"/>
+      </a>
+      <a v-if="!isDone(2)" href="#">
+        <img id="y2" src="../images/circle2-grey.png" width="50px" height="50px"/>
+      </a>
+
+      <a v-if="isDone(3)" @click="navigateURL(3)">
+        <img id="y3" src="../images/circle3.png" width="50px" height="50px"/>
+      </a>
+      <a v-if="!isDone(3)" href="#">
+        <img id="y3" src="../images/circle3-grey.png" width="50px" height="50px"/>
+      </a>
+
+      <a v-if="isDone(4)" @click="navigateURL(4)">
+        <img id="y4" src="../images/circle4.png" width="50px" height="50px"/>
+      </a>
+      <a v-if="!isDone(4)" href="#">
+        <img id="y4" src="../images/circle4-grey.png" width="50px" height="50px"/>
+      </a>
+
+      <a v-if="isDone(5)" @click="navigateURL(5)">
+        <img id="y5" src="../images/circle5.png" width="50px" height="50px"/>
+      </a>
+      <a v-if="!isDone(5)" href="#">
+        <img id="y5" src="../images/circle5-grey.png" width="50px" height="50px"/>
+      </a>
+
+      <a v-if="isDone(6)" @click="navigateURL(6)">
+        <img id="y6" src="../images/circle6.png" width="50px" height="50px"/>
+      </a>
+      <a v-if="!isDone(6)" href="#">
+        <img id="y6" src="../images/circle6-grey.png" width="50px" height="50px"/>
+      </a>
+
+      <a v-if="isDone(7)" @click="navigateURL(7)">
+        <img id="y7" src="../images/circle7.png" width="50px" height="50px"/>
+      </a>
+      <a v-if="!isDone(7)" href="#">
+        <img id="y7" src="../images/circle7-grey.png" width="50px" height="50px"/>
+      </a>
+
+      <a href="#">
+        <img id="y8" src="../images/reward-purple.png" width="50px" height="50px"/>
+      </a>
     </div>
-    <div class="page-content">
-      <div class="timeline timeline-sides">
-        <div class="timeline-item">
-          <div class="timeline-item-date"></div>
-          <div class="timeline-item-divider"></div>
-          <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/video/1"> Step 1 </a></div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item-date"></div>
-          <div class="timeline-item-divider"></div>
-          <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/video/2"> Step 2 </a></div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item-date"></div>
-          <div class="timeline-item-divider"></div>
-          <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/video/3"> Step 3 </a></div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item-date"></div>
-          <div class="timeline-item-divider"></div>
-          <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/video/4"> Step 4 </a></div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item-date"></div>
-          <div class="timeline-item-divider"></div>
-          <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/video/5"> Step 5 </a></div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item-date"></div>
-          <div class="timeline-item-divider"></div>
-          <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/video/6"> Step 6 </a></div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item-date"></div>
-          <div class="timeline-item-divider"></div>
-          <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/video/7"> Step 7 </a></div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item-date"></div>
-          <div class="timeline-item-divider"></div>
-          <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/survey/"> Survey </a></div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item-date"></div>
-          <div class="timeline-item-divider"></div>
-          <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/survey2/1"> Survey 2 </a></div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-item-date"></div>
-          <div class="timeline-item-divider"></div>
-          <div class="timeline-item-content">
-            <div class="timeline-item-inner"><a href="/survey3/"> Survey 3 </a></div>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </div>
 </template>
-<!--
-this.$f7.views.main.loadPage('/signup/')
-this.$$('#app-framework-login-popup').css('left', '0')
--->
+<!--this.$f7.views.main.loadPage('/signup/')-->
 <script>
+export default {
+  methods: {
+    isDone(i) {
+      if (i <= this.$db('currentStep')) {
+        return true
+      }
+      return false
+    },
+    navigateURL(i) {
+      if (i === this.$db('currentStep')) {
+        this.$f7.views.main.loadPage(`/video/${i}/`)
+      } else if (i < this.$db('currentStep')) {
+        this.$f7.alert('You have completed this step.')
+      }
+    },
+  },
+}
 </script>
+<style>
+#y1 {
+  position: absolute;
+  bottom: 8%;
+  left: 8%;
+}
+#y2 {
+  position: absolute;
+  bottom: 19%;
+  left: 75%;
+}
+#y3 {
+  position: absolute;
+  bottom: 29%;
+  left: 8%;
+}
+#y4 {
+  position: absolute;
+  bottom: 41%;
+  left: 76%;
+}
+#y5 {
+  position: absolute;
+  bottom: 50%;
+  left: 8%;
+}
+#y6 {
+  position: absolute;
+  bottom: 64%;
+  left: 76%;
+}
+#y7 {
+  position: absolute;
+  bottom: 73%;
+  left: 8%;
+}
+#y8 {
+  position: absolute;
+  bottom: 85%;
+  left: 76%;
+}
+</style>

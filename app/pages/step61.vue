@@ -5,37 +5,40 @@
         <div class="left">
           <a class="back link icon-only" href="#"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">Step 6</div>
+        <div class="center">6. ADIM</div>
         <div class="right">
           <a class="link icon-only" href="#" @click="solutionPrompt"><i class="icon icon-plus"></i></a>
         </div>
       </div>
     </div>
 
-    <a class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
+    <a class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
 
-      <div class="page-content">
-        <div class="content-block-title">
+    <div class="page-content" style="background-color: #f0d2f0">
+      <div class="card" style="border-radius: 20px">
+        <div style="text-align:center; font-size:16px; padding: 10px">
           {{solution.text}}
-          <br />
-          <br />
-          Çözümünü uygulamanın olumlu sonuçları
-        </div>
-        <div class="list-block">
-          <ul>
-            <li class="swipeout" v-for="i in items">
-              <div class="item-content swipeout-content">
-                <div class="item-inner">
-                  <div class="item-title">{{i}}</div>
-                </div>
-              </div>
-              <f7-swipeout-actions right>
-                <f7-swipeout-button close @click="removeSolution(i)" style="background-color:red">Delete</f7-swipeout-button>
-              </f7-swipeout-actions>
-            </li>
-          </ul>
         </div>
       </div>
+      <div class="card" style="border-radius: 20px; margin-top:20px; padding-bottom: 10px">
+        <div class="card-header" style="padding: 10px; text-align:center"> Çözümünü uygulamanın olumlu sonuçları</div>
+        <div class="card-content">
+          <div class="list-block" style="margin-top: 10px">
+            <ul>
+              <li style="color:gray; text-align:center" v-show="items.length===0">Henüz Sonuç Girmediniz</li>
+              <li class="item" v-for="i in items">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{i}}</div>
+                    <div class="item-after"><i class="material-icons" style="color:#9c27b0" @click="removeSolution(i)">clear</i></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

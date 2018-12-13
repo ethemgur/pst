@@ -11,26 +11,27 @@
         <div class="swiper-pagination"></div>
         <div class="swiper-wrapper">
 
-          <!-- STRESS SURVEY -->
+          <!-- SURVEY -->
 
-          <div class="swiper-slide">
-            <div class="page-content">
-              <div class="content-block"><center>Şimdi size verilen cümleler üzerinde düşünmenizi ve en uygun olan şıkkı işaretlemenizi isteyeceğiz</center></div>
-              <div class="content-block">
-                <a href="#" class="button button-raised button-fill button-big color-cyan survey-next-button">TESTE BAŞLA</a>
+          <div class="swiper-slide" style="background-color: #f0d2f0; display: flex; align-items: center">
+            <div class="card" style="border-radius:20px; padding-top: 10px; padding-bottom:10px">
+              <div class="card-header">
+                <div style="text-align: center; font-size: 18px"> Şimdi size verilen cümleler üzerinde düşünmenizi ve en uygun olan şıkkı işaretlemenizi isteyeceğiz</div>
+              </div>
+              <div class="card-content" style="padding: 10px">
+                <a href="#" class="button button-raised button-fill button-big color-purple survey-next-button" style="border-radius:20px">TESTE BAŞLA</a>
               </div>
             </div>
           </div>
 
-          <div class="swiper-slide" v-for="q in questionsList.questions">
-            <div class="card">
+          <div class="swiper-slide" v-for="q in questionsList.questions" style="background-color: #f0d2f0" >
+            <div class="card" style="border-radius:20px">
               <div class="card-header"><center>{{q.text}}</center></div>
               <div class="card-content">
                 <div class="list-block">
                   <ul>
                     <span v-for="c in questionsList.choices">
-                      <br />
-                      <li><a href="#" round="true "class="button button-raised button-fill color-cyan survey-next-button" @click="select(q.id,c)">{{c}}</a></li>
+                      <li  style="margin: 10px; padding: 5px"><a href="#" round="true "class="button button-raised button-fill color-purple survey-next-button" @click="select(q.id,c)" style="border-radius: 20px"">{{c}}</a></li>
                     </span>
                   </ul>
                 </div>
@@ -38,46 +39,52 @@
             </div>
           </div>
 
-          <!-- END OF STRESS SURVEY -->
+          <!-- END OF SURVEY -->
 
-          <div class="swiper-slide">
-            <a href="#" class="button button-raised button-fill button-big color-cyan survey-next-button">TESTİ BİTİR</a>
-          </div>
+          <div class="swiper-slide" v-show="$db('s3q1') === 'Evet' " style="background-color: #f0d2f0">
+            <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
+              <source src="file:///android_asset/www/output3.mp4" type="video/mp4">
+              </video>
+              <a class="floating-button color-purple survey-next-button"><i class="material-icons">navigate_next</i></a>
+            </div>
 
-          <div class="swiper-slide" v-show="$db('s3q1') === 'Evet' ">
-            <a href="#" class="button button-raised button-fill button-big color-cyan survey-next-button">1. video</a>
-          </div>
+            <div class="swiper-slide" v-show="$db('s3q2') === 'Evet' " style="background-color: #f0d2f0">
+              <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
+                <source src="file:///android_asset/www/output4.mp4" type="video/mp4">
+                </video>
+                <a class="floating-button color-purple survey-next-button"><i class="material-icons">navigate_next</i></a>
+              </div>
 
-          <div class="swiper-slide" v-show="$db('s3q2') === 'Evet' ">
-            <a href="#" class="button button-raised button-fill button-big color-cyan survey-next-button">2. video</a>
-          </div>
+              <div class="swiper-slide" v-show="$db('s3q3') === 'Evet' " style="background-color: #f0d2f0">
+                <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
+                  <source src="file:///android_asset/www/output5.mp4" type="video/mp4">
+                  </video>
+                  <a class="floating-button color-purple survey-next-button"><i class="material-icons">navigate_next</i></a>
+                </div>
 
-          <div class="swiper-slide" v-show="$db('s3q3') === 'Evet' ">
-            <a href="#" class="button button-raised button-fill button-big color-cyan survey-next-button">3. video</a>
-          </div>
+                <div class="swiper-slide" v-show="$db('s3q4') === 'Evet' " style="background-color: #f0d2f0">
+                  <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
+                    <source src="file:///android_asset/www/output6.mp4" type="video/mp4">
+                    </video>
+                    <a class="floating-button color-purple survey-next-button"><i class="material-icons">navigate_next</i></a>
+                  </div>
 
-          <div class="swiper-slide" v-show="$db('s3q4') === 'Evet' ">
-            <a href="#" class="button button-raised button-fill button-big color-cyan survey-next-button">4. video</a>
-          </div>
+                  <div class="swiper-slide" style="background-color: #f0d2f0">
+                    <a class="floating-button color-purple survey-next-button" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
+                      <div class="card" style="border-radius: 20px; position:absolute; top: 25%">
+                        <div class="card-header" style="text-align: center; font-size:20px" v-if="noProblem"> Sorunlara yaklaşımınızda bir problem yoktur devam edebilirsiniz </div>
+                        <div class="card-header" style="text-align: center; font-size:20px" v-if="!noProblem"> Testi bitir </div>
+                        <div class="card-content" style="padding-bottom: 10px">
 
-          <div class="swiper-slide" v-show="noProblem">
-            <div class="page-content">
-              <div class="content-block"><center>Sorunlara yaklaşımınızda bir problem yoktur devam edebilirsiniz</center></div>
-              <div class="content-block">
-                <a href="#" class="button button-raised button-fill button-big color-cyan survey-next-button">İLERLE</a>
+                        </div>
+                      </div>
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="swiper-slide">
-            <a href="/home/" class="button button-raised button-fill button-big color-cyan">AŞAMAYI BİTİR</a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
+        </template>
 <script>
 module.exports = {
   data() {
@@ -118,7 +125,40 @@ module.exports = {
       if (c === 'Evet') {
         this.noProblem = false
       }
+      console.log(this.noProblem)
+    },
+    navigateURL() {
+      this.$db('currentStep', 2)
+      this.$f7.views.main.loadPage('/home/')
+    },
+    updatePaused(event) {
+      this.videoElement = event.target
+      this.paused = event.target.paused
+    },
+    play() {
+      this.videoElement.play()
+    },
+    pause() {
+      this.videoElement.pause()
     },
   },
+  computed: {
+    playing() { return !this.paused },
+  },
 }
+</script>
+
+<style media="screen">
+.video-content
+  {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+    border-radius: 3px;
+  }
+</style>
 </script>

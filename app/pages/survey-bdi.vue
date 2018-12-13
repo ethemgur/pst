@@ -1,32 +1,71 @@
+<template>
+  <div data-page="cards" class="page kitchen-sink-material">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left"><a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a></div>
+        <div class="center">BDI TESTİ</div>
+      </div>
+    </div>
+    <a v-if="current === 0" class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
+    <div class="page-content" style="background-color: #f0d2f0; display: flex; align-items: center">
+      <div v-if="current !== 0" class="card" style="border-radius: 20px; width:90%; position: absolute; left: 2.5%">
+        <div class="card-header"><center>Son bir hafta içindeki (bugün dahil) kendi ruh durumunuzu göz önünde bulundurarak size en uygun olan ifadeyi bulunuz.</center></div>
+        <div class="card-content">
+          <div class="list-block">
+            <ul>
+              <span v-for="c in q.choices">
+                <br />
+                <li style="margin: 0 10px 0 10px"><a href="#" class="item-link" style="background-color:#9c27b0 ; color:white; border-radius: 50px" @click="select(c)"><p style="padding:2px; font-size:14px; text-align: center">{{c}}</p></a></li>
+              </span>
+              <br />
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="current === 0" class="card" style="border-radius: 20px; padding-top: 30px; padding-bottom: 30px; width:90%; position: absolute; left: 2.5%">
+        <div style="margin: 10px; text-align: center; font-size: 24px"> BDI testine başlamak için ilerle</div>
+      </div>
+    </div>
+  </div>
+</template>
 <script>
 export default {
   created() {
-    this.current = this.$f7.params.id
+    this.current = this.$db('survey')
+    this.q = this.questions[this.current]
+    console.log(this.current)
   },
   methods: {
     navigateURL() {
       if (this.current === 21) {
-
-        this.$f7.views.main.loadPage('/survey-satisfaction/0')
+        this.$db('survey', 0)
+        this.$f7.views.main.loadPage('/survey-satisfaction/')
       } else {
-        this.current += 1
-        this.$f7.views.main.loadPage(`/survey-bdi/${this.current}`)
+        this.$db('survey', this.current + 1)
+        this.$f7.views.main.refreshPage()
       }
     },
     select(c) {
+      const score = this.questions[this.current].choices.indexOf(c) + 1
       try {
-        const score = this.questions[this.current].choices.indexOf(c) + 1
-        const total = this.$db("bdi")
-        this.$db("bdi", score + total)
+        const total = this.$db('bdi')
+        this.$db('bdi', score + total)
       } catch (e) {
-        this.$db("bdi", score)
+        this.$db('bdi', score)
       }
+      this.navigateURL()
     },
   },
   data() {
     return {
+      q: 0,
       current: 0,
       questions: [
+        {
+          id: 0,
+          choices: [],
+        },
         {
           id: 1,
           choices: [

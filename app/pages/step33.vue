@@ -1,21 +1,16 @@
 <template>
-  <div data-page="video" class="page kitchen-sink-material">
-    <a href="/home/" class="floating-button color-cyan" @click="save"><i class="material-icons">navigate_next</i></a>
-    <div class="page-content">
-      <h3 style="padding-top:30%">
-        <center>
-          Şimdi bu hedefin gerçekleşmesi için neler yapılabileceğini düşünün.
-        </center>
-      </h3>
+  <div data-page="swiper-horizontal" class="page kitchen-sink-material">
+    <div class="navbar">
+      <div class="navbar-inner" >
+        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
+        <div class="center">3. ADIM</div>
+      </div>
+    </div>
+    <a href="/step34/" class="floating-button color-purple"><i class="material-icons">navigate_next</i></a>
+    <div class="page-content" style="background-color: #f0d2f0; display: flex; align-items: center">
+      <div class="card" style="border-radius: 20px; padding-top: 30px; padding-bottom: 30px">
+        <div style="margin: 10px; text-align: center; font-size: 24px"> Şimdi bu hedefin gerçekleşmesi için neler yapılabileceğini düşünün </div>
+      </div>
     </div>
   </div>
 </template>
-<script>
-export default {
-  methods: {
-    save() {
-      this.$db('step3', true)
-    },
-  },
-}
-</script>

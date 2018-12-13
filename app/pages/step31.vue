@@ -1,18 +1,60 @@
 <template>
   <div data-page="swiper-horizontal" class="page kitchen-sink-material">
-    <div class="page-content">
-      <div data-pagination=".swiper-pagination" data-paginationhide="true" class="swiper-container swiper-init ks-demo-slider">
-        <div class="swiper-pagination"></div>
-        <div class="swiper-wrapper">
-
-          <div class="swiper-slide">
-            <div class="page-content">
-              <a href="/step32/" class="floating-button color-cyan"><i class="material-icons">navigate_next</i></a>
-              <div class="content-block">Bu sorun ortadan kalktığında gerçekleşmesini istediğiniz hedefi belirleyin</div>
-             </div>
-          </div>
-        </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left"><a class="back link icon-only" href="#" @click="pause" ><i class="icon icon-back"></i></a></div>
+        <div class="center">3. ADIM</div>
       </div>
     </div>
-  </div>
-</template>
+    <a :href="'step311' " class="floating-button color-purple" @click="pause"><i class="material-icons">navigate_next</i></a>
+
+    <div class="page-content" style="background-color: #f0d2f0">
+      <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
+        <source src="file:///android_asset/www/output12.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </template>
+
+  <script>
+  export default {
+    data() {
+      return {
+        step: 0,
+        videoElement: null,
+        paused: null,
+      }
+    },
+    created() {
+      this.step = this.$route.params.step
+    },
+    methods: {
+      updatePaused(event) {
+        this.videoElement = event.target
+        this.paused = event.target.paused
+      },
+      play() {
+        this.videoElement.play()
+      },
+      pause() {
+        this.videoElement.pause()
+      },
+    },
+    computed: {
+      playing() { return !this.paused },
+    },
+  }
+  </script>
+
+  <style media="screen">
+  .video-content
+  {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+  }
+  </style>

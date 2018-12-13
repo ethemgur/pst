@@ -6,31 +6,39 @@
         <div class="center">{{el.text}}</div>
       </div>
     </div>
-    <div class="page-content">
+    <a href="/step24/" class="floating-button color-purple" @click="mergeChoices()"><i class="material-icons">navigate_next</i></a>
 
-      <a href="/step24/" class="floating-button color-cyan" @click="mergeChoices()"><i class="material-icons">navigate_next</i></a>
-
-      <div class="content-block">Bu nedenin şikayetlerinize olan katkısı?</div>
-      <div class="list-block">
-        <div class="item-content">
-          <div class="item-media"><p>{{score1}}</p></div>
-          <div class="item-inner">
-            <div class="item-input">
-              <div class="range-slider">
-                <input v-model.number="score1" type="range" min="0" max="9" value="4" step="1">
+    <div class="page-content" style="background-color: #f0d2f0">
+      <div class="card" style="border-radius: 20px">
+        <div class="card-header" style="margin:10px; color:gray; text-align: center">Bu nedenin şikayetlerinize olan katkısı?</div>
+        <div class="card-content">
+          <div class="list-block">
+            <div class="item-content">
+              <div class="item-media"><p>{{score1}}</p></div>
+              <div class="item-inner">
+                <div class="item-input">
+                  <div class="range-slider">
+                    <input v-model.number="score1" type="range" min="0" max="100" value="0" step="10">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="content-block">Eğer bu nedeni kaldırırsak şikayetleriniz ne kadar azalır?</div>
-      <div class="list-block">
-        <div class="item-content">
-          <div class="item-media"><p>{{score2}}</p></div>
-          <div class="item-inner">
-            <div class="item-input">
-              <div class="range-slider">
-                <input v-model.number="score2" type="range" min="0" max="9" step="1" value="4">
+
+      <div class="card" style="border-radius: 20px">
+        <div class="card-header" style="margin:10px; color:gray; text-align: center">Eğer bu nedeni kaldırırsak şikayetleriniz ne kadar azalır?</div>
+        <div class="card-content">
+          <div class="list-block">
+            <div class="item-content">
+              <div class="item-media"><p>{{score2}}</p></div>
+              <div class="item-inner">
+                <div class="item-input">
+                  <div class="range-slider">
+                    <input v-model.number="score2" type="range" min="0" max="100" step="10" value="0">
+                  </div>
+                </div>
               </div>
             </div>
           </div>

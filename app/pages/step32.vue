@@ -5,44 +5,62 @@
         <div class="left">
           <a class="back link icon-only" href="#"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">Step 3</div>
+        <div class="center">HEDEF BELİRLEME</div>
       </div>
     </div>
 
-    <a href="/step33/" v-show="validation()" class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
-    <a href="#" v-show="!validation()" class="floating-button" @click="validationAlert()" style="background:grey"><i class="material-icons">navigate_next</i></a>
+    <a href="/step33/" v-show="validation()" class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
+    <a href="#" v-show="!validation()" class="floating-button color-grey" @click="validationAlert()"><i class="material-icons">navigate_next</i></a>
 
-    <div class="page-content">
-      <div class="content-block-title"><center>{{bestReason.text}}</center></div>
-      <form class="list-block inputs-list">
-        <ul>
-          <li>
-            <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">label_outline</i></div>
-              <div class="item-inner">
-                <div class="item-title floating-label">Hedef</div>
-                <div class="item-input">
-                  <input v-model="goal1" type="text" placeholder="">
-                </div>
-              </div>
+    <div class="page-content" style="background-color: #f0d2f0">
+      <div class="content">
+        <div class="card" style="border-radius: 20px;">
+          <div class="card-header"> <div style="text-align:center; width: 100%"> En önemli sorun: {{bestReason.text}} </div></div>
+          <div class="card-content">
+            <div class="list-block inputs-list" style= "padding-bottom: 15px">
+              <ul>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><i class="icon material-icons">label_outline</i></div>
+                    <div class="item-inner">
+                      <div class="item-title floating-label">Hedef</div>
+                      <div class="item-input">
+                        <input v-model="goal1" type="text" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><i class="icon material-icons">label_outline</i></div>
+                    <div class="item-inner">
+                      <div class="item-title floating-label">Hedef</div>
+                      <div class="item-input">
+                        <input v-model="goal2" type="text" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
-          </li>
-          <li>
-            <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">label_outline</i></div>
-              <div class="item-inner">
-                <div class="item-title floating-label">Hedef</div>
-                <div class="item-input">
-                  <input v-model="goal2" type="text" placeholder="">
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </form>
+        </div>
+      </div>
+      </div>
     </div>
   </div>
 </template>
+<style>
+.content{
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%)
+}
+  .text{
+    text-align: center;
+    font-size: 24px;
+  }
+</style>
 
 <script>
 export default {

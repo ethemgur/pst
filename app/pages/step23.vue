@@ -3,24 +3,28 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="link icon-only" href="/step22/"><i class="icon icon-back"></i></a></div>
-        <div class="center">Step 2-3</div>
+        <div class="center">{{el.text}}</div>
       </div>
     </div>
-    <a href="/step22/" class="floating-button color-cyan" @click="matchChoices()"><i class="material-icons">navigate_next</i></a>
-    <div class="page-content">
-      <div class="content-block-title">Uygun gördüğünüz belirtileri seçin:</div>
-      <div class="list-block">
-        <ul>
-          <li v-for="i in symptoms">
-            <label class="label-checkbox item-content">
-              <input v-model="checkedSymptoms" type="checkbox" name="ks-checkbox" :value="i">
-              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-              <div class="item-inner">
-                <div class="item-title">{{i.text}}</div>
-              </div>
-            </label>
-          </li>
-        </ul>
+    <a href="/step22/" class="floating-button color-purple" @click="matchChoices()"><i class="material-icons">navigate_next</i></a>
+    <div class="page-content" style="background-color: #f0d2f0">
+      <div class="card" style="border-radius: 20px">
+        <div class="card-header" style="padding:10px; color:gray"><div style="text-align: center; width: 100%">Uygun gördüğünüz belirtileri seçin:</div></div>
+        <div class="card-content">
+          <div class="list-block" style="padding:10px">
+            <ul>
+              <li v-for="i in symptoms">
+                <label class="label-checkbox item-content">
+                  <input v-model="checkedSymptoms" type="checkbox" name="ks-checkbox" :value="i">
+                  <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                  <div class="item-inner">
+                    <div class="item-title" style="color:#9c27b0">{{i.text}}</div>
+                  </div>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -31,6 +35,7 @@ export default {
   data() {
     return {
       reasons: [],
+      el: {},
       symptoms: [],
       checkedSymptoms: [],
     }
@@ -54,6 +59,8 @@ export default {
         console.log('Local Storage Error')
       }
     }
+
+    this.el = this.reasons[this.getItemIndex(this.$route.params.id)]
   },
 
   methods: {

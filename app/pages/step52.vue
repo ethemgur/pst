@@ -7,15 +7,15 @@
       </div>
     </div>
 
-    <a v-show="isCompleted()" href="/home/" class="floating-button color-cyan"><i class="material-icons">navigate_next</i></a>
-
     <a v-show="!isCompleted()" href="#" class="floating-button" style="background:grey" @click="validationAlert()"><i class="material-icons">navigate_next</i></a>
-    <a v-show="isCompleted() && isOrdered" href="/home/" class="floating-button color-cyan" @click="saveDB()"><i class="material-icons">navigate_next</i></a>
+    <a v-show="isCompleted() && isOrdered" href="/step54/" class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
     <a v-show="isCompleted() && !isOrdered" href="/step52/" class="floating-button color-cyan" @click="orderSolutions()"><i class="material-icons">navigate_next</i></a>
 
-    <div class="page-content">
-      <div class="content-block-title">Çözüm Önerileri</div>
-      <div class="list-block">
+    <div class="page-content" style="background-color: #f0d2f0">
+      <div class="card" style="border-radius: 20px">
+      <div class="card-header"><div style="text-align:center; width: 100%"> Çözüm Önerileri </div> </div>
+
+      <div class="list-block" style="padding-bottom: 10px; padding-top: 10px">
         <ul>
           <li v-for="i in solutions">
             <a :href="'/step53/' + i.text" class="item-link item-content">
@@ -23,12 +23,13 @@
                 <div class="item-title">{{i.text}}</div>
                 <div v-show="isSolutionMatched(i)" class="item-after item-media">
                   {{i.totalScore}}
-                  <i class="icon material-icons color-cyan">done</i>
+                  <i class="icon material-icons color-purple">done</i>
                 </div>
               </div>
             </a>
           </li>
         </ul>
+      </div>
       </div>
     </div>
   </div>
@@ -94,9 +95,10 @@ export default {
       this.$f7.alert('Çözümler verilen puanlara göre sıralandı.')
     },
     navigateURL() {
-      this.saveGoals()
       if (this.saveDB()) {
-        this.$db('currentStep', 4)
+        this.$db('currentStep', 6)
+        console.log('------')
+        console.log(this.$db('currentStep'))
         this.$f7.views.main.loadPage('/home/')
       }
     },

@@ -204,6 +204,10 @@
     "component": "survey.vue"
   },
   {
+    "path": "/survey3-video/",
+    "component": "survey3-video.vue"
+  },
+  {
     "path": "/survey3/",
     "component": "survey3.vue"
   },

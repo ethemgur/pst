@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="page-content">
-      <div data-pagination=".swiper-pagination" data-pagination-type="progress" data-simulate-touch='false' data-next-button=".survey-next-button" class="swiper-container swiper-init ks-demo-slider">
+      <div data-pagination=".swiper-pagination" data-pagination-type="progress" data-simulate-touch='false' data-allow-touch-move='false' data-next-button=".survey-next-button" class="swiper-container swiper-init ks-demo-slider">
         <div class="swiper-pagination"></div>
         <div class="swiper-wrapper">
 
@@ -41,42 +41,12 @@
 
           <!-- END OF SURVEY -->
 
-          <div class="swiper-slide" v-show="$db('s3q1') === 'Evet' " style="background-color: #f0d2f0">
-            <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
-              <source src="file:///android_asset/www/output3.mp4" type="video/mp4">
-              </video>
-              <a class="floating-button color-purple survey-next-button"><i class="material-icons">navigate_next</i></a>
-            </div>
 
-            <div class="swiper-slide" v-show="$db('s3q2') === 'Evet' " style="background-color: #f0d2f0">
-              <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
-                <source src="file:///android_asset/www/output4.mp4" type="video/mp4">
-                </video>
-                <a class="floating-button color-purple survey-next-button"><i class="material-icons">navigate_next</i></a>
-              </div>
-
-              <div class="swiper-slide" v-show="$db('s3q3') === 'Evet' " style="background-color: #f0d2f0">
-                <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
-                  <source src="file:///android_asset/www/output5.mp4" type="video/mp4">
-                  </video>
-                  <a class="floating-button color-purple survey-next-button"><i class="material-icons">navigate_next</i></a>
-                </div>
-
-                <div class="swiper-slide" v-show="$db('s3q4') === 'Evet' " style="background-color: #f0d2f0">
-                  <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
-                    <source src="file:///android_asset/www/output6.mp4" type="video/mp4">
-                    </video>
-                    <a class="floating-button color-purple survey-next-button"><i class="material-icons">navigate_next</i></a>
-                  </div>
 
                   <div class="swiper-slide" style="background-color: #f0d2f0">
-                    <a class="floating-button color-purple survey-next-button" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
-                      <div class="card" style="border-radius: 20px; position:absolute; top: 25%">
-                        <div class="card-header" style="text-align: center; font-size:20px" v-if="noProblem"> Sorunlara yaklaşımınızda bir problem yoktur devam edebilirsiniz </div>
-                        <div class="card-header" style="text-align: center; font-size:20px" v-if="!noProblem"> Testi bitir </div>
-                        <div class="card-content" style="padding-bottom: 10px">
-
-                        </div>
+                    <a class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
+                      <div class="card" style="border-radius: 20px; position:absolute; top: 40%">
+                        <div class="card-header" style="text-align: center; font-size:20px"> Testi bitirmek için devam edin </div>
                       </div>
                   </div>
 
@@ -129,7 +99,17 @@ module.exports = {
     },
     navigateURL() {
       this.$db('currentStep', 2)
-      this.$f7.views.main.loadPage('/home/')
+      for (let i = 1; i < 5; i++) {
+        if (this.$db(`s3q${i}`) === 'Evet') {
+          this.noProblem = false
+        }
+      }
+      if (this.noProblem) {
+        this.$f7.views.main.loadPage('/home/')
+      } else {
+        this.$db('s3-noProblem', false)
+        this.$f7.views.main.loadPage('/survey3-video/')
+      }
     },
     updatePaused(event) {
       this.videoElement = event.target

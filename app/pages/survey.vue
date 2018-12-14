@@ -20,7 +20,7 @@
               <div class="item-media">{{score1}}</div>
               <div class="item-inner">
                 <div class="item-input">
-                  <div class="range-slider">
+                  <div class="range-slider color-purple">
                     <input v-model.number="score1" type="range" min="0" max="100" value="0" step="10">
                   </div>
                 </div>
@@ -40,7 +40,7 @@
               <div class="item-media">{{score2}}</div>
               <div class="item-inner">
                 <div class="item-input">
-                  <div class="range-slider">
+                  <div class="range-slider color-purple">
                     <input v-model.number="score2" type="range" min="0" max="100" value="0" step="10">
                   </div>
                 </div>
@@ -60,7 +60,7 @@
               <div class="item-media">{{score3}}</div>
               <div class="item-inner">
                 <div class="item-input">
-                  <div class="range-slider">
+                  <div class="range-slider color-purple">
                     <input v-model.number="score3" type="range" min="0" max="100" value="0" step="10">
                   </div>
                 </div>
@@ -80,7 +80,7 @@
               <div class="item-media">{{score4}}</div>
               <div class="item-inner">
                 <div class="item-input">
-                  <div class="range-slider">
+                  <div class="range-slider color-purple">
                     <input v-model.number="score4" type="range" min="0" max="100" value="0" step="10">
                   </div>
                 </div>
@@ -112,6 +112,12 @@ export default {
   },
   created() {
     this.step = this.$route.params.step
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
+  },
+  methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
   },
 }
 </script>

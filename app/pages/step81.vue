@@ -26,12 +26,20 @@
 </template>
 <script>
 export default {
+  created() {
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
+  },
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     select(c) {
       if (c === true) {
         console.log('Evet')
+        this.$db('step81-ans', 'Evet')
       } else {
         console.log('Hayır')
+        this.$db('step81-ans', 'Hayır')
       }
       this.$f7.views.main.loadPage('/step82/')
     },

@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div v-if="current === 0" class="card" style="border-radius: 20px; padding-top: 30px; padding-bottom: 30px">
+      <div v-if="current === 0" class="card" style="border-radius: 20px; padding-top: 30px; padding-bottom: 30px; width:90%; position: absolute; left: 2.5%">
         <div style="margin: 10px; text-align: center; font-size: 24px"> Memnuniyet testine başlamak için ilerle</div>
       </div>
     </div>

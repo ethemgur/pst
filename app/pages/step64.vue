@@ -1,5 +1,5 @@
 <template>
-  <div data-page="step61" class="page toolbar-fixed kitchen-sink-material">
+  <div data-page="step61" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left">
@@ -52,11 +52,14 @@ export default {
   created() {
     this.solution = this.$db('bestSolution')
     this.items = this.solution.nn
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
-
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     solutionPrompt() {
-      this.$f7.prompt('Yeni sonuç ekle', (data) => {
+      this.$f7.prompt('Yeni sonuç ekle', '', (data) => {
         if (data !== '') {
           this.items.push(data)
           console.log(`${data} is added!`)

@@ -1,6 +1,6 @@
 <template>
   <div data-page="home" class="page kitchen-sink-material">
-    <a href="/login/" class="floating-button color-purple" @click="$root.$signOut()"><i class="material-icons">power_settings_new</i></a>
+    <a href="/settings/" class="floating-button color-purple"><i class="material-icons">menu</i></a>
 
     <div class="page-content" :style="{'background-image': 'url(' + require('../images/bg-home.jpg') + ')'}" style="background-size: cover">
       <a v-if="isDone(1)" @click="navigateURL(1)">
@@ -52,7 +52,7 @@
         <img id="y7" src="../images/circle7-grey.png" width="50px" height="50px"/>
       </a>
 
-      <a href="#">
+      <a href="#" @click="finalAlert">
         <img id="y8" src="../images/reward-purple.png" width="50px" height="50px"/>
       </a>
     </div>
@@ -62,6 +62,9 @@
 <!--this.$f7.views.main.loadPage('/signup/')-->
 <script>
 export default {
+  created() {
+    console.log(this.$f7.views.main)
+  },
   methods: {
     isDone(i) {
       if (i <= this.$db('currentStep')) {
@@ -74,6 +77,13 @@ export default {
         this.$f7.views.main.loadPage(`/video/${i}/`)
       } else if (i < this.$db('currentStep')) {
         this.$f7.alert('You have completed this step.')
+      }
+    },
+    finalAlert() {
+      if (this.$db('currentStep') === 8) {
+        this.$f7.alert('You have completed all steps. We hope that you have solved your problems.')
+      } else {
+        this.$f7.alert('There is no free lunch. You should complete all steps.')
       }
     },
   },

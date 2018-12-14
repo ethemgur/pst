@@ -119,8 +119,12 @@ export default {
         console.log('Local Storage Error')
       }
     }
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     mergeChoices() {
       const scoresList = [this.score1, this.score2, this.score3, this.score4]
       this.solutions[this.getItemIndex(this.$route.params.id)].scores = scoresList

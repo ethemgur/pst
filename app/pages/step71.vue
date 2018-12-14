@@ -27,8 +27,13 @@ export default {
   },
   created() {
     this.step = this.$route.params.step
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
+    onBackKeyDown() {
+      this.pause()
+      this.$f7.views.main.loadPage('/home/')
+    },
     updatePaused(event) {
       this.videoElement = event.target
       this.paused = event.target.paused

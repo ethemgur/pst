@@ -20,7 +20,7 @@
               <a :href="'/step23/' + i.text" class="item-link item-content">
                 <div class="item-inner">
                   <div class="item-title">{{i.text}}</div>
-                  <div class="item-after item-media"><i v-show="isReasonMatched(i)" class="icon material-icons color-cyan">done</i></div>
+                  <div class="item-after item-media"><i v-show="isReasonMatched(i)" class="icon material-icons color-purple">done</i></div>
                 </div>
               </a>
             </li>
@@ -50,9 +50,12 @@ export default {
       }
     }
     console.log(this.reasons)
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
-
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     isCompleted() {
       // eslint-disable-next-line no-restricted-syntax
       for (const r in this.reasons) {

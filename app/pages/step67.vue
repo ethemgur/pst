@@ -36,7 +36,13 @@
 
 <script>
 export default {
+  created() {
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
+  },
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     navigateURL() {
       this.$db('currentStep', 4)
       this.$f7.views.main.loadPage('/step42/')

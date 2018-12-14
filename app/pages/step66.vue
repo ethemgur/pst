@@ -12,14 +12,26 @@
         <div class="card" style="border-radius: 20px">
           <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
             <source src="file:///android_asset/www/output21.mp4" type="video/mp4">
-          </video>
+            </video>
+          </div>
         </div>
-      </div>
 
+      </div>
     </div>
-  </div>
-</template>
-<style media="screen">
+  </template>
+  <script>
+  export default {
+    created() {
+      document.addEventListener('backbutton', this.onBackKeyDown, false)
+    },
+    methods: {
+      onBackKeyDown() {
+        this.$f7.views.main.loadPage('/home/')
+      },
+    },
+  }
+  </script>
+  <style media="screen">
   .content{
     margin: 0;
     position: absolute;
@@ -33,4 +45,4 @@
     text-align: center;
 
   }
-</style>
+  </style>

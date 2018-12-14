@@ -53,6 +53,7 @@ export default {
         if (this.$db('currentStep') === 1) {
           this.$f7.views.main.loadPage('/step12/')
         } else {
+          this.$db('currentStep', 8)
           this.$f7.views.main.loadPage('/home/')
         }
       } else {
@@ -88,6 +89,8 @@ export default {
           this.$f7.showIndicator()
         }
       }, 1000)
+      console.log(this.$db('survey-bdi'))
+      console.log(this.$db('currentStep'))
       window.db(`users/${this.$user.uid}/detailed-surveys`)
         .child(this.$db('currentStep')).set({
           bdi: this.$db('bdi'),

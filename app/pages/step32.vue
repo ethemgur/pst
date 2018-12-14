@@ -1,5 +1,5 @@
 <template>
-  <div data-page="step32" class="page toolbar-fixed kitchen-sink-material">
+  <div data-page="step32" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left">
@@ -83,9 +83,12 @@ export default {
     }
 
     this.getBestReason()
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
-
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     getBestReason() {
       let totalScore = 0
       let bestReason = {}

@@ -1,5 +1,5 @@
 <template>
-  <div data-page="step71" class="page toolbar-fixed kitchen-sink-material">
+  <div data-page="step71" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left">
@@ -45,10 +45,14 @@ export default {
     } else {
       this.plans = []
     }
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     planPrompt() {
-      this.$f7.prompt('Yeni aşama ekle', (data) => {
+      this.$f7.prompt('Yeni aşama ekle', '', (data) => {
         if (data !== '') {
           this.plans.push({
             text: data,

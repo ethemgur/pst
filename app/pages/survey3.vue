@@ -88,8 +88,14 @@ module.exports = {
       },
     }
   },
-
+  created() {
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
+  },
   methods: {
+    onBackKeyDown() {
+      this.pause()
+      this.$f7.views.main.loadPage('/home/')
+    },
     select(q, c) {
       this.$db(`s3q${q}`, c)
       if (c === 'Evet') {

@@ -8,41 +8,48 @@
     </div>
     <a :href="'home' " class="floating-button color-purple" @click="pause"><i class="material-icons">navigate_next</i></a>
     <div class="page-content" style="background-color: #f0d2f0">
-          <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
-            <source src="file:///android_asset/www/output17.mp4" type="video/mp4">
-          </video>
+      <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
+        <source src="file:///android_asset/www/output17.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
-  </div>
-</template>
+  </template>
 
-<script>
-export default {
-  data() {
-    return {
-      videoElement: null,
-      paused: null,
-    }
-  },
-  methods: {
-    updatePaused(event) {
-      this.videoElement = event.target
-      this.paused = event.target.paused
+  <script>
+  export default {
+    data() {
+      return {
+        videoElement: null,
+        paused: null,
+      }
     },
-    play() {
-      this.videoElement.play()
+    created() {
+      document.addEventListener('backbutton', this.onBackKeyDown, false)
     },
-    pause() {
-      this.videoElement.pause()
+    methods: {
+      onBackKeyDown() {
+        this.pause()
+        this.$f7.views.main.loadPage('/home/')
+      },
+      updatePaused(event) {
+        this.videoElement = event.target
+        this.paused = event.target.paused
+      },
+      play() {
+        this.videoElement.play()
+      },
+      pause() {
+        this.videoElement.pause()
+      },
     },
-  },
-  computed: {
-    playing() { return !this.paused },
-  },
-}
-</script>
+    computed: {
+      playing() { return !this.paused },
+    },
+  }
+  </script>
 
-<style media="screen">
-.video-content
+  <style media="screen">
+  .video-content
   {
     position: absolute;
     margin: auto;
@@ -53,4 +60,4 @@ export default {
     width: 300px;
     border-radius: 3px;
   }
-</style>
+  </style>

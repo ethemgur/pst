@@ -18,7 +18,7 @@ module.exports = function(vueApp) {
   }
   var $$ = window.Dom7;
 
-  vueApp.color = "deeppurple";
+  vueApp.color = "purple";
   // Init App
 
 

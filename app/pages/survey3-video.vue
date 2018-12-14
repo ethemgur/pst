@@ -28,8 +28,13 @@ export default {
     this.getVideo()
     console.log(this.video)
     console.log(this.q)
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
+    onBackKeyDown() {
+      this.pause()
+      this.$f7.views.main.loadPage('/home/')
+    },
     navigateURL() {
       this.pause()
       this.$db(`s3q${this.q}`, null)
@@ -39,11 +44,10 @@ export default {
         case this.$db('s3q3'):
         case this.$db('s3q4'):
           this.$f7.views.main.refreshPage()
-          break;
+          break
         default:
           this.$f7.views.main.loadPage('/home/')
       }
-
     },
     updatePaused(event) {
       this.videoElement = event.target

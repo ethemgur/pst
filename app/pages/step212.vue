@@ -1,5 +1,5 @@
 <template>
-  <div data-page="step21" class="page toolbar-fixed kitchen-sink-material">
+  <div data-page="step21" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left">
@@ -49,10 +49,14 @@ export default {
     } else {
       this.reasons = []
     }
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     reasonPrompt() {
-      this.$f7.prompt('Yeni neden ekle', (data) => {
+      this.$f7.prompt('Yeni neden ekle', '', (data) => {
         if (data !== '') {
           this.reasons.push({
             text: data,

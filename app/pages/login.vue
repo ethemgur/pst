@@ -25,34 +25,34 @@
 
     <!-- Email sign in buttons -->
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="green" fill @click="handleSignIn">{{text.signIn}}</f7-button>
+      <f7-button style="border-radius:20px" big round color="green" fill @click="handleSignIn">{{text.signIn}}</f7-button>
     </f7-block>
 
     <!-- Email registration buttons -->
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailRegistration">
-      <f7-button big raised color="green" @click="mode='registration'">{{text.createAccount}}</f7-button>
+      <f7-button big style="border-radius:20px" raised color="green" @click="mode='registration'">{{text.createAccount}}</f7-button>
     </f7-block>
     <f7-block v-if="mode === 'registration' && firebaseConfig.allowEmailRegistration">
-      <f7-button big raised color="green" fill @click="handleRegistration">{{text.handleRegistration}}</f7-button>
+      <f7-button big style="border-radius:20px" raised color="green" fill @click="handleRegistration">{{text.handleRegistration}}</f7-button>
     </f7-block>
 
     <!-- Email reset buttons -->
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="orange" @click="mode='reset'">{{text.resetPassword}}</f7-button>
+      <f7-button big style="border-radius:20px" raised color="orange" @click="mode='reset'">{{text.resetPassword}}</f7-button>
     </f7-block>
     <f7-block v-if="mode === 'reset' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="orange" fill @click="handleReset">{{text.handleReset}}</f7-button>
+      <f7-button big style="border-radius:20px" raised color="orange" fill @click="handleReset">{{text.handleReset}}</f7-button>
     </f7-block>
 
     <!-- Logout button -->
 
     <f7-block v-if="mode === 'signOut'">
-      <f7-button big raised color="red" fill @click="handleSignOut">{{text.signOut}}</f7-button>
+      <f7-button big style="border-radius:20px" raised color="red" fill @click="handleSignOut">{{text.signOut}}</f7-button>
     </f7-block>
 
     <!-- Cancel button -->
-    <f7-block v-if="(!$root.loginRequiringPagesOnStart && !$root.config.loginRequiredForPages) || mode !== 'signIn'">
-      <f7-button big raised color="red" @click="cancel">{{text.cancel}}</f7-button>
+    <f7-block v-if="mode !== 'signIn'">
+      <f7-button big style="border-radius:20px" raised color="red" @click="cancel">{{text.cancel}}</f7-button>
     </f7-block>
 
   </f7-page>
@@ -137,8 +137,8 @@ export default {
         // Reset required URLs
         this.$root.loginRequiringPages = []
         // Close popup
-        this.$f7.views.main.back()
-        this.$f7.closeModal('#app-framework-login-popup')
+        // this.$f7.views.main.back()
+        // this.$f7.closeModal('#app-framework-login-popup')
       }
     },
     handleSignIn() {
@@ -292,7 +292,7 @@ export default {
             // GET CURRENT STEP
             try {
               window.db(`users/${user.uid}/currentStep`).on('value', (snapshot) => {
-                this.$db('userInfo', snapshot.val().step)
+                this.$db('currentStep', snapshot.val().step)
               })
             } catch (e) {
               console.log(e)
@@ -340,12 +340,12 @@ export default {
         .then(() => {
         // Reset form
           this.mode = 'signIn'
-          localStorage.removeItem('data')
-          localStorage.removeItem('reasons')
-          localStorage.removeItem('solutions')
-          localStorage.removeItem('symptoms')
-          localStorage.removeItem('plans')
-          localStorage.removeItem('goals')
+          window.localStorage.removeItem('data')
+          window.localStorage.removeItem('reasons')
+          window.localStorage.removeItem('solutions')
+          window.localStorage.removeItem('symptoms')
+          window.localStorage.removeItem('plans')
+          window.localStorage.removeItem('goals')
           // Navigate pages back
           const navBack = (view, times) => {
             if (times > 0) {
@@ -407,6 +407,12 @@ export default {
             })
             // Handle sign in
             this.handleSignInDone()
+
+            window.db(`users/${user.uid}`)
+              .child('currentStep').set({
+                step: 1,
+              })
+
             this.$db('currentStep', 1)
             this.$f7.views.main.loadPage('/signup/')
           })

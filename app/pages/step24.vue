@@ -22,7 +22,7 @@
               <a :href="'/step25/' + i.text" class="item-link item-content">
                 <div class="item-inner">
                   <div class="item-title" style="color:#9c27b0">{{i.text}}</div>
-                  <div v-show="isReasonMatched(i)" class="item-after item-media"> {{i.totalScore}} <i class="icon material-icons color-cyan">done</i></div>
+                  <div v-show="isReasonMatched(i)" class="item-after item-media"> {{i.totalScore}} <i class="icon material-icons color-purple">done</i></div>
                 </div>
               </a>
             </li>
@@ -57,9 +57,12 @@ export default {
         console.log('Local Storage Error')
       }
     }
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
-
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     isCompleted() {
       // eslint-disable-next-line no-restricted-syntax
       for (const r in this.reasons) {

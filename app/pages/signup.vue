@@ -6,51 +6,69 @@
         <div class="center">Sign Up</div>
       </div>
     </div>
-    <div class="page-content">
-      <div class="content-block-title"></div>
+    <a class="floating-button color-purple" @click="apply"><i class="material-icons">navigate_next</i></a>
+    <div class="page-content" style="background-color: #f0d2f0">
       <form class="list-block inputs-list">
-        <ul>
-          <li>
-            <div class="item-content">
-              <div class="item-media"><i class="icon material-icons"></i></div>
-              <div class="item-inner">
-                <div class="item-title floating-label">Your name</div>
-                <div class="item-input">
-                  <input v-model="name" type="text" placeholder="">
+
+        <div class="card" style="border-radius: 20px">
+          <div class="card-header"><center>Bugün kendinizi ne kadar mutlu hissediyorsunuz?</center></div>
+          <div class="card-content">
+            <div class="list-block">
+              <div class="item-content">
+                <div class="item-media"><i class="icon material-icons"></i></div>
+                <div class="item-inner">
+                  <div class="item-title floating-label">Your name</div>
+                  <div class="item-input">
+                    <input v-model="name" type="text" placeholder="">
+                  </div>
                 </div>
               </div>
             </div>
-          </li>
-          <li>
-            <div class="item-content">
-              <div class="item-media"><i class="icon material-icons"></i></div>
-              <div class="item-inner">
-                <div class="item-title floating-label">Gender</div>
-                <div class="item-input">
-                  <select v-model="gender">
-                    <option value=""> </option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="item-content">
-              <div class="item-media"><i class="icon material-icons"></i></div>
-              <div class="item-inner">
-                <div class="item-title label">Birth date</div>
-                <div class="item-input">
-                  <input v-model="birthDate" type="date" placeholder="Birth day" value="">
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <div class="content-block">
-          <p class="buttons-row"><a href="#" class="button button-raised" @click="apply">Apply</a></p>
+          </div>
         </div>
+
+        <br />
+        <div class="card" style="border-radius: 20px">
+          <div class="card-header"><center>Bugün kendinizi ne kadar mutlu hissediyorsunuz?</center></div>
+          <div class="card-content">
+            <div class="list-block">
+              <div class="item-content">
+                <div class="item-media"><i class="icon material-icons"></i></div>
+                <div class="item-inner">
+                  <div class="item-title floating-label">Gender</div>
+                  <div class="item-input">
+                    <select v-model="gender">
+                      <option value=""> </option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <div class="card" style="border-radius: 20px">
+          <div class="card-header"><center>Bugün kendinizi ne kadar mutlu hissediyorsunuz?</center></div>
+          <div class="card-content">
+            <div class="list-block">
+              <div class="item-content">
+                <div class="item-media"><i class="icon material-icons"></i></div>
+                <div class="item-inner">
+                  <div class="item-title label">Birth date</div>
+                  <div class="item-input">
+                    <input v-model="birthDate" type="date" placeholder="Birth day" value="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+
       </form>
     </div>
   </div>

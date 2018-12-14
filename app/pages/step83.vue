@@ -14,3 +14,15 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  created() {
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
+  },
+  methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
+  },
+}
+</script>

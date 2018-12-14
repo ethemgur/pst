@@ -2,7 +2,7 @@
   <div data-page="step11" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
+        <div class="left"><a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a></div>
         <div class="center">1. ADIM</div>
       </div>
     </div>
@@ -16,7 +16,18 @@
 </template>
 <script>
 export default {
+  created() {
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
+    this.$db('bdi', 0)
+    this.$db('satisfaction', 0)
+    this.$db('selfesteem', 0)
+    this.$db('spsi', 0)
+    this.$db('stress', 0)
+  },
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     navigateURL() {
       this.$db('survey', 0)
       this.$f7.views.main.loadPage('/survey-spsi/0')

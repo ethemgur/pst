@@ -61,9 +61,12 @@ export default {
     }
 
     this.el = this.reasons[this.getItemIndex(this.$route.params.id)]
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
-
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     matchChoices() {
       this.reasons[this.getItemIndex(this.$route.params.id)].match = this.checkedSymptoms
       localStorage.setItem('reasons', JSON.stringify(this.reasons))

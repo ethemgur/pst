@@ -10,48 +10,55 @@
 
     <div class="page-content" style="background-color: #f0d2f0">
       <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
-        <source src="file:///android_asset/www/output9.mp4" type="video/mp4">
-        </video>
-      </div>
+        <source src="file:///android_asset/www/output9.mp4" type="video/mp4" />
+      </video>
     </div>
-  </template>
+  </div>
+</template>
 
-  <script>
-  export default {
-    data() {
-      return {
-        videoElement: null,
-        paused: null,
-      }
+<script>
+export default {
+  data() {
+    return {
+      videoElement: null,
+      paused: null,
+    }
+  },
+  created() {
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
+  },
+  methods: {
+    onBackKeyDown() {
+      this.pause()
+      this.$f7.views.main.loadPage('/home/')
     },
-    methods: {
-      updatePaused(event) {
-        this.videoElement = event.target
-        this.paused = event.target.paused
-      },
-      play() {
-        this.videoElement.play()
-      },
-      pause() {
-        this.videoElement.pause()
-      },
+    updatePaused(event) {
+      this.videoElement = event.target
+      this.paused = event.target.paused
     },
-    computed: {
-      playing() { return !this.paused },
+    play() {
+      this.videoElement.play()
     },
-  }
-  </script>
+    pause() {
+      this.videoElement.pause()
+    },
+  },
+  computed: {
+    playing() { return !this.paused },
+  },
+}
+</script>
 
-  <style media="screen">
-  .video-content
-  {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 300px;
-    border-radius: 3px;
-  }
-  </style>
+<style media="screen">
+.video-content
+{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  border-radius: 3px;
+}
+</style>

@@ -1,11 +1,19 @@
 [
   {
+    "path": "/about/",
+    "component": "about.vue"
+  },
+  {
     "path": "/home/",
     "component": "home.vue"
   },
   {
     "path": "/login/",
     "component": "login.vue"
+  },
+  {
+    "path": "/settings/",
+    "component": "settings.vue"
   },
   {
     "path": "/signup/",
@@ -144,6 +152,10 @@
     "component": "step72.vue"
   },
   {
+    "path": "/step8-video/",
+    "component": "step8-video.vue"
+  },
+  {
     "path": "/step81/",
     "component": "step81.vue"
   },
@@ -218,5 +230,9 @@
   {
     "path": "/video/:step/",
     "component": "video.vue"
+  },
+  {
+    "path": "/welcome/",
+    "component": "welcome.vue"
   }
 ]

@@ -3,7 +3,7 @@
   "defaultLanguage": "en",
   "defaultLanguageFallback": false,
   "theme": "material",
-  "color": "deeppurple",
+  "color": "purple",
   "layout": "default",
   "statusbarVisibility": false,
   "statusbarTextColor": "white",
@@ -49,7 +49,8 @@
   "playStoreId": "com.aea.pstherapy",
   "useCordovaPlugins": [],
   "cordovaPreferences": {
-    "DisallowOverscroll": true
+    "DisallowOverscroll": true,
+    "Orientation": "portrait"
   },
   "resetLocalStorageOnVersionChange": false,
   "preloadImages": true,

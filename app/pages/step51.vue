@@ -23,7 +23,14 @@ export default {
       paused: null,
     }
   },
+  created() {
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
+  },
   methods: {
+    onBackKeyDown() {
+      this.pause()
+      this.$f7.views.main.loadPage('/home/')
+    },
     updatePaused(event) {
       this.videoElement = event.target
       this.paused = event.target.paused

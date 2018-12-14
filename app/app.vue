@@ -34,9 +34,6 @@
   module.exports = {
     data() {
       return {
-        user: {
-          name: this.$db('userInfo').name,
-        },
         popupOpened: false,
         loginScreenOpened: false,
         pickerOpened: false,

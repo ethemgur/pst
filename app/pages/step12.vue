@@ -9,9 +9,9 @@
     <a class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
 
     <div class="page-content" style="background-color: #f0d2f0">
-          <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
-            <source src="file:///android_asset/www/output2.mp4" type="video/mp4">
-          </video>
+      <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
+        <source src="file:///android_asset/www/output2.mp4" type="video/mp4" />
+      </video>
     </div>
   </div>
 </template>
@@ -23,7 +23,14 @@ export default {
       paused: null,
     }
   },
+  created() {
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
+  },
   methods: {
+    onBackKeyDown() {
+      this.pause()
+      this.$f7.views.main.loadPage('/home/')
+    },
     navigateURL() {
       console.log('navigate')
       try {
@@ -52,14 +59,14 @@ export default {
 
 <style media="screen">
 .video-content
-  {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 95%;
-    border-radius: 3px;
-  }
+{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 95%;
+  border-radius: 3px;
+}
 </style>

@@ -8,8 +8,8 @@
     </div>
 
     <a v-show="!isCompleted()" href="#" class="floating-button" style="background:grey" @click="validationAlert()"><i class="material-icons">navigate_next</i></a>
-    <a v-show="isCompleted() && isOrdered" href="/step54/" class="floating-button color-cyan" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
-    <a v-show="isCompleted() && !isOrdered" href="/step52/" class="floating-button color-cyan" @click="orderSolutions()"><i class="material-icons">navigate_next</i></a>
+    <a v-show="isCompleted() && isOrdered" href="/step54/" class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
+    <a v-show="isCompleted() && !isOrdered" href="/step52/" class="floating-button color-purple" @click="orderSolutions()"><i class="material-icons">navigate_next</i></a>
 
     <div class="page-content" style="background-color: #f0d2f0">
       <div class="card" style="border-radius: 20px">
@@ -52,8 +52,12 @@ export default {
         console.log('Local Storage Error')
       }
     }
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     isCompleted() {
       // eslint-disable-next-line no-restricted-syntax
       for (const s in this.solutions) {

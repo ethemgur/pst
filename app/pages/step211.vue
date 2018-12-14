@@ -1,5 +1,5 @@
 <template>
-  <div data-page="step21" class="page toolbar-fixed kitchen-sink-material">
+  <div data-page="step21" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left">
@@ -49,10 +49,14 @@ export default {
       this.symptoms = []
     }
     console.log(localStorage.getItem('symptoms') === null)
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
+    onBackKeyDown() {
+      this.$f7.views.main.loadPage('/home/')
+    },
     symptomPrompt() {
-      this.$f7.prompt('Yeni belirti ekle', (data) => {
+      this.$f7.prompt('Yeni belirti ekle', '', (data) => {
         if (data !== '') {
           this.symptoms.push({
             text: data,

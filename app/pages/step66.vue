@@ -25,7 +25,7 @@ export default {
     }
   },
   created() {
-    this.src = 'https://www.youtube.com/embed/B_-oYh4SM64'
+    this.src = 'https://www.youtube-nocookie.com/embed/B_-oYh4SM64'
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {

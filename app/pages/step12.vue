@@ -23,7 +23,7 @@ export default {
     }
   },
   created() {
-    this.src = 'https://www.youtube.com/embed/EAhn8gcDYo0'
+    this.src = 'https://www.youtube-nocookie.com/embed/EAhn8gcDYo0'
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {

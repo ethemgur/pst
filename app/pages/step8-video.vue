@@ -24,7 +24,7 @@ export default {
     }
   },
   created() {
-    this.src = `https://www.youtube.com/embed/${this.videoName()}`
+    this.src = `https://www.youtube-nocookie.com/embed/${this.videoName()}`
     this.step = this.$route.params.step
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },

@@ -40,7 +40,7 @@ export default {
     }
   },
   created() {
-    this.src = 'https://www.youtube.com/embed/srSsZOLhmmE'
+    this.src = 'https://www.youtube-nocookie.com/embed/srSsZOLhmmE'
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {

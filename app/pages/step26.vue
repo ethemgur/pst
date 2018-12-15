@@ -26,7 +26,7 @@ export default {
     }
   },
   created() {
-    this.src = 'https://www.youtube.com/embed/QqTX18Y67Dw'
+    this.src = 'https://www.youtube-nocookie.com/embed/QqTX18Y67Dw'
     this.step = this.$route.params.step
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },

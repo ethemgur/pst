@@ -18,14 +18,14 @@ export default {
     return {
       src: '',
       q: 0,
-      video: 0,
+      video: '',
       videoElement: null,
       paused: null,
     }
   },
   created() {
     this.getVideo()
-    this.src = `https://www.youtube.com/embed/${this.getVideo()}`
+    this.src = `https://www.youtube-nocookie.com/embed/${this.video}`
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {

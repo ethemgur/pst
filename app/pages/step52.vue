@@ -2,8 +2,8 @@
   <div data-page="list-view" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
-        <div class="center">Çözüm Çizelgesi</div>
+        <div class="left"><a class="link icon-only" href="/step51/"><i class="icon icon-back"></i></a></div>
+        <div class="center"> {{title}} </div>
       </div>
     </div>
 
@@ -13,23 +13,23 @@
 
     <div class="page-content" style="background-color: #f0d2f0">
       <div class="card" style="border-radius: 20px">
-      <div class="card-header"><div style="text-align:center; width: 100%"> Çözüm Önerileri </div> </div>
+        <div class="card-header"><div style="text-align:center; width: 100%"> {{card_header}} </div> </div>
 
-      <div class="list-block" style="padding-bottom: 10px; padding-top: 10px">
-        <ul>
-          <li v-for="i in solutions">
-            <a :href="'/step53/' + i.text" class="item-link item-content">
-              <div class="item-inner">
-                <div class="item-title">{{i.text}}</div>
-                <div v-show="isSolutionMatched(i)" class="item-after item-media">
-                  {{i.totalScore}}
-                  <i class="icon material-icons color-purple">done</i>
+        <div class="list-block" style="padding-bottom: 10px; padding-top: 10px">
+          <ul>
+            <li v-for="i in solutions">
+              <a :href="'/step53/' + i.text" class="item-link item-content">
+                <div class="item-inner">
+                  <div class="item-title">{{i.text}}</div>
+                  <div v-show="isSolutionMatched(i)" class="item-after item-media">
+                    {{i.totalScore}}
+                    <i class="icon material-icons color-purple">done</i>
+                  </div>
                 </div>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -39,6 +39,8 @@
 export default {
   data() {
     return {
+      title: 'SOLUTION TABLE',
+      card_header: 'Solution Suggestions',
       solutions: [],
       isOrdered: false,
     }

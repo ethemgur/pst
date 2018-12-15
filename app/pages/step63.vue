@@ -5,7 +5,7 @@
         <div class="left">
           <a class="back link icon-only" href="#"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">6. ADIM</div>
+        <div class="center">STEP 6</div>
         <div class="right">
           <a class="link icon-only" href="#" @click="solutionPrompt"><i class="icon icon-plus"></i></a>
         </div>
@@ -20,25 +20,25 @@
         </div>
       </div>
       <div class="card" style="border-radius: 20px; margin-top: 20px; padding-bottom: 10px">
-        <div class="card-header" style="padding: 10px; text-align:center"> Çözümünü <b>uygulamamanın olumlu</b> sonuçları </div>
-      <div class="card-content">
-        <div class="list-block" style="margin-top: 10px">
-          <ul>
-            <li style="color:gray; text-align:center" v-show="items.length===0">Henüz Sonuç Girmediniz</li>
-            <li class="item" v-for="i in items">
-              <div class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">{{i}}</div>
-                  <div class="item-after"><i class="material-icons" style="color:#9c27b0" @click="removeSolution(i)">clear</i></div>
+        <div class="card-header" style="padding: 10px; text-align:center"> Positive results of implementing the solution </div>
+        <div class="card-content">
+          <div class="list-block" style="margin-top: 10px">
+            <ul>
+              <li style="color:gray; text-align:center" v-show="items.length===0">You haven't entered yet!</li>
+              <li class="item" v-for="i in items">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{i}}</div>
+                    <div class="item-after"><i class="material-icons" style="color:#9c27b0" @click="removeSolution(i)">clear</i></div>
+                  </div>
                 </div>
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -60,7 +60,7 @@ export default {
       this.$f7.views.main.loadPage('/home/')
     },
     solutionPrompt() {
-      this.$f7.prompt('Yeni sonuç ekle', '', (data) => {
+      this.$f7.prompt('Add new result', '', (data) => {
         if (data !== '') {
           this.items.push(data)
           console.log(`${data} is added!`)
@@ -90,7 +90,7 @@ export default {
         this.$f7.views.main.loadPage('/step64/')
         return
       }
-      this.$f7.alert('Lütfen tabloyu doldurun.')
+      this.$f7.alert('Please copmlete the table.')
     },
   },
 }

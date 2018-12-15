@@ -5,7 +5,7 @@
         <div class="left">
           <a class="link icon-only" href="/step212/"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">Eşleştirme</div>
+        <div class="center">{{title}}</div>
       </div>
     </div>
     <a v-show="!isCompleted()" href="#" class="floating-button" style="background:grey"><i class="material-icons">navigate_next</i></a>
@@ -14,18 +14,18 @@
       <div class="card" style="border-radius: 20px">
         <div class="card-header" style="padding:10px; color:gray; text-align:center">Nedenlere tıklayarak uygun belirtileri seçin</div>
         <div class="card-content">
-        <div class="list-block" style="padding:10px">
-          <ul>
-            <li v-for="i in reasons">
-              <a :href="'/step23/' + i.text" class="item-link item-content">
-                <div class="item-inner">
-                  <div class="item-title">{{i.text}}</div>
-                  <div class="item-after item-media"><i v-show="isReasonMatched(i)" class="icon material-icons color-purple">done</i></div>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
+          <div class="list-block" style="padding:10px">
+            <ul>
+              <li v-for="i in reasons">
+                <a :href="'/step23/' + i.text" class="item-link item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{i.text}}</div>
+                    <div class="item-after item-media"><i v-show="isReasonMatched(i)" class="icon material-icons color-purple">done</i></div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -36,6 +36,8 @@
 export default {
   data() {
     return {
+      title: 'MATCHING PART',
+      card_header: 'Please select the appropriate symptoms by clicking on the reasons',
       reasons: [],
     }
   },

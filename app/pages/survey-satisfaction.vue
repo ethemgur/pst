@@ -3,7 +3,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a></div>
-        <div class="center">MEMNUNİYET TESTİ</div>
+        <div class="center"> {{title}} </div>
       </div>
     </div>
     <a v-if="current === 0" class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
@@ -17,14 +17,14 @@
                 <br />
                 <li style="margin: 0 10px 0 10px"><a href="#" round="true "class="button button-raised button-fill color-purple" style="border-radius: 50px" @click="select(c)">{{c}}</a></li>
               </span>
-                <br />
+              <br />
             </ul>
           </div>
         </div>
       </div>
 
       <div v-if="current === 0" class="card" style="border-radius: 20px; padding-top: 30px; padding-bottom: 30px; width:90%; position: absolute; left: 2.5%">
-        <div style="margin: 10px; text-align: center; font-size: 24px"> Memnuniyet testine başlamak için ilerle</div>
+        <div style="margin: 10px; text-align: center; font-size: 24px"> {{content}} </div>
       </div>
     </div>
   </div>
@@ -34,13 +34,18 @@ export default {
   created() {
     this.current = this.$db('survey')
     this.q = this.questions[this.current]
-    console.log(this.current)
   },
   methods: {
     navigateURL() {
       if (this.current === 6) {
+        this.saveDB()
         this.$db('survey', 0)
-        this.$f7.views.main.loadPage('/survey-stress/')
+        this.$db('satisfaction', 0)
+        if (this.$db('currentStep') === 1) {
+          this.$f7.views.main.loadPage('/step12/')
+        } else {
+          this.$f7.views.main.loadPage('/home/')
+        }
       } else {
         this.$db('survey', this.current + 1)
         this.$f7.views.main.refreshPage()
@@ -56,18 +61,58 @@ export default {
       }
       this.navigateURL()
     },
+    saveDB() {
+      if (!navigator.onLine) {
+        window.f7.addNotification({
+          title: 'Offline',
+          message: 'This action is not possible in offline mode.',
+          hold: 3000,
+          closeIcon: false,
+        })
+        return
+      }
+
+      // Show loading indicator with delay
+      let saved = false
+      setTimeout(() => {
+        if (!saved) {
+          this.$f7.showIndicator()
+        }
+      }, 1000)
+      console.log(this.$db('survey-bdi'))
+      console.log(this.$db('currentStep'))
+      window.db(`users/${this.$user.uid}/detailed-surveys`)
+        .child(this.$db('currentStep')).set({
+          bdi: this.$db('bdi'),
+          satisfaction: this.$db('satisfaction'),
+          selfesteem: this.$db('selfesteem'),
+          spsi: this.$db('spsi'),
+          stress: this.$db('stress'),
+        })
+        .then(() => {
+          saved = true
+          this.$f7.hideIndicator()
+        })
+        .catch(() => {
+          this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Firebase')
+          saved = true
+          this.$f7.hideIndicator()
+        })
+    },
   },
   data() {
     return {
+      title: 'SATISFACTION SURVEY',
+      content: 'Proceed to begin the satisfaction survey.',
       q: {},
       current: 0,
       choices: [
-        'Kesinlikle katılmıyorum',
-        'Katılmıyorum',
-        'Biraz katılmıyorum',
-        'Biraz katılıyorum',
-        'Katılıyorum',
-        'Kesinlikle katılıyorum',
+        'I strongly disagree',
+        'I do not agree',
+        'I disagree slightly.',
+        'I agree a little',
+        'I agree',
+        'Absolutely I agree',
       ],
       questions: [
         {
@@ -76,27 +121,27 @@ export default {
         },
         {
           id: 1,
-          text: 'Hayatım birçok yönlerden idealimdekine yakın',
+          text: 'My life is close to my ideal in many ways',
         },
         {
           id: 2,
-          text: 'Hayat şartlarım mükemmel',
+          text: 'My life conditions are perfect',
         },
         {
           id: 3,
-          text: 'Hayatımdan memnunum',
+          text: 'I am satisfied with my life',
         },
         {
           id: 4,
-          text: 'Hayatım, yakın çevremdekilerin çoğunun hayatından daha iyi',
+          text: 'My life is better than most of people',
         },
         {
           id: 5,
-          text: 'Hayattan şimdiye kadar istediğim önemli şeyleri elde ettim',
+          text: 'I got what I wanted from life so far.',
         },
         {
           id: 6,
-          text: 'Eğer hayata yeniden başlasaydım hemen hemen hiçbir şeyi değiştirmezdim',
+          text: 'I would not have changed almost anything if I had restarted of my life.',
         },
       ],
     }

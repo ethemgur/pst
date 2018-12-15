@@ -9,7 +9,7 @@
     <a href="/step22/" class="floating-button color-purple" @click="matchChoices()"><i class="material-icons">navigate_next</i></a>
     <div class="page-content" style="background-color: #f0d2f0">
       <div class="card" style="border-radius: 20px">
-        <div class="card-header" style="padding:10px; color:gray"><div style="text-align: center; width: 100%">Uygun gördüğünüz belirtileri seçin:</div></div>
+        <div class="card-header" style="padding:10px; color:gray"><div style="text-align: center; width: 100%">{{card_header}}</div></div>
         <div class="card-content">
           <div class="list-block" style="padding:10px">
             <ul>
@@ -34,6 +34,7 @@
 export default {
   data() {
     return {
+      card_header: 'Please select the appropriate symptoms:',
       reasons: [],
       el: {},
       symptoms: [],

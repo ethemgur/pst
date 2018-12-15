@@ -5,7 +5,7 @@
         <div class="left">
           <a class="back link icon-only" href="#"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">HEDEF BELİRLEME</div>
+        <div class="center">{{title}}</div>
       </div>
     </div>
 
@@ -15,7 +15,7 @@
     <div class="page-content" style="background-color: #f0d2f0">
       <div class="content">
         <div class="card" style="border-radius: 20px;">
-          <div class="card-header"> <div style="text-align:center; width: 100%"> En önemli sorun: {{bestReason.text}} </div></div>
+          <div class="card-header"> <div style="text-align:center; width: 100%"> {{card_header}} {{bestReason.text}} </div></div>
           <div class="card-content">
             <div class="list-block inputs-list" style= "padding-bottom: 15px">
               <ul>
@@ -23,7 +23,7 @@
                   <div class="item-content">
                     <div class="item-media"><i class="icon material-icons">label_outline</i></div>
                     <div class="item-inner">
-                      <div class="item-title floating-label">Hedef</div>
+                      <div class="item-title floating-label">{{goal}}</div>
                       <div class="item-input">
                         <input v-model="goal1" type="text" placeholder="">
                       </div>
@@ -34,7 +34,7 @@
                   <div class="item-content">
                     <div class="item-media"><i class="icon material-icons">label_outline</i></div>
                     <div class="item-inner">
-                      <div class="item-title floating-label">Hedef</div>
+                      <div class="item-title floating-label">{{goal}}</div>
                       <div class="item-input">
                         <input v-model="goal2" type="text" placeholder="">
                       </div>
@@ -43,8 +43,8 @@
                 </li>
               </ul>
             </div>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </div>
@@ -56,16 +56,19 @@
   width: 100%;
   transform: translate(-50%, -50%)
 }
-  .text{
-    text-align: center;
-    font-size: 24px;
-  }
+.text{
+  text-align: center;
+  font-size: 24px;
+}
 </style>
 
 <script>
 export default {
   data() {
     return {
+      title: 'GOAL DETERMINATION',
+      card_header: 'The most important problem: ',
+      goal: 'goal',
       reasons: [],
       goal1: '',
       goal2: '',

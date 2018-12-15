@@ -3,9 +3,9 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left">
-          <a class="back link icon-only" href="#"><i class="icon icon-back"></i></a>
+          <a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">Step 4</div>
+        <div class="center">{{title}}</div>
         <div class="right">
           <a class="link icon-only" href="#" @click="solutionPrompt"><i class="icon icon-plus"></i></a>
         </div>
@@ -39,6 +39,8 @@
 export default {
   data() {
     return {
+      title: 'STEP 4',
+      noEntry: "You haven't entered anything yet!",
       solutions: [],
     }
   },

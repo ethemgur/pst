@@ -14,7 +14,7 @@
       <br />
 
       <div class="card" style="border-radius: 20px">
-        <div class="card-header"><center>Sorunu Çözmesi</center></div>
+        <div class="card-header"><center> {{card_header1}} </center></div>
         <div class="card-content">
           <div class="list-block" style="margin: 0">
             <div class="item-content">
@@ -34,7 +34,7 @@
       <br />
 
       <div class="card" style="border-radius: 20px">
-        <div class="card-header"><center>Hedefle Uyumu</center></div>
+        <div class="card-header"><center> {{card_header2}} </center></div>
         <div class="card-content">
           <div class="list-block">
             <div class="item-content">
@@ -54,7 +54,7 @@
       <br />
 
       <div class="card" style="border-radius: 20px">
-        <div class="card-header"><center>Uygulanabilirliği</center></div>
+        <div class="card-header"><center> {{card_header3}} </center></div>
         <div class="card-content">
           <div class="list-block">
             <div class="item-content">
@@ -74,7 +74,7 @@
       <br />
 
       <div class="card" style="border-radius: 20px">
-        <div class="card-header">Kabul edilebilirliği</div>
+        <div class="card-header"> {{card_header4}} </div>
         <div class="card-content">
           <div class="list-block">
             <div class="item-content">
@@ -103,6 +103,10 @@
 export default {
   data() {
     return {
+      card_header1: 'Effectiveness to Solve Problem',
+      card_header2: 'Convenience with the Target',
+      card_header3: 'Applicability',
+      card_header4: 'Acceptability',
       solutions: [],
       score1: 0,
       score2: 0,

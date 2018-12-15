@@ -2,7 +2,6 @@
   <div data-page="sign-up" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
         <div class="center">Sign Up</div>
       </div>
     </div>
@@ -11,7 +10,6 @@
       <form class="list-block inputs-list">
 
         <div class="card" style="border-radius: 20px">
-          <div class="card-header"><center>Bugün kendinizi ne kadar mutlu hissediyorsunuz?</center></div>
           <div class="card-content">
             <div class="list-block">
               <div class="item-content">
@@ -29,7 +27,6 @@
 
         <br />
         <div class="card" style="border-radius: 20px">
-          <div class="card-header"><center>Bugün kendinizi ne kadar mutlu hissediyorsunuz?</center></div>
           <div class="card-content">
             <div class="list-block">
               <div class="item-content">
@@ -51,7 +48,6 @@
 
         <br />
         <div class="card" style="border-radius: 20px">
-          <div class="card-header"><center>Bugün kendinizi ne kadar mutlu hissediyorsunuz?</center></div>
           <div class="card-content">
             <div class="list-block">
               <div class="item-content">

@@ -5,7 +5,7 @@
         <div class="left">
           <a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">Şikayetler</div>
+        <div class="center">Symptoms</div>
         <div class="right">
           <a class="link icon-only" href="#" @click="symptomPrompt"><i class="icon icon-plus"></i></a>
         </div>
@@ -18,7 +18,7 @@
       <div class="card" style="border-radius: 20px; padding: 10px">
         <div class="list-block">
           <ul>
-            <li style="color:gray; text-align: center" v-show="symptoms.length===0"> Henüz Belirti Girmediniz </li>
+            <li style="color:gray; text-align: center" v-show="symptoms.length===0"> You haven't entered yet! </li>
             <li class="item" v-for="i in symptoms" style="margin: 5px 0 5px 0">
               <div class="item-content">
                 <div class="item-inner">
@@ -56,7 +56,7 @@ export default {
       this.$f7.views.main.loadPage('/home/')
     },
     symptomPrompt() {
-      this.$f7.prompt('Yeni belirti ekle', '', (data) => {
+      this.$f7.prompt('Add new symptom', '', (data) => {
         if (data !== '') {
           this.symptoms.push({
             text: data,
@@ -88,7 +88,7 @@ export default {
         this.$f7.views.main.loadPage('/step212/')
         return
       }
-      this.$f7.alert('Lütfen tabloyu doldurun.')
+      this.$f7.alert('Please complete the table.')
     },
   },
 

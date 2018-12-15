@@ -3,7 +3,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="link icon-only" href="/step22/"><i class="icon icon-back"></i></a></div>
-        <div class="center">Puanlama</div>
+        <div class="center">{{title}}</div>
       </div>
     </div>
 
@@ -14,7 +14,7 @@
     <div class="page-content" style="background-color: #f0d2f0">
       <div class="card" style="border-radius: 20px">
         <div class="card-header" style="padding: 10px; color:gray; text-align: center">
-          <div style="text-align: center; width: 100%">Nedenlere tıklayarak derecenlendirin</div>
+          <div style="text-align: center; width: 100%">{{card_header}}</div>
         </div>
         <div class="list-block" style="padding:10px">
           <ul>
@@ -36,6 +36,8 @@
 export default {
   data() {
     return {
+      title: 'GRADING',
+      card_header: 'Please rate the reasons by clicking on them',
       reasons: [],
       symptoms: [],
       isOrdered: false,

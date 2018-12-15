@@ -2,15 +2,13 @@
   <div data-page="swiper-horizontal" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="link icon-only" href="/home/" @click="pause" ><i class="icon icon-back"></i></a></div>
-        <div class="center">{{step}}. ADIM</div>
+        <div class="left"><a class="link icon-only" href="/home/" @click="pause2" ><i class="icon icon-back"></i></a></div>
+        <div class="center">STEP {{step}}</div>
       </div>
     </div>
-    <a :href="'/survey/' + step" class="floating-button color-purple" @click="pause"><i class="material-icons">navigate_next</i></a>
+    <a :href="'/survey/' + step" class="floating-button color-purple" @click="pause2"><i class="material-icons">navigate_next</i></a>
     <div class="page-content" style="background-color: #f0d2f0">
-      <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
-        <source :src="'file:///android_asset/www/output' +videoName()+ '.mp4'" type="video/mp4" />
-      </video>
+      <iframe id="yvideo" class="video-content" :src="src" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </template>
@@ -18,51 +16,42 @@
 export default {
   data() {
     return {
+      src: '',
       step: 0,
       videoElement: null,
       paused: null,
     }
   },
   created() {
+    this.src = `https://www.youtube-nocookie.com/embed/${this.videoName()}`
     this.step = this.$route.params.step
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
+    pause2() {
+      this.src = ''
+    },
     onBackKeyDown() {
       this.pause()
       this.$f7.views.main.loadPage('/home/')
     },
-    updatePaused(event) {
-      this.videoElement = event.target
-      this.paused = event.target.paused
-    },
-    play() {
-      this.videoElement.play()
-    },
-    pause() {
-      this.videoElement.pause()
-    },
     videoName() {
       if (this.$db('currentStep') === 1) {
-        return '1'
+        return 'UkPHa6Srd90'
       } else if (this.$db('currentStep') === 2) {
-        return '8'
+        return 'VJumP_QOWtk'
       } else if (this.$db('currentStep') === 3) {
-        return '11'
+        return 'efxl5XVWX_I'
       } else if (this.$db('currentStep') === 4) {
-        return '14'
+        return 'UZtI5Nm8fR4'
       } else if (this.$db('currentStep') === 5) {
-        return '15'
+        return 'gzhBpZuOJxM'
       } else if (this.$db('currentStep') === 6) {
-        return '18'
+        return '3tMEvDJ-nqk'
       }
-      return '24'
+      return '3HgnmrWwLIQ'
     },
   },
-  computed: {
-    playing() { return !this.paused },
-  },
-
 }
 </script>
 
@@ -77,6 +66,6 @@ export default {
   left: 0;
   width: 90%;
   height: auto;
-  border-radius: 3px;
+  border-radius: 20px;
 }
 </style>

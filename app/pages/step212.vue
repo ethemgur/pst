@@ -5,7 +5,7 @@
         <div class="left">
           <a class="link icon-only" href="/step211/"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">Nedenler</div>
+        <div class="center">Reasons</div>
         <div class="right">
           <a class="link icon-only" href="#" @click="reasonPrompt"><i class="icon icon-plus"></i></a>
         </div>
@@ -18,7 +18,7 @@
       <div class="card" style="border-radius: 20px; padding: 10px">
         <div class="list-block">
           <ul>
-            <li style="color:gray; text-align:center" v-show="reasons.length===0">Henüz Neden Girmediniz</li>
+            <li style="color:gray; text-align:center" v-show="reasons.length===0">You haven't entered yet!</li>
             <li class="swipeout" v-for="i in reasons" style="margin: 5px 0 5px 0">
               <div class="item-content">
                 <div class="item-inner">
@@ -56,7 +56,7 @@ export default {
       this.$f7.views.main.loadPage('/home/')
     },
     reasonPrompt() {
-      this.$f7.prompt('Yeni neden ekle', '', (data) => {
+      this.$f7.prompt('Add new reason', '', (data) => {
         if (data !== '') {
           this.reasons.push({
             text: data,
@@ -90,7 +90,7 @@ export default {
         this.$f7.views.main.loadPage('/step22/')
         return
       }
-      this.$f7.alert('Lütfen iki tabloyu doldurun.')
+      this.$f7.alert('Please complete both table.')
     },
   },
 

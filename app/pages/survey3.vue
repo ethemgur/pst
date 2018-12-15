@@ -3,7 +3,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a></div>
-        <div class="center">GENEL TEST</div>
+        <div class="center">GENERAL TEST</div>
       </div>
     </div>
     <div class="page-content">
@@ -16,10 +16,10 @@
           <div class="swiper-slide" style="background-color: #f0d2f0; display: flex; align-items: center">
             <div class="card" style="border-radius:20px; padding-top: 10px; padding-bottom:10px">
               <div class="card-header">
-                <div style="text-align: center; font-size: 18px"> Şimdi size verilen cümleler üzerinde düşünmenizi ve en uygun olan şıkkı işaretlemenizi isteyeceğiz</div>
+                <div style="text-align: center; font-size: 18px"> Now we will ask you to think about the sentences given to you and mark the most appropriate</div>
               </div>
               <div class="card-content" style="padding: 10px">
-                <a href="#" class="button button-raised button-fill button-big color-purple survey-next-button" style="border-radius:20px">TESTE BAŞLA</a>
+                <a href="#" class="button button-raised button-fill button-big color-purple survey-next-button" style="border-radius:20px">START TO TEST</a>
               </div>
             </div>
           </div>
@@ -43,18 +43,18 @@
 
 
 
-                  <div class="swiper-slide" style="background-color: #f0d2f0">
-                    <a class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
-                      <div class="card" style="border-radius: 20px; position:absolute; top: 40%">
-                        <div class="card-header" style="text-align: center; font-size:20px"> Testi bitirmek için devam edin </div>
-                      </div>
-                  </div>
-
-                </div>
-              </div>
+          <div class="swiper-slide" style="background-color: #f0d2f0">
+            <a class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
+            <div class="card" style="border-radius: 20px; position:absolute; top: 40%">
+              <div class="card-header" style="text-align: center; font-size:20px"> FINISH THE TEST </div>
             </div>
           </div>
-        </template>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 <script>
 module.exports = {
   data() {
@@ -63,25 +63,25 @@ module.exports = {
       questionsList: {
 
         choices: [
-          'Evet',
-          'Hayır',
+          'Yes',
+          'No',
         ],
         questions: [
           {
             id: 1,
-            text: 'Hayatımdaki zorluk, sıkıntı ve engelleri görmezden gelirim.',
+            text: 'I ignore the difficulties, distress and obstacles in my life.',
           },
           {
             id: 2,
-            text: 'Sorunlar karşısında aklıma ilk geleni uygularım',
+            text: 'I apply my first thought to the problems',
           },
           {
             id: 3,
-            text: 'Hayatımdaki engelleri aşılamaz, çözülemez olarak görürüm.',
+            text: 'I see the obstacles in my life as insurmountable.',
           },
           {
             id: 4,
-            text: 'Yaşadığım sıkıntıları faydasız, gereksiz görürüm.',
+            text: 'I see the problems I have experienced are useless, unnecessary.',
           },
         ],
 
@@ -98,7 +98,7 @@ module.exports = {
     },
     select(q, c) {
       this.$db(`s3q${q}`, c)
-      if (c === 'Evet') {
+      if (c === 'Yes') {
         this.noProblem = false
       }
       console.log(this.noProblem)
@@ -106,7 +106,7 @@ module.exports = {
     navigateURL() {
       this.$db('currentStep', 2)
       for (let i = 1; i < 5; i++) {
-        if (this.$db(`s3q${i}`) === 'Evet') {
+        if (this.$db(`s3q${i}`) === 'Yes') {
           this.noProblem = false
         }
       }
@@ -117,34 +117,21 @@ module.exports = {
         this.$f7.views.main.loadPage('/survey3-video/')
       }
     },
-    updatePaused(event) {
-      this.videoElement = event.target
-      this.paused = event.target.paused
-    },
-    play() {
-      this.videoElement.play()
-    },
-    pause() {
-      this.videoElement.pause()
-    },
-  },
-  computed: {
-    playing() { return !this.paused },
   },
 }
 </script>
 
 <style media="screen">
 .video-content
-  {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 95%;
-    border-radius: 3px;
-  }
+{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 95%;
+  border-radius: 3px;
+}
 </style>
 </script>

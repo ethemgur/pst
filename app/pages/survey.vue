@@ -2,8 +2,8 @@
   <div data-page="progressbar" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
-        <div class="center">ADIM TESTİ</div>
+        <div class="left"><a :href="'/video/' + step" class="link icon-only"><i class="icon icon-back"></i></a></div>
+        <div class="center">STEP TEST</div>
       </div>
     </div>
 
@@ -13,7 +13,7 @@
     <div class="page-content" style="background-color: #f0d2f0">
       <br />
       <div class="card" style="border-radius: 20px">
-        <div class="card-header"><center>Bugün kendinizi ne kadar mutlu hissediyorsunuz?</center></div>
+        <div class="card-header"><center>How happy are you feeling today?</center></div>
         <div class="card-content">
           <div class="list-block">
             <div class="item-content">
@@ -33,7 +33,7 @@
       <br />
 
       <div class="card" style="border-radius: 20px">
-        <div class="card-header"><center>Bugün kendinizi ne kadar seviyorsunuz?</center></div>
+        <div class="card-header"><center>How much do you love yourself today?</center></div>
         <div class="card-content">
           <div class="list-block">
             <div class="item-content">
@@ -46,14 +46,14 @@
                 </div>
               </div>
             </div>
-        </div>
+          </div>
         </div>
       </div>
 
       <br />
 
       <div class="card" style="border-radius: 20px">
-        <div class="card-header"><center>Bugün kendinize ne kadar güveniyorsunuz?</center></div>
+        <div class="card-header"><center>How confident are you today?</center></div>
         <div class="card-content">
           <div class="list-block">
             <div class="item-content">
@@ -73,7 +73,7 @@
       <br />
 
       <div class="card" style="border-radius: 20px">
-        <div class="card-header"><center>Bugün kendinizi ne kadar tanıdığınızı hissediyorsunuz?</center></div>
+        <div class="card-header"><center>How much do you feel you know yourself today?</center></div>
         <div class="card-content">
           <div class="list-block">
             <div class="item-content">

@@ -10,7 +10,7 @@
 
     <div class="page-content" style="background-color: #f0d2f0">
       <div class="card" style="border-radius: 20px">
-        <div class="card-header" style="margin:10px; color:gray; text-align: center">Bu nedenin şikayetlerinize olan katkısı?</div>
+        <div class="card-header" style="margin:10px; color:gray; text-align: center">{{card_header1}}</div>
         <div class="card-content">
           <div class="list-block">
             <div class="item-content">
@@ -28,7 +28,7 @@
       </div>
 
       <div class="card" style="border-radius: 20px">
-        <div class="card-header" style="margin:10px; color:gray; text-align: center">Eğer bu nedeni kaldırırsak şikayetleriniz ne kadar azalır?</div>
+        <div class="card-header" style="margin:10px; color:gray; text-align: center">{{card_header2}}</div>
         <div class="card-content">
           <div class="list-block">
             <div class="item-content">
@@ -52,6 +52,8 @@
 export default {
   data() {
     return {
+      card_header1: 'What is the contribution of this reason to your symptoms?',
+      card_header2: 'If you remove this reason, how much does your symptoms decrease?',
       reasons: [],
       el: {},
       score1: 0,

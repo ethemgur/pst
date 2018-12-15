@@ -5,7 +5,7 @@
         <div class="left">
           <a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">Plan Aşamaları</div>
+        <div class="center">Planning Stages</div>
         <div class="right">
           <a class="link icon-only" href="#" @click="planPrompt"><i class="icon icon-plus"></i></a>
         </div>
@@ -19,7 +19,7 @@
       <span v-for="i in plans">
         <div class="card" style="border-radius: 20px; margin-bottom: 20px">
           <div class="card-header" style="padding: 10px">
-            <div style="text-align:center; margin-left: auto; margin-right: auto"> {{plans.indexOf(i) + 1}}. Aşama</div>
+            <div style="text-align:center; margin-left: auto; margin-right: auto">STEP {{plans.indexOf(i) + 1}}</div>
             <i class="material-icons" style="color:#9c27b0" @click="removePlan(i)">clear</i>
           </div>
           <div class="card-content">
@@ -52,7 +52,7 @@ export default {
       this.$f7.views.main.loadPage('/home/')
     },
     planPrompt() {
-      this.$f7.prompt('Yeni aşama ekle', '', (data) => {
+      this.$f7.prompt('Add new stages', '', (data) => {
         if (data !== '') {
           this.plans.push({
             text: data,
@@ -85,7 +85,7 @@ export default {
     },
     validationAlert() {
       if (!this.validation()) {
-        this.$f7.alert('Lütfen tabloyu doldurun.')
+        this.$f7.alert('Please complete the table.')
       }
     },
   },

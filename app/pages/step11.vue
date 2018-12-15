@@ -3,19 +3,25 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a></div>
-        <div class="center">1. ADIM</div>
+        <div class="center">{{title}}</div>
       </div>
     </div>
     <a class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
     <div class="page-content" style="background-color: #f0d2f0; display: flex; align-items: center">
       <div class="card" style="border-radius: 20px; padding-top: 30px; padding-bottom: 30px">
-        <div style="margin: 10px; text-align: center; font-size: 24px"> Şimdi sizden bazı testleri cevaplamanızı isteyeceğiz. Testlere başlamak için ilerleyin</div>
+        <div style="margin: 10px; text-align: center; font-size: 24px">{{content}}</div>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
+  data() {
+    return {
+      title: 'STEP 1',
+      content: "Now we'll ask you to answer some tests. Please continue to begin testing!",
+    }
+  },
   created() {
     document.addEventListener('backbutton', this.onBackKeyDown, false)
     this.$db('bdi', 0)
@@ -30,7 +36,7 @@ export default {
     },
     navigateURL() {
       this.$db('survey', 0)
-      this.$f7.views.main.loadPage('/survey-spsi/0')
+      this.$f7.views.main.loadPage('/survey-satisfaction/')
     },
   },
 }

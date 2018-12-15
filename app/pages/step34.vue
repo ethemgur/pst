@@ -2,16 +2,14 @@
   <div data-page="swiper-horizontal" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="back link icon-only" href="#" @click="pause" ><i class="icon icon-back"></i></a></div>
-        <div class="center">3. ADIM</div>
+        <div class="left"><a class="back link icon-only" @click="pause2" ><i class="icon icon-back"></i></a></div>
+        <div class="center"> {{title}} </div>
       </div>
     </div>
-    <a :href="'/home/' " class="floating-button color-purple" @click="save"><i class="material-icons">navigate_next</i></a>
+    <a href="/home/" class="floating-button color-purple" @click="save"><i class="material-icons">navigate_next</i></a>
 
     <div class="page-content" style="background-color: #f0d2f0">
-          <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
-            <source src="file:///android_asset/www/output13.mp4" type="video/mp4">
-          </video>
+      <iframe id="yvideo" class="video-content" :src="src" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </template>
@@ -20,50 +18,43 @@
 export default {
   data() {
     return {
+      src: '',
+      title: 'STEP 3',
       step: 0,
       videoElement: null,
       paused: null,
     }
   },
   created() {
+    this.src = 'https://www.youtube.com/embed/UC_KSzKoYt4'
     this.step = this.$route.params.step
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
+    pause2() {
+      this.src = ''
+    },
     onBackKeyDown() {
       this.pause()
       this.$f7.views.main.loadPage('/home/')
     },
     save() {
-      this.pause()
+      this.pause2()
     },
-    updatePaused(event) {
-      this.videoElement = event.target
-      this.paused = event.target.paused
-    },
-    play() {
-      this.videoElement.play()
-    },
-    pause() {
-      this.videoElement.pause()
-    },
-  },
-  computed: {
-    playing() { return !this.paused },
   },
 }
 </script>
 
 <style media="screen">
 .video-content
-  {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 300px;
-    border-radius: 3px;
-  }
+{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  border-radius: 3px;
+}
 </style>

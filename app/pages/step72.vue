@@ -3,13 +3,13 @@
     <div class="navbar">
       <div class="navbar-inner" >
         <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
-        <div class="center">7. ADIM</div>
+        <div class="center">STEP 7</div>
       </div>
     </div>
     <a href="/step81/" class="floating-button color-purple"><i class="material-icons">navigate_next</i></a>
     <div class="page-content" style="background-color: #f0d2f0; display: flex; align-items: center">
       <div class="card" style="border-radius: 20px; padding-top: 30px; padding-bottom: 30px">
-        <div style="margin: 10px; text-align: center; font-size: 24px">Şimdi bu aşamaları uygulayın </div>
+        <div style="margin: 10px; text-align: center; font-size: 24px">Please implement these stages now </div>
       </div>
     </div>
   </div>

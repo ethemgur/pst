@@ -5,7 +5,7 @@
         <div class="left">
           <a class="back link icon-only" href="#"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">6. ADIM</div>
+        <div class="center">STEP 6</div>
         <div class="right">
           <a class="link icon-only" href="#" @click="solutionPrompt"><i class="icon icon-plus"></i></a>
         </div>
@@ -19,11 +19,11 @@
         <div style="text-align:center; font-size:16px; padding: 10px"> {{solution.text}}</div>
       </div>
       <div class="card" style="border-radius: 20px; margin-top: 20px; padding-bottom: 10px">
-        <div class="card-header" style="padding: 10px; text-align:center"> Çözümünü <b>uygulamamanın olumsuz</b> sonuçları</div>
+        <div class="card-header" style="padding: 10px; text-align:center"> Negative results of not implementing the solution</div>
         <div class="card-content">
           <div class="list-block" style="margin-top: 10px">
             <ul>
-              <li style="color:gray; text-align:center" v-show="items.length===0">Henüz Sonuç Girmediniz</li>
+              <li style="color:gray; text-align:center" v-show="items.length===0">You haven't entered yet!</li>
               <li class="item" v-for="i in items">
                 <div class="item-content">
                   <div class="item-inner">
@@ -59,7 +59,7 @@ export default {
       this.$f7.views.main.loadPage('/home/')
     },
     solutionPrompt() {
-      this.$f7.prompt('Yeni sonuç ekle', '', (data) => {
+      this.$f7.prompt('Add new result', '', (data) => {
         if (data !== '') {
           this.items.push(data)
           console.log(`${data} is added!`)

@@ -2,15 +2,13 @@
   <div data-page="survey3-video" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="link icon-only" href="/home/" @click="pause" ><i class="icon icon-back"></i></a></div>
-        <div class="center">1. ADIM</div>
+        <div class="left"><a class="link icon-only" href="/home/" @click="pause2" ><i class="icon icon-back"></i></a></div>
+        <div class="center">STEP 1</div>
       </div>
     </div>
     <a class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
     <div class="page-content" style="background-color: #f0d2f0">
-          <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
-            <source :src="'file:///android_asset/www/output' + video + '.mp4'" type="video/mp4">
-          </video>
+      <iframe id="yvideo" class="video-content" :src="src" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </template>
@@ -18,6 +16,7 @@
 export default {
   data() {
     return {
+      src: '',
       q: 0,
       video: 0,
       videoElement: null,
@@ -26,11 +25,13 @@ export default {
   },
   created() {
     this.getVideo()
-    console.log(this.video)
-    console.log(this.q)
+    this.src = `https://www.youtube.com/embed/${this.getVideo()}`
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
+    pause2() {
+      this.src = ''
+    },
     onBackKeyDown() {
       this.pause()
       this.$f7.views.main.loadPage('/home/')
@@ -49,54 +50,36 @@ export default {
           this.$f7.views.main.loadPage('/home/')
       }
     },
-    updatePaused(event) {
-      this.videoElement = event.target
-      this.paused = event.target.paused
-    },
-    play() {
-      this.videoElement.play()
-    },
-    pause() {
-      try {
-        this.videoElement.pause()
-      } catch (e) {
-        console.log(e)
-      }
-    },
     getVideo() {
       if (this.$db('s3q1') === 'Evet') {
         this.q = 1
-        this.video = 3
+        this.video = 'qw9GEfqUs7A'
       } else if (this.$db('s3q2') === 'Evet') {
         this.q = 2
-        this.video = 4
+        this.video = 'zKW9ayKDf-c'
       } else if (this.$db('s3q3') === 'Evet') {
         this.q = 3
-        this.video = 5
+        this.video = 'eTVmi3wu2H0'
       } else if (this.$db('s3q4') === 'Evet') {
         this.q = 4
-        this.video = 6
+        this.video = 'm_ksoqoGLcQ'
       }
     },
   },
-  computed: {
-    playing() { return !this.paused },
-  },
-
 }
 </script>
 
 <style media="screen">
 .video-content
-  {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 90%;
-    height: auto;
-    border-radius: 3px;
-  }
+{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: auto;
+  border-radius: 3px;
+}
 </style>

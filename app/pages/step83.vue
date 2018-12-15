@@ -2,14 +2,14 @@
   <div data-page="step72" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
-        <div class="center">7. ADIM</div>
+        <div class="left"><a class="link icon-only" href="/step8-video/"><i class="icon icon-back"></i></a></div>
+        <div class="center">STEP 7</div>
       </div>
     </div>
     <a href="/survey-spsi/" class="floating-button color-purple"><i class="material-icons">navigate_next</i></a>
     <div class="page-content" style="background-color: #f0d2f0; display: flex; align-items: center">
       <div class="card" style="border-radius: 20px; padding-top: 30px; padding-bottom: 30px">
-        <div style="margin: 10px; text-align: center; font-size: 24px"> Şimdi sizden ilk aşamada çözdüğünüz testleri bir daha çözmenizi istiyoruz </div>
+        <div style="margin: 10px; text-align: center; font-size: 24px"> Now we ask you to solve the tests you solved in the first step again. </div>
       </div>
     </div>
   </div>

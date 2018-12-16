@@ -15,7 +15,7 @@
     <a class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
 
     <div class="page-content" style="background-color: #f0d2f0">
-      <div class="card" style="border-radius: 20px; padding: 10px; color:gray; text-align:center" v-show="plans.length===0">Henüz Aşama Girmediniz</div>
+      <div class="card" style="border-radius: 20px; padding: 10px; color:gray; text-align:center" v-show="plans.length===0">You haven't entered anything yet!</div>
       <span v-for="i in plans">
         <div class="card" style="border-radius: 20px; margin-bottom: 20px">
           <div class="card-header" style="padding: 10px">

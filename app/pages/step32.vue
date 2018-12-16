@@ -68,7 +68,7 @@ export default {
     return {
       title: 'GOAL DETERMINATION',
       card_header: 'The most important problem: ',
-      goal: 'goal',
+      goal: 'Goal',
       reasons: [],
       goal1: '',
       goal2: '',
@@ -116,7 +116,7 @@ export default {
     },
     validationAlert() {
       if (!this.validation()) {
-        this.$f7.alert('Lütfen en az 1 adet hedef gir.')
+        this.$f7.alert('Please enter at least 1 goal.', '')
       }
     },
     navigateURL() {

@@ -96,7 +96,7 @@ export default {
       }
       this.reasons = orderedReasons.reverse()
       this.isOrdered = true
-      this.$f7.alert('Nedenler verilen puanlara göre sıralandı. İlerlemek için tekrar dokun.')
+      this.$f7.alert('Reasons are ordered by the rates. Click again to proceed.', '')
     },
     navigateURL() {
       console.log(this.saveDB())

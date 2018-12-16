@@ -44,6 +44,7 @@ export default {
         if (this.$db('currentStep') === 1) {
           this.$f7.views.main.loadPage('/step12/')
         } else {
+          this.$db('currentStep', 8)
           this.$f7.views.main.loadPage('/home/')
         }
       } else {

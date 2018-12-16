@@ -71,7 +71,7 @@ export default {
     },
     validationAlert() {
       if (!this.isCompleted()) {
-        this.$f7.alert('Lütfen tabloyu doldurun.')
+        this.$f7.alert('Please complete the table.', '')
       }
     },
     isSolutionMatched(s) {
@@ -98,7 +98,7 @@ export default {
       this.isOrdered = true
       this.$db('bestSolutionID', 0)
       console.log(this.solutions)
-      this.$f7.alert('Çözümler verilen puanlara göre sıralandı.')
+      this.$f7.alert('The solutions are ordered by the rate.', '')
     },
     navigateURL() {
       if (this.saveDB()) {

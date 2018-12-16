@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="page-content" style="background-color: #f0d2f0; display: flex; align-items: center">
-      <div class="card" style="border-radius: 20px">
+      <div class="card" style="border-radius: 20px; width:100%;">
         <div class="card-header">
           <div style="text-align:center; width: 100%; padding: 5px">Did you accomplish the stages you planned?</div>
         </div>

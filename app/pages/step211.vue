@@ -88,7 +88,7 @@ export default {
         this.$f7.views.main.loadPage('/step212/')
         return
       }
-      this.$f7.alert('Please complete the table.')
+      this.$f7.alert('Please complete the table.', '')
     },
   },
 

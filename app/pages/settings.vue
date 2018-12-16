@@ -31,6 +31,16 @@
                 </div>
               </a>
             </li>
+            <li>
+              <a class="item-link item-content" @click="exit">
+                <div class="item-media">
+                  <i class="icon material-icons">input</i>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title" style="color:#9c27b0">Exit App</div>
+                </div>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -45,6 +55,9 @@ export default {
   methods: {
     onBackKeyDown() {
       this.$f7.views.main.loadPage('/home/')
+    },
+    exit() {
+      window.navigator.app.exitApp()
     },
   },
 }

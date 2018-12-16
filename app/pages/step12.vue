@@ -37,7 +37,8 @@ export default {
     navigateURL() {
       console.log('navigate')
       this.pause2()
-      this.$f7.views.main.loadPage('/survey3/')
+      this.$db('currentStep', 2)
+      this.$f7.views.main.loadPage('/home/')
     },
   },
 }

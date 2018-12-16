@@ -13,9 +13,9 @@
           <div class="card-content">
             <div class="list-block" style="padding: 20px 10px">
               <ul>
-                <li><a href="#" round="true "class="button button-raised button-fill color-purple" style="border-radius: 20px; margin:0 10px 0 10px"  @click="select(true)">Evet</a></li>
+                <li><a href="#" round="true "class="button button-raised button-fill color-purple" style="border-radius: 20px; margin:0 10px 0 10px"  @click="select(true)">Yes</a></li>
                 <br/>
-                <li><a href="#" round="true "class="button button-raised button-fill color-purple" style="border-radius: 20px; margin:0 10px 0 10px"  @click="select(false)">Hayır</a></li>
+                <li><a href="#" round="true "class="button button-raised button-fill color-purple" style="border-radius: 20px; margin:0 10px 0 10px"  @click="select(false)">No</a></li>
               </ul>
             </div>
           </div>
@@ -34,9 +34,9 @@
       },
       select(c) {
         if (c === true) {
-          console.log('Evet')
+          console.log('Yes')
         } else {
-          console.log('Hayır')
+          console.log('No')
         }
         this.$f7.views.main.loadPage('/step8-video/')
       },

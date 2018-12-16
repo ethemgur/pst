@@ -25,7 +25,7 @@
         <div class="card-content">
           <div class="list-block" style="margin-top: 10px">
             <ul>
-              <li style="color:gray; text-align:center" v-show="items.length===0">You haven't entered yet!</li>
+              <li style="color:gray; text-align:center" v-show="items.length===0">You haven't entered anything yet!</li>
               <li class="item" v-for="i in items">
                 <div class="item-content">
                   <div class="item-inner">

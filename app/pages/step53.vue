@@ -22,7 +22,7 @@
               <div class="item-inner">
                 <div class="item-input">
                   <div class="range-slider">
-                    <input v-model.number="score1" type="range" min="1" max="5" value="1" step="1">
+                    <input v-model.number="score1" type="range" min="0" max="10" value="1" step="1">
                   </div>
                 </div>
               </div>
@@ -42,7 +42,7 @@
               <div class="item-inner">
                 <div class="item-input">
                   <div class="range-slider">
-                    <input v-model.number="score2" type="range" min="1" max="5" step="1" value="1">
+                    <input v-model.number="score2" type="range" min="0" max="10" step="1" value="1">
                   </div>
                 </div>
               </div>
@@ -62,7 +62,7 @@
               <div class="item-inner">
                 <div class="item-input">
                   <div class="range-slider">
-                    <input v-model.number="score3" type="range" min="1" max="5" value="1" step="1">
+                    <input v-model.number="score3" type="range" min="0" max="10" value="1" step="1">
                   </div>
                 </div>
               </div>
@@ -82,7 +82,7 @@
               <div class="item-inner">
                 <div class="item-input">
                   <div class="range-slider">
-                    <input v-model.number="score4" type="range" min="1" max="5" value="1" step="1">
+                    <input v-model.number="score4" type="range" min="0" max="10" value="1" step="1">
                   </div>
                 </div>
               </div>

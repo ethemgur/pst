@@ -12,7 +12,7 @@
     <a v-show="isCompleted()" href="/step24/" class="floating-button color-purple"><i class="material-icons">navigate_next</i></a>
     <div class="page-content" style="background-color: #f0d2f0">
       <div class="card" style="border-radius: 20px">
-        <div class="card-header" style="padding:10px; color:gray; text-align:center">Nedenlere tıklayarak uygun belirtileri seçin</div>
+        <div class="card-header" style="padding:10px; color:gray; text-align:center">{{card_header}}</div>
         <div class="card-content">
           <div class="list-block" style="padding:10px">
             <ul>

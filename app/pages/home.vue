@@ -63,7 +63,7 @@
 <script>
 export default {
   created() {
-    console.log(this.$f7.views.main)
+    document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
     isDone(i) {
@@ -76,14 +76,14 @@ export default {
       if (i === this.$db('currentStep')) {
         this.$f7.views.main.loadPage(`/video/${i}/`)
       } else if (i < this.$db('currentStep')) {
-        this.$f7.alert('You have completed this step.')
+        this.$f7.alert('You have completed this step.', '')
       }
     },
     finalAlert() {
       if (this.$db('currentStep') === 8) {
-        this.$f7.alert('You have completed all steps. We hope that you have solved your problems.')
+        this.$f7.alert('You have completed all steps. We hope that you have solved your problems.', '')
       } else {
-        this.$f7.alert('There is no free lunch. You should complete all steps.')
+        this.$f7.alert('There is no free lunch. You should complete all steps.', '')
       }
     },
   },

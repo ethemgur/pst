@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       src: '',
-      title: 'Step 8',
+      title: 'STEP 7',
       step: 0,
       videoElement: null,
       paused: null,

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#ver:v3.1.0
+#ver:v4.1.2
 #plugin:4.9.1
 
 CACHE:
@@ -33,10 +33,10 @@ CACHE:
 /img/circle7-grey.4952277.png
 /img/circle7.15b5a1e.png
 /img/reward-purple.7b70f33.png
-/app.ac336e0.js
-/init.ac336e0.js
-/app.ac336e0.css
-/init.ac336e0.css
+/app.b78ac6d.js
+/init.b78ac6d.js
+/app.b78ac6d.css
+/init.b78ac6d.css
 /
 /offline-service-worker.js
 /manifest.json

@@ -18,7 +18,7 @@
       <div class="card" style="border-radius: 20px; padding: 10px">
         <div class="list-block">
           <ul>
-            <li style="color:gray; text-align:center" v-show="solutions.length===0">Henüz Çözüm Girmediniz</li>
+            <li style="color:gray; text-align:center" v-show="solutions.length===0"> {{noEntry}} </li>
             <li class="item" v-for="i in solutions" style="margin: 5px 0 5px 0">
               <div class="item-content">
                 <div class="item-inner">
@@ -57,7 +57,7 @@ export default {
       this.$f7.views.main.loadPage('/home/')
     },
     solutionPrompt() {
-      this.$f7.prompt('Yeni çözüm ekle', '', (data) => {
+      this.$f7.prompt('Add a new solution', '', (data) => {
         if (data !== '') {
           this.solutions.push({
             text: data,
@@ -95,7 +95,7 @@ export default {
         this.$f7.views.main.loadPage('/home/')
         return
       }
-      this.$f7.alert('Lütfen tabloyu doldurun.')
+      this.$f7.alert('Please complete the table.', '')
     },
     saveDB() {
       if (!navigator.onLine) {

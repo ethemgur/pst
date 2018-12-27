@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       src: '',
-      title: 'STEP 5',
+      title: '5. AŞAMA',
       videoElement: null,
       paused: null,
     }

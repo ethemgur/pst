@@ -1,11 +1,5 @@
 <template>
   <div data-page="swiper-horizontal" class="page kitchen-sink-material">
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
-        <div class="center">Slider Horizontal</div>
-      </div>
-    </div>
     <div class="page-content" style="background-color: #f0d2f0">
       <div data-pagination=".swiper-pagination" data-paginationhide="true" class="swiper-container swiper-init ks-demo-slider">
         <div class="swiper-pagination"></div>
@@ -35,9 +29,9 @@
 export default {
   data() {
     return {
-      slide1: 'Welcome to Problem Solving Therapy',
-      slide2: 'You will proceed to app step by step',
-      slide3: 'As you complete the steps, further steps will be accessible',
+      slide1: 'Sorunlarımı Çözebilirim uygulamasına hoş geldiniz',
+      slide2: 'Uygulamada aşama aşama ilerleyeceksiniz',
+      slide3: 'Aşamaları tamamladıkça ileriki aşamalara erişebileceksiniz',
     }
   },
 }

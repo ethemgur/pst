@@ -116,6 +116,10 @@
     "component": "step61.vue"
   },
   {
+    "path": "/step611/",
+    "component": "step611.vue"
+  },
+  {
     "path": "/step62/",
     "component": "step62.vue"
   },
@@ -168,8 +172,24 @@
     "component": "step83.vue"
   },
   {
+    "path": "/survey-bdi/",
+    "component": "survey-bdi.vue"
+  },
+  {
     "path": "/survey-satisfaction/",
     "component": "survey-satisfaction.vue"
+  },
+  {
+    "path": "/survey-selfesteem/",
+    "component": "survey-selfesteem.vue"
+  },
+  {
+    "path": "/survey-spsi/",
+    "component": "survey-spsi.vue"
+  },
+  {
+    "path": "/survey-stress/",
+    "component": "survey-stress.vue"
   },
   {
     "path": "/survey/",
@@ -178,6 +198,14 @@
   {
     "path": "/survey/:step/",
     "component": "survey.vue"
+  },
+  {
+    "path": "/survey3-video/",
+    "component": "survey3-video.vue"
+  },
+  {
+    "path": "/survey3/",
+    "component": "survey3.vue"
   },
   {
     "path": "/video/",

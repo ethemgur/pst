@@ -17,7 +17,7 @@
                   <i class="icon material-icons">info</i>
                 </div>
                 <div class="item-inner">
-                  <div class="item-title" style="color:#9c27b0">About</div>
+                  <div class="item-title" style="color:#9c27b0">Hakkımızda</div>
                 </div>
               </a>
             </li>
@@ -27,7 +27,7 @@
                   <i class="icon material-icons">power_settings_new</i>
                 </div>
                 <div class="item-inner">
-                  <div class="item-title" style="color:#9c27b0">Sign out</div>
+                  <div class="item-title" style="color:#9c27b0">Oturumu Kapat</div>
                 </div>
               </a>
             </li>
@@ -37,7 +37,7 @@
                   <i class="icon material-icons">input</i>
                 </div>
                 <div class="item-inner">
-                  <div class="item-title" style="color:#9c27b0">Exit App</div>
+                  <div class="item-title" style="color:#9c27b0">Uygulamadan Çık</div>
                 </div>
               </a>
             </li>

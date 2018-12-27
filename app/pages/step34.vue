@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       src: '',
-      title: 'STEP 3',
+      title: '3. AŞAMA',
       step: 0,
       videoElement: null,
       paused: null,

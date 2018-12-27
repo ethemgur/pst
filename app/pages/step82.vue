@@ -4,18 +4,18 @@
       <div class="navbar-inner">
         <div class="left">
           <a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a></div>
-          <div class="center">STEP 7</div>
+          <div class="center">7. AŞAMA</div>
         </div>
       </div>
       <div class="page-content" style="background-color: #f0d2f0; display: flex; align-items: center">
         <div class="card" style="border-radius: 20px; width:100%">
-          <div class="card-header"><div style="text-align:center; width: 100%">Have you reached your target?</div></div>
+          <div class="card-header"><div style="text-align:center; width: 100%">Hedefinize ulaştınız mı?</div></div>
           <div class="card-content">
             <div class="list-block" style="padding: 20px 10px">
               <ul>
-                <li><a href="#" round="true "class="button button-raised button-fill color-purple" style="border-radius: 20px; margin:0 10px 0 10px"  @click="select(true)">Yes</a></li>
+                <li><a href="#" round="true "class="button button-raised button-fill color-purple" style="border-radius: 20px; margin:0 10px 0 10px"  @click="select(true)">Evet</a></li>
                 <br/>
-                <li><a href="#" round="true "class="button button-raised button-fill color-purple" style="border-radius: 20px; margin:0 10px 0 10px"  @click="select(false)">No</a></li>
+                <li><a href="#" round="true "class="button button-raised button-fill color-purple" style="border-radius: 20px; margin:0 10px 0 10px"  @click="select(false)">Hayır</a></li>
               </ul>
             </div>
           </div>
@@ -34,11 +34,12 @@
       },
       select(c) {
         if (c === true) {
-          console.log('Yes')
+          this.$db('step81-ans', 'Evet')
+          this.$f7.views.main.loadPage('/step8-video/')
         } else {
-          console.log('No')
+          this.$db('step81-ans', 'Hayır')
+          this.$f7.views.main.loadPage('/step8-video/')
         }
-        this.$f7.views.main.loadPage('/step8-video/')
       },
     },
   }

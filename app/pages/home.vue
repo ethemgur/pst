@@ -45,7 +45,7 @@
         <img id="y6" src="../images/circle6-grey.png" width="50px" height="50px"/>
       </a>
 
-      <a v-if="isDone(7)" @click="navigateURL(7)">
+      <a v-if="isDone(7)" @click="navigateURL(8)">
         <img id="y7" src="../images/circle7.png" width="50px" height="50px"/>
       </a>
       <a v-if="!isDone(7)" href="#">
@@ -76,14 +76,14 @@ export default {
       if (i === this.$db('currentStep')) {
         this.$f7.views.main.loadPage(`/video/${i}/`)
       } else if (i < this.$db('currentStep')) {
-        this.$f7.alert('You have completed this step.', '')
+        this.$f7.alert('Bu aşamayı tamamladın.', '')
       }
     },
     finalAlert() {
       if (this.$db('currentStep') === 8) {
-        this.$f7.alert('You have completed all steps. We hope that you have solved your problems.', '')
+        this.$f7.alert('Tüm aşamaları tamamladınız. Umarız daha iyi hissediyorsunuzdur.', '')
       } else {
-        this.$f7.alert('There is no free lunch. You should complete all steps.', '')
+        this.$f7.alert('Önce tüm aşamaları tamamlamalısın.', '')
       }
     },
   },

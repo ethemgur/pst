@@ -66,9 +66,9 @@
 export default {
   data() {
     return {
-      title: 'GOAL DETERMINATION',
-      card_header: 'The most important problem: ',
-      goal: 'Goal',
+      title: 'HEDEF BELİRLEME',
+      card_header: 'En önemli sorun: ',
+      goal: 'Hedef',
       reasons: [],
       goal1: '',
       goal2: '',
@@ -116,7 +116,7 @@ export default {
     },
     validationAlert() {
       if (!this.validation()) {
-        this.$f7.alert('Please enter at least 1 goal.', '')
+        this.$f7.alert('Lütfen en az bir hedef giriniz.', '')
       }
     },
     navigateURL() {

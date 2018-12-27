@@ -18,8 +18,8 @@
 export default {
   data() {
     return {
-      title: 'STEP 3',
-      content: 'Now consider what can be done to achieve this target.',
+      title: '3. AŞAMA',
+      content: 'Bu hedefi gerçekleştirmek için ne yapılabileceğini düşünün.',
     }
   },
   created() {

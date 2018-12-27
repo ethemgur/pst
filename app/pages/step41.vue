@@ -18,7 +18,7 @@
       <div class="card" style="border-radius: 20px; padding: 10px">
         <div class="list-block">
           <ul>
-            <li style="color:gray; text-align:center" v-show="solutions.length===0"> {{noEntry}} </li>
+            <li style="color:gray; text-align:center" v-show="solutions.length===0"> {{noEntry1}} <br /> Çözüm girmek için sağ üstteki <b>"+"</b> butonuna basın. </li>
             <li class="item" v-for="i in solutions" style="margin: 5px 0 5px 0">
               <div class="item-content">
                 <div class="item-inner">
@@ -39,8 +39,8 @@
 export default {
   data() {
     return {
-      title: 'STEP 4',
-      noEntry: "You haven't entered anything yet!",
+      title: '4. AŞAMA',
+      noEntry1: 'Henüz herhangi bir çözüm girmediniz',
       solutions: [],
     }
   },
@@ -57,7 +57,7 @@ export default {
       this.$f7.views.main.loadPage('/home/')
     },
     solutionPrompt() {
-      this.$f7.prompt('Add a new solution', '', (data) => {
+      this.$f7.prompt('Yeni çözüm ekle', '', (data) => {
         if (data !== '') {
           this.solutions.push({
             text: data,
@@ -95,13 +95,13 @@ export default {
         this.$f7.views.main.loadPage('/home/')
         return
       }
-      this.$f7.alert('Please complete the table.', '')
+      this.$f7.alert('Lütfen tabloyu doldurun.', '')
     },
     saveDB() {
       if (!navigator.onLine) {
         window.f7.addNotification({
           title: 'Offline',
-          message: 'This action is not possible in offline mode.',
+          message: 'İnternet bağlantısı gerekli.',
           hold: 3000,
           closeIcon: false,
         })

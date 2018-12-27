@@ -18,8 +18,8 @@
 export default {
   data() {
     return {
-      title: 'STEP 1',
-      content: "Now we'll ask you to answer some tests. Please continue to begin testing!",
+      title: '1. AŞAMA',
+      content: 'Şimdi bazı testleri cevaplayın. Lütfen teste başlamak için ilerleyin.',
     }
   },
   created() {
@@ -36,7 +36,7 @@ export default {
     },
     navigateURL() {
       this.$db('survey', 0)
-      this.$f7.views.main.loadPage('/survey-satisfaction/')
+      this.$f7.views.main.loadPage('/survey-spsi/')
     },
   },
 }

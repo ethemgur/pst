@@ -3,9 +3,9 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left">
-          <a class="back link icon-only" href="#"><i class="icon icon-back"></i></a>
+          <a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">6. AŞAMA</div>
+        <div class="center">6. Aşama</div>
         <div class="right">
           <a class="link icon-only" href="#" @click="solutionPrompt"><i class="icon icon-plus"></i></a>
         </div>
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="card" style="border-radius: 20px; margin-top:20px; padding-bottom: 10px">
-        <div class="card-header" style="padding: 10px; text-align:center"> Çözümünü <b>uygulamanın olumsuz</b> sonuçları </div>
+        <div class="card-header" style="padding: 10px; text-align:center"> Çözümünü <b>uygulamanın olumlu</b> sonuçları </div>
         <div class="card-content">
           <div class="list-block" style="margin-top: 10px">
             <ul>
@@ -55,8 +55,10 @@ export default {
   },
 
   created() {
-    this.solution = this.$db('bestSolution')
-    this.items = this.solution.pn
+    // this.solution = this.$db("bestSolution")
+    // this.solution = JSON.parse(localStorage.getItem("solutions"))[this.$db("bestSolutionID")]
+    this.solution = JSON.parse(localStorage.getItem('solutions'))[0]
+    this.items = this.solution.pp
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
@@ -80,7 +82,7 @@ export default {
       this.saveSolutions()
     },
     saveSolution() {
-      this.solution.pn = this.items
+      this.solution.pp = this.items
       this.$db('bestSolution', this.solution)
     },
     validation() {
@@ -91,7 +93,7 @@ export default {
     },
     navigateURL() {
       if (this.validation()) {
-        this.$f7.views.main.loadPage('/step63/')
+        this.$f7.views.main.loadPage('/step62/')
         return
       }
       this.$f7.alert('Lütfen tabloyu doldurun.', '')

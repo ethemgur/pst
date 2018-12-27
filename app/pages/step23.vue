@@ -34,7 +34,7 @@
 export default {
   data() {
     return {
-      card_header: 'Please select the appropriate symptoms:',
+      card_header: 'Lütfen uygun belirtiyi seçin:',
       reasons: [],
       el: {},
       symptoms: [],

@@ -52,8 +52,8 @@
 export default {
   data() {
     return {
-      card_header1: 'What is the contribution of this reason to your symptoms?',
-      card_header2: 'If you remove this reason, how much does your symptoms decrease?',
+      card_header1: 'Bu nedenin belirtiniz üzerinde ne kadar etkili?',
+      card_header2: 'Eğer bu nedeni ortadan kaldırırsanız belirtiniz ne kadar azalır?',
       reasons: [],
       el: {},
       score1: 0,

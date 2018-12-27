@@ -36,8 +36,8 @@
 export default {
   data() {
     return {
-      title: 'GRADING',
-      card_header: 'Please rate the reasons by clicking on them',
+      title: 'PUANLAMA',
+      card_header: 'Lütfen nedenlere dokunarak puanlayın',
       reasons: [],
       symptoms: [],
       isOrdered: false,
@@ -96,7 +96,7 @@ export default {
       }
       this.reasons = orderedReasons.reverse()
       this.isOrdered = true
-      this.$f7.alert('Reasons are ordered by the rates. Click again to proceed.', '')
+      this.$f7.alert('Nedenler puanlarına göre sıralandı. İlerlemek için tekrar dokunun.', '')
     },
     navigateURL() {
       console.log(this.saveDB())

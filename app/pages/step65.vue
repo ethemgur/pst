@@ -5,18 +5,18 @@
         <div class="left">
           <a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">STEP 6</div>
+        <div class="center">6. AŞAMA</div>
       </div>
     </div>
     <div class="page-content" style="background-color: #f0d2f0; display: flex; align-items: center">
       <div class="card" style="border-radius: 20px; width:100%">
-        <div class="card-header"><div style="text-align:center; width: 100%">Is it beneficial to implement this solution?</div></div>
+        <div class="card-header"><div style="text-align:center; width: 100%">Bu çözümü uygulamak kazançlı mı?</div></div>
         <div class="card-content">
           <div class="list-block" style="padding: 20px 10px">
             <ul>
-              <li><a href="#" round="true "class="button button-raised button-fill color-purple" @click="select(true)" style="border-radius: 20px">Yes</a></li>
+              <li><a href="#" round="true "class="button button-raised button-fill color-purple" @click="select(true)" style="border-radius: 20px">Evet</a></li>
             </br>
-            <li><a href="#" round="true "class="button button-raised button-fill color-purple" @click="select(false)" style="border-radius: 20px">No</a></li>
+            <li><a href="#" round="true "class="button button-raised button-fill color-purple" @click="select(false)" style="border-radius: 20px">Hayır</a></li>
           </ul>
         </div>
       </div>
@@ -36,7 +36,7 @@ export default {
     select(c) {
       if (c === true) {
         this.$db('currentStep', 7)
-        this.$f7.views.main.loadPage('/step71/')
+        this.$f7.views.main.loadPage('/home/')
       } else {
         const el = JSON.parse(localStorage.getItem('solutions'))
         el.splice(0, 1)

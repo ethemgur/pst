@@ -36,8 +36,8 @@
 export default {
   data() {
     return {
-      title: 'MATCHING PART',
-      card_header: 'Please select the appropriate symptoms by clicking on the reasons',
+      title: 'EŞLEŞTİRME',
+      card_header: 'Lütfen nedenlere dokunarak uygun belirtiyi seçin',
       reasons: [],
     }
   },

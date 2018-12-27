@@ -39,8 +39,8 @@
 export default {
   data() {
     return {
-      title: 'SOLUTION TABLE',
-      card_header: 'Solution Suggestions',
+      title: 'ÇÖZÜM TABLOSU',
+      card_header: 'Çözüm Önerileri',
       solutions: [],
       isOrdered: false,
     }
@@ -98,7 +98,7 @@ export default {
       this.isOrdered = true
       this.$db('bestSolutionID', 0)
       console.log(this.solutions)
-      this.$f7.alert('The solutions are ordered by the rate.', '')
+      this.$f7.alert('Çözümler puanlarına göre sıralandı.', '')
     },
     navigateURL() {
       if (this.saveDB()) {

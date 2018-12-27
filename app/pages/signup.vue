@@ -2,7 +2,7 @@
   <div data-page="sign-up" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="center">Sign Up</div>
+        <div class="center">Kayıt</div>
       </div>
     </div>
     <a class="floating-button color-purple" @click="apply"><i class="material-icons">navigate_next</i></a>
@@ -15,7 +15,7 @@
               <div class="item-content">
                 <div class="item-media"><i class="icon material-icons"></i></div>
                 <div class="item-inner">
-                  <div class="item-title floating-label">Your name</div>
+                  <div class="item-title floating-label">İsim</div>
                   <div class="item-input">
                     <input v-model="name" type="text" placeholder="">
                   </div>
@@ -32,12 +32,12 @@
               <div class="item-content">
                 <div class="item-media"><i class="icon material-icons"></i></div>
                 <div class="item-inner">
-                  <div class="item-title floating-label">Gender</div>
+                  <div class="item-title floating-label">Cinsiyet</div>
                   <div class="item-input">
                     <select v-model="gender">
                       <option value=""> </option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
+                      <option value="male">Erkek</option>
+                      <option value="female">Kadın</option>
                     </select>
                   </div>
                 </div>
@@ -53,7 +53,7 @@
               <div class="item-content">
                 <div class="item-media"><i class="icon material-icons"></i></div>
                 <div class="item-inner">
-                  <div class="item-title label">Birth date</div>
+                  <div class="item-title label">Doğum Tarihi</div>
                   <div class="item-input">
                     <input v-model="birthDate" type="date" placeholder="Birth day" value="">
                   </div>
@@ -93,7 +93,7 @@ export default {
       if (!navigator.onLine) {
         window.f7.addNotification({
           title: 'Offline',
-          message: 'This action is not possible in offline mode.',
+          message: 'İnternet bağlantısı gerekli.',
           hold: 3000,
           closeIcon: false,
         })

@@ -103,10 +103,10 @@
 export default {
   data() {
     return {
-      card_header1: 'Effectiveness to Solve Problem',
-      card_header2: 'Convenience with the Target',
-      card_header3: 'Applicability',
-      card_header4: 'Acceptability',
+      card_header1: 'Sorunu Çözmeye Katkısı',
+      card_header2: 'Hedefle Uyumluluğu',
+      card_header3: 'Uygulanabilirliği',
+      card_header4: 'Kabul Edilebilirliği',
       solutions: [],
       score1: 0,
       score2: 0,

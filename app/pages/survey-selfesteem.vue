@@ -2,7 +2,7 @@
   <div data-page="cards" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="center">MEMNUNİYET TESTİ</div>
+        <div class="center">ÖZGÜVEN TESTİ</div>
       </div>
     </div>
     <a v-if="current === 0" class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
@@ -16,15 +16,16 @@
                 <br />
                 <li style="margin: 0 10px 0 10px"><a href="#" round="true "class="button button-raised button-fill color-purple" style="border-radius: 50px" @click="select(c)">{{c}}</a></li>
               </span>
-                <br />
+              <br />
             </ul>
           </div>
         </div>
       </div>
 
       <div v-if="current === 0" class="card" style="border-radius: 20px; padding-top: 30px; padding-bottom: 30px; width:90%; position: absolute; left: 2.5%">
-        <div style="margin: 10px; text-align: center; font-size: 24px"> Memnuniyet testine başlamak için ilerle</div>
+        <div style="margin: 10px; text-align: center; font-size: 24px"> Özgüven testine başlamak için ilerle</div>
       </div>
+
     </div>
   </div>
 </template>
@@ -37,9 +38,9 @@ export default {
   },
   methods: {
     navigateURL() {
-      if (this.current === 6) {
+      if (this.current === 10) {
         this.$db('survey', 0)
-        this.$f7.views.main.loadPage('/survey-stress/')
+        this.$f7.views.main.loadPage('/survey-bdi/')
       } else {
         this.$db('survey', this.current + 1)
         this.$f7.views.main.refreshPage()
@@ -48,10 +49,10 @@ export default {
     select(c) {
       const score = this.choices.indexOf(c) + 1
       try {
-        const total = this.$db('satisfaction')
-        this.$db('satisfaction', score + total)
+        const total = this.$db('selfesteem')
+        this.$db('selfesteem', score + total)
       } catch (e) {
-        this.$db('satisfaction', score)
+        this.$db('selfesteem', score)
       }
       this.navigateURL()
     },
@@ -61,12 +62,10 @@ export default {
       q: {},
       current: 0,
       choices: [
-        'Kesinlikle katılmıyorum',
-        'Katılmıyorum',
-        'Biraz katılmıyorum',
-        'Biraz katılıyorum',
-        'Katılıyorum',
-        'Kesinlikle katılıyorum',
+        'Çok doğru',
+        'Doğru',
+        'Yanlış',
+        'Çok yanlış',
       ],
       questions: [
         {
@@ -75,27 +74,43 @@ export default {
         },
         {
           id: 1,
-          text: 'Hayatım birçok yönlerden idealimdekine yakın',
+          text: 'Kendimi en az diğer insanlar kadar değerli buluyorum..',
         },
         {
           id: 2,
-          text: 'Hayat şartlarım mükemmel',
+          text: 'Bazı olumlu özelliklerim olduğunu düşünüyorum.',
         },
         {
           id: 3,
-          text: 'Hayatımdan memnunum',
+          text: 'Genelde kendimi başarısız biri olarak görme eğilimindeyim.',
         },
         {
           id: 4,
-          text: 'Hayatım, yakın çevremdekilerin çoğunun hayatından daha iyi',
+          text: 'Ben de diğer insanların bir çoğunun yapabildiği kadar bir şeyler yapabilirim.',
         },
         {
           id: 5,
-          text: 'Hayattan şimdiye kadar istediğim önemli şeyleri elde ettim',
+          text: 'Kendimde gurur duyacak fazla bir şey bulamıyorum.',
         },
         {
           id: 6,
-          text: 'Eğer hayata yeniden başlasaydım hemen hemen hiçbir şeyi değiştirmezdim',
+          text: 'Kendime karşı olumlu bir tutum içerisindeyim.',
+        },
+        {
+          id: 7,
+          text: 'Genel olarak kendimden memnunum.',
+        },
+        {
+          id: 8,
+          text: 'Kendime karşı daha fazla saygı duyabilmeyi isterdim.',
+        },
+        {
+          id: 9,
+          text: 'Bazen kesinlikle kendimin bir işe yaramadığını düşünüyorum.',
+        },
+        {
+          id: 10,
+          text: 'Bazen kendimin hiç de yeterli olmadığımı düşünüyorum.',
         },
       ],
     }

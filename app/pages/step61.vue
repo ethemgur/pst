@@ -1,100 +1,69 @@
 <template>
-  <div data-page="step61" class="page kitchen-sink-material">
+  <div data-page="swiper-horizontal" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left">
-          <a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a>
-        </div>
-        <div class="center">STEP 6</div>
-        <div class="right">
-          <a class="link icon-only" href="#" @click="solutionPrompt"><i class="icon icon-plus"></i></a>
-        </div>
+        <div class="left"><a class="back link icon-only" href="#" @click="pause"><i class="icon icon-back"></i></a></div>
+        <div class="center">{{title}}</div>
       </div>
     </div>
-
     <a class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
-
     <div class="page-content" style="background-color: #f0d2f0">
-      <div class="card" style="border-radius: 20px">
-        <div style="text-align:center; font-size:16px; padding: 10px">
-          {{solution.text}}
-        </div>
-      </div>
-      <div class="card" style="border-radius: 20px; margin-top:20px; padding-bottom: 10px">
-        <div class="card-header" style="padding: 10px; text-align:center"> Positive results of implementing the solution</div>
-        <div class="card-content">
-          <div class="list-block" style="margin-top: 10px">
-            <ul>
-              <li style="color:gray; text-align:center" v-show="items.length===0">You haven't entered anything yet!</li>
-              <li class="item" v-for="i in items">
-                <div class="item-content">
-                  <div class="item-inner">
-                    <div class="item-title">{{i}}</div>
-                    <div class="item-after"><i class="material-icons" style="color:#9c27b0" @click="removeSolution(i)">clear</i></div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
+        <source src="file:///android_asset/www/output19.mp4" type="video/mp4" />
+      </video>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   data() {
     return {
-      solution: {},
-      items: [],
+      title: '6. AŞAMA',
+      videoElement: null,
+      paused: null,
     }
   },
-
   created() {
-    // this.solution = this.$db("bestSolution")
-    // this.solution = JSON.parse(localStorage.getItem("solutions"))[this.$db("bestSolutionID")]
-    this.solution = JSON.parse(localStorage.getItem('solutions'))[0]
-    this.items = this.solution.pp
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   methods: {
     onBackKeyDown() {
+      this.pause()
       this.$f7.views.main.loadPage('/home/')
     },
-    solutionPrompt() {
-      this.$f7.prompt('Add new result', '', (data) => {
-        if (data !== '') {
-          this.items.push(data)
-          console.log(`${data} is added!`)
-          this.saveSolution()
-        } else {
-          this.solutionsPrompt()
-        }
-      })
-    },
-    removeSolution(value) {
-      const index = this.items.indexOf(value)
-      this.items.splice(index, 1)
-      this.saveSolutions()
-    },
-    saveSolution() {
-      this.solution.pp = this.items
-      this.$db('bestSolution', this.solution)
-    },
-    validation() {
-      if (this.items.length === 0) {
-        return false
-      }
-      return true
-    },
     navigateURL() {
-      if (this.validation()) {
-        this.$f7.views.main.loadPage('/step62/')
-        return
+      console.log('navigate')
+      try {
+        this.pause()
+      } catch (e) {
+        console.log(e)
       }
-      this.$f7.alert('Please complete the table.')
+      this.$f7.views.main.loadPage('/step611/')
+    },
+    updatePaused(event) {
+      this.videoElement = event.target
+      this.paused = event.target.paused
+    },
+    play() {
+      this.videoElement.play()
+    },
+    pause() {
+      this.videoElement.pause()
     },
   },
 }
 </script>
+
+<style media="screen">
+.video-content
+{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 95%;
+  border-radius: 3px;
+}
+</style>

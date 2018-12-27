@@ -5,7 +5,7 @@
         <div class="left">
           <a class="link icon-only" href="/home/"><i class="icon icon-back"></i></a>
         </div>
-        <div class="center">Planning Stages</div>
+        <div class="center">Planlama</div>
         <div class="right">
           <a class="link icon-only" href="#" @click="planPrompt"><i class="icon icon-plus"></i></a>
         </div>
@@ -15,11 +15,14 @@
     <a class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
 
     <div class="page-content" style="background-color: #f0d2f0">
-      <div class="card" style="border-radius: 20px; padding: 10px; color:gray; text-align:center" v-show="plans.length===0">You haven't entered anything yet!</div>
+      <div class="card" style="border-radius: 20px; padding: 10px; color:gray; text-align:center" v-show="plans.length===0">
+        Henüz herhangi bir aşama girmediniz.<br />
+        Lütfen sağ üstteki "<b>+</b>" işaretine basarak aşama ekleyin.
+      </div>
       <span v-for="i in plans">
         <div class="card" style="border-radius: 20px; margin-bottom: 20px">
           <div class="card-header" style="padding: 10px">
-            <div style="text-align:center; margin-left: auto; margin-right: auto">STEP {{plans.indexOf(i) + 1}}</div>
+            <div style="text-align:center; margin-left: auto; margin-right: auto">Aşama {{plans.indexOf(i) + 1}}</div>
             <i class="material-icons" style="color:#9c27b0" @click="removePlan(i)">clear</i>
           </div>
           <div class="card-content">
@@ -52,7 +55,7 @@ export default {
       this.$f7.views.main.loadPage('/home/')
     },
     planPrompt() {
-      this.$f7.prompt('Add new stages', '', (data) => {
+      this.$f7.prompt('Yeni aşama ekle', '', (data) => {
         if (data !== '') {
           this.plans.push({
             text: data,
@@ -85,7 +88,7 @@ export default {
     },
     validationAlert() {
       if (!this.validation()) {
-        this.$f7.alert('Please complete the table.')
+        this.$f7.alert('Lütfen tabloyu doldurun.', '')
       }
     },
   },

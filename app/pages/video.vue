@@ -25,7 +25,7 @@ export default {
     }
   },
   created() {
-    this.step = this.$route.params.step
+    this.step = this.$db('currentStep')
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
   computed: {
@@ -44,7 +44,11 @@ export default {
       this.videoElement.play()
     },
     pause() {
-      this.videoElement.pause()
+      try {
+        this.videoElement.pause()
+      } catch (e) {
+        console.log(e)
+      }
     },
     videoName() {
       if (this.$db('currentStep') === 1) {

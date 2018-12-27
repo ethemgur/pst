@@ -73,9 +73,13 @@ export default {
       return false
     },
     navigateURL(i) {
-      if (i === this.$db('currentStep')) {
+      if (i === 8 && this.$db('currentStep') === 8) {
+        this.$f7.alert('Bu aşamayı tamamladın.', '')
+      } else if (i === 8) {
+        this.$f7.views.main.loadPage('/video/8/')
+      } else if (i === this.$db('currentStep')) {
         this.$f7.views.main.loadPage(`/video/${i}/`)
-      } else if (i < this.$db('currentStep')) {
+      } else {
         this.$f7.alert('Bu aşamayı tamamladın.', '')
       }
     },

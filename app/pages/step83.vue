@@ -6,7 +6,7 @@
         <div class="center">7. AŞAMA</div>
       </div>
     </div>
-    <a href="/survey-satisfaction/" class="floating-button color-purple"><i class="material-icons">navigate_next</i></a>
+    <a href="/survey-spsi/" class="floating-button color-purple"><i class="material-icons">navigate_next</i></a>
     <div class="page-content" style="background-color: #f0d2f0; display: flex; align-items: center">
       <div class="card" style="border-radius: 20px; padding-top: 30px; padding-bottom: 30px">
         <div style="margin: 10px; text-align: center; font-size: 24px"> Şimdi sizden ilk aşamada çözdüğünüz testleri bir daha çözmenizi istiyoruz. </div>

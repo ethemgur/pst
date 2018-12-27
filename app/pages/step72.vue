@@ -6,7 +6,7 @@
         <div class="center">6. AŞAMA</div>
       </div>
     </div>
-    <a href="/home/" class="floating-button color-purple" @click="pause"><i class="material-icons">navigate_next</i></a>
+    <a class="floating-button color-purple" @click="navigateURL"><i class="material-icons">navigate_next</i></a>
     <div class="page-content" style="background-color: #f0d2f0">
       <video class="video-content" width="300" controls id="videoElement" @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused" style="border-radius: 20px">
         <source src="file:///android_asset/www/output23.mp4" type="video/mp4" />
@@ -35,6 +35,8 @@ export default {
     },
     navigateURL() {
       if (this.saveDB()) {
+        this.pause()
+        this.$db('currentStep', 7)
         this.$f7.views.main.loadPage('/home/')
       }
     },
@@ -95,10 +97,15 @@ export default {
       this.paused = event.target.paused
     },
     play() {
+      this.updatePaused()
       this.videoElement.play()
     },
     pause() {
-      this.videoElement.pause()
+      try {
+        this.videoElement.pause()
+      } catch (e) {
+        console.log(e)
+      }
     },
   },
 }

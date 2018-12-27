@@ -71,7 +71,7 @@ export default {
     },
     validationAlert() {
       if (!this.isCompleted()) {
-        this.$f7.alert('Please complete the table.', '')
+        this.$f7.alert('Lütfen tabloyu doldurun.', '')
       }
     },
     isSolutionMatched(s) {

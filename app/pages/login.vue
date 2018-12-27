@@ -414,6 +414,7 @@ export default {
               })
 
             this.$db('currentStep', 1)
+            this.$db('bestSolution', '')
             this.$f7.views.main.loadPage('/signup/')
           })
         // On error, show alert

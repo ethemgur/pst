@@ -57,7 +57,16 @@ export default {
   created() {
     // this.solution = this.$db("bestSolution")
     // this.solution = JSON.parse(localStorage.getItem("solutions"))[this.$db("bestSolutionID")]
-    this.solution = JSON.parse(localStorage.getItem('solutions'))[0]
+    try {
+      if (this.$db('bestSolution').text === JSON.parse(localStorage.getItem('solutions'))[0].text) {
+        this.solution = this.$db('bestSolution')
+      } else {
+        this.solution = JSON.parse(localStorage.getItem('solutions'))[0]
+      }
+    } catch (e) {
+      this.solution = JSON.parse(localStorage.getItem('solutions'))[0]
+    }
+
     this.items = this.solution.pp
     document.addEventListener('backbutton', this.onBackKeyDown, false)
   },
